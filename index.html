@@ -1,502 +1,1883 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supernova | International Talent Systems & Growth Intelligence</title>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
-  body {
-    background-color: #050505;
-    color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    overflow-x: hidden;
-    line-height: 1.6;
-  }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Supernova — Creator Growth & Intelligence Partner</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* ===== RESET & BASE ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-  /* PREMIUM FIXED GLASS NAVIGATION */
-  .navbar {
-    position: fixed;
-    top: 0;
-    width: 100%;
-    background: rgba(5, 5, 5, 0.8);
-    backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
-    z-index: 1000;
-    padding: 20px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-  @media (max-width: 768px) { .navbar { padding: 20px; } }
-  
-  .nav-logo-img { height: 32px; width: auto; object-fit: contain; cursor: pointer; }
-  
-  .right-nav { display: flex; align-items: center; gap: 40px; }
-  .nav-links { display: flex; gap: 32px; list-style: none; }
-  @media (max-width: 768px) { .nav-links { display: none; } }
-  
-  .nav-item {
-    font-size: 12px;
-    font-weight: 600;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #737373;
-    cursor: pointer;
-    transition: color 0.3s ease;
-  }
-  .nav-item:hover, .nav-item.active { color: #ffffff; }
+        html {
+            scroll-behavior: smooth;
+        }
 
-  /* MULTI-LANGUAGE SELECTOR CAPSULE */
-  .lang-selector {
-    display: inline-flex;
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    padding: 4px;
-    border-radius: 20px;
-  }
-  .lang-btn {
-    background: transparent;
-    border: none;
-    color: #666666;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 6px 14px;
-    border-radius: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-  }
-  .lang-btn.active { background: #ffffff; color: #000000; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: #0A0A0A;
+            color: #FFFFFF;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
 
-  /* APP VIEW CONTROLLER */
-  .page-view { display: none; padding-top: 100px; width: 100%; min-height: 100vh; flex-direction: column; align-items: center; }
-  .page-view.active { display: flex; }
-  .container { width: 100%; max-width: 1100px; padding: 40px 20px; }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
 
-  /* DYNAMIC HERO LAYOUT WITH HIGH-END BACKGROUND IMAGE */
-  .hero-block {
-    text-align: center;
-    padding: 120px 20px;
-    position: relative;
-    border-radius: 16px;
-    overflow: hidden;
-    background-image: linear-gradient(180deg, rgba(5,5,5,0.4) 0%, #050505 100%), url('hero-bg.png');
-    background-size: cover;
-    background-position: center;
-    border: 1px solid rgba(255,255,255,0.02);
-    box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
-  }
-  
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.04);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    padding: 8px 20px;
-    border-radius: 30px;
-    font-size: 11px;
-    text-transform: uppercase;
-    letter-spacing: 2.5px;
-    color: #a3a3a3;
-    margin-bottom: 35px;
-  }
-  .hero-badge::before { content: ''; width: 6px; height: 6px; background: #ffffff; border-radius: 50%; box-shadow: 0 0 10px #ffffff; }
-  
-  .headline { font-size: 64px; font-weight: 800; letter-spacing: -3px; line-height: 1.1; margin-bottom: 28px; }
-  @media (max-width: 768px) { .headline { font-size: 40px; letter-spacing: -1.5px; } }
-  
-  .subheadline { font-size: 21px; color: #a3a3a3; max-width: 720px; margin: 0 auto 52px auto; font-weight: 400; line-height: 1.6; }
-  @media (max-width: 768px) { .subheadline { font-size: 16px; } }
+        button {
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+        }
 
-  .btn-premium {
-    display: inline-block;
-    background: #ffffff;
-    color: #000000;
-    text-decoration: none;
-    padding: 22px 46px;
-    font-size: 13px;
-    font-weight: 700;
-    border-radius: 4px;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
-    border: 1px solid #ffffff;
-  }
-  .btn-premium:hover { background: #050505; color: #ffffff; transform: translateY(-4px); box-shadow: 0 20px 40px rgba(255,255,255,0.08); }
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0A0A0A;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #D4AF37;
+            border-radius: 4px;
+        }
 
-  /* THE STRATEGIC ANCHOR: PAIN CRITIQUE GRID */
-  .critique-section { margin: 80px 0; }
-  .critique-header { text-align: center; margin-bottom: 50px; }
-  .critique-header h2 { font-size: 32px; font-weight: 700; letter-spacing: -1px; margin-bottom: 12px; }
-  .critique-header p { color: #737373; font-size: 16px; }
-  
-  .critique-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  @media (max-width: 768px) { .critique-grid { grid-template-columns: 1fr; } }
-  
-  .critique-card { background: #0a0a0a; border: 1px solid #141414; padding: 35px; border-radius: 8px; }
-  .critique-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 14px; color: #e5e5e5; }
-  .critique-card p { color: #737373; font-size: 14px; line-height: 1.6; }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 24px;
+        }
 
-  /* DIAGNOSTICS MODULE CONTAINER */
-  .quiz-section {
-    width: 100%;
-    max-width: 620px;
-    background: linear-gradient(180deg, #0e0e0e 0%, #070707 100%);
-    padding: 50px 45px;
-    border-radius: 12px;
-    border: 1px solid #1a1a1a;
-    box-shadow: 0 40px 80px rgba(0,0,0,0.9);
-    margin: 40px auto 100px auto;
-  }
-  @media (max-width: 600px) { .quiz-section { padding: 35px 20px; } }
-  .quiz-section h2 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; border-bottom: 1px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 35px; text-align: center; }
-  
-  .question-block { margin-bottom: 32px; }
-  label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; color: #525252; }
-  
-  select { 
-    width: 100%; padding: 18px; background: #121212; border: 1px solid #222222; border-radius: 6px; color: #ffffff; font-size: 14px; box-sizing: border-box; transition: all 0.3s ease; cursor: pointer; appearance: none; -webkit-appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='grey'><path d='M0 3l5 5 5-5z'/></svg>"); background-repeat: no-repeat; background-position: right 20px center;
-  }
-  select:focus { border-color: #ffffff; background-color: #161616; outline: none; }
-  
-  .btn-submit { width: 100%; padding: 18px; background: #ffffff; color: #000000; border: none; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 2px; }
-  .btn-submit:hover { opacity: 0.9; }
-  
-  .result-block { display: none; text-align: center; }
-  .score-display { font-size: 80px; font-weight: 800; margin: 20px 0; letter-spacing: -4px; color: #ffffff; }
-  .feedback-box { font-size: 14px; color: #a3a3a3; line-height: 1.6; margin-bottom: 40px; text-align: left; background: #121212; padding: 25px; border-left: 3px solid #ffffff; border-radius: 4px; }
+        /* ===== GLOW ANIMATIONS ===== */
+        @keyframes glowPulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 0.8; }
+        }
 
-  /* COMPREHENSIVE HUB PREVIEW LAYOUT (MARKETING/PHILOSOPHY) */
-  .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 40px; }
-  @media (max-width: 768px) { .showcase-grid { grid-template-columns: 1fr; gap: 40px; } }
-  
-  .showcase-text h2 { font-size: 38px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.2; margin-bottom: 24px; }
-  .showcase-text p { color: #a3a3a3; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
-  
-  .showcase-img-box { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #1a1a1a; background: #0a0a0a; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
-  .showcase-img-box img { width: 100%; height: auto; display: block; object-fit: cover; }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(40px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
 
-  .grid-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 60px; }
-  @media (max-width: 768px) { .grid-layout { grid-template-columns: 1fr; } }
-  
-  .info-card { background: #0a0a0a; border: 1px solid #141414; padding: 40px; border-radius: 8px; transition: border-color 0.3s ease; }
-  .info-card:hover { border-color: #262626; }
-  .info-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.5px; }
-  .info-card p { color: #737373; font-size: 14px; line-height: 1.6; }
-  
-  /* GLOBAL CONNECTIONS FOOTER */
-  .hub-footer { width: 100%; max-width: 1100px; text-align: center; border-top: 1px solid #141414; padding: 80px 20px; margin-top: auto; }
-  .hub-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #404040; margin-bottom: 35px; }
-  .hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  @media (max-width: 768px) { .hub-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .hub-grid { grid-template-columns: 1fr; } }
-  
-  .hub-btn {
-    background: #0a0a0a; border: 1px solid #141414; border-radius: 6px; padding: 22px 15px; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; gap: 6px;
-  }
-  .hub-btn:hover { border-color: #ffffff; background: #111111; transform: translateY(-4px); box-shadow: 0 10px 20px rgba(255,255,255,0.03); }
-  .hub-btn span { color: #525252; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
-  .hub-btn:hover span { color: #ffffff; }
-</style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .animate-on-scroll {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        .animate-on-scroll.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ===== TOP BAR / LANGUAGE SWITCHER ===== */
+        .top-bar {
+            background: rgba(10, 10, 10, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 10px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .top-bar .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo-area {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .logo-area img {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
+            font-size: 20px;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+            background: linear-gradient(135deg, #D4AF37, #F5E6A3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .lang-switcher {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .lang-btn {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #888;
+            padding: 4px 12px;
+            border-radius: 4px;
+            font-size: 11px;
+            font-weight: 500;
+            transition: all 0.3s;
+            text-transform: uppercase;
+        }
+
+        .lang-btn:hover {
+            border-color: #D4AF37;
+            color: #D4AF37;
+        }
+
+        .lang-btn.active {
+            background: #D4AF37;
+            color: #0A0A0A;
+            border-color: #D4AF37;
+            font-weight: 600;
+        }
+
+        .lang-btn .flag {
+            margin-right: 4px;
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            padding: 80px 0 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(ellipse at 50% 30%, rgba(212, 175, 55, 0.05), transparent 70%);
+            animation: glowPulse 6s ease-in-out infinite;
+            pointer-events: none;
+        }
+
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(212, 175, 55, 0.12);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            color: #D4AF37;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 50px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-bottom: 24px;
+        }
+
+        .hero h1 {
+            font-size: clamp(36px, 6vw, 72px);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -2px;
+            margin-bottom: 20px;
+        }
+
+        .hero h1 .highlight {
+            background: linear-gradient(135deg, #D4AF37, #F5E6A3);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .hero p {
+            font-size: clamp(16px, 1.4vw, 22px);
+            color: #A0A0A0;
+            max-width: 600px;
+            font-weight: 300;
+            line-height: 1.7;
+            margin-bottom: 32px;
+        }
+
+        .hero p strong {
+            color: #FFFFFF;
+            font-weight: 500;
+        }
+
+        .hero-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            align-items: center;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #D4AF37, #B8962E);
+            color: #0A0A0A;
+            padding: 16px 40px;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 20px 40px rgba(212, 175, 55, 0.2);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #FFFFFF;
+            padding: 16px 32px;
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .btn-secondary:hover {
+            border-color: #D4AF37;
+            color: #D4AF37;
+        }
+
+        .hero-stats {
+            display: flex;
+            gap: 48px;
+            margin-top: 48px;
+            padding-top: 32px;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .hero-stats .stat h3 {
+            font-size: 28px;
+            font-weight: 700;
+            color: #D4AF37;
+        }
+
+        .hero-stats .stat p {
+            font-size: 13px;
+            color: #666;
+            margin: 0;
+        }
+
+        /* ===== PROBLEMS SECTION ===== */
+        .problems {
+            padding: 80px 0;
+            background: #0D0D0D;
+        }
+
+        .section-label {
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: #D4AF37;
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-size: clamp(28px, 3.5vw, 48px);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 16px;
+        }
+
+        .section-sub {
+            font-size: 18px;
+            color: #888;
+            max-width: 600px;
+            font-weight: 300;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .problem-card {
+            background: #141414;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 32px 24px;
+            transition: all 0.4s;
+        }
+
+        .problem-card:hover {
+            border-color: rgba(212, 175, 55, 0.2);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .problem-card .icon {
+            font-size: 28px;
+            color: #D4AF37;
+            margin-bottom: 16px;
+        }
+
+        .problem-card h4 {
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .problem-card p {
+            font-size: 14px;
+            color: #888;
+            line-height: 1.6;
+        }
+
+        /* ===== SOLUTION / WHAT WE DO ===== */
+        .solutions {
+            padding: 80px 0;
+            background: #0A0A0A;
+        }
+
+        .solutions-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .solution-item {
+            text-align: center;
+            padding: 32px 20px;
+            background: #141414;
+            border-radius: 12px;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            transition: all 0.4s;
+        }
+
+        .solution-item:hover {
+            border-color: rgba(212, 175, 55, 0.15);
+            transform: scale(1.02);
+        }
+
+        .solution-item .icon {
+            font-size: 32px;
+            color: #D4AF37;
+            margin-bottom: 16px;
+        }
+
+        .solution-item h4 {
+            font-size: 15px;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .solution-item p {
+            font-size: 13px;
+            color: #888;
+        }
+
+        /* ===== QUIZ SECTION ===== */
+        .quiz-section {
+            padding: 80px 0;
+            background: #0D0D0D;
+        }
+
+        .quiz-wrapper {
+            max-width: 640px;
+            margin: 0 auto;
+            background: #141414;
+            border: 1px solid rgba(255, 255, 255, 0.06);
+            border-radius: 16px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.6);
+        }
+
+        .quiz-wrapper h2 {
+            font-size: 24px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-align: center;
+        }
+
+        .quiz-wrapper .sub {
+            text-align: center;
+            color: #888;
+            font-size: 14px;
+            margin-bottom: 32px;
+        }
+
+        .question-block {
+            margin-bottom: 24px;
+        }
+
+        .question-block label {
+            display: block;
+            font-size: 13px;
+            font-weight: 500;
+            color: #AAA;
+            margin-bottom: 8px;
+        }
+
+        .question-block select {
+            width: 100%;
+            padding: 14px 16px;
+            background: #1C1C1C;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 8px;
+            color: #FFFFFF;
+            font-size: 14px;
+            font-family: 'Inter', sans-serif;
+            transition: border-color 0.3s;
+            appearance: none;
+        }
+
+        .question-block select:focus {
+            border-color: #D4AF37;
+            outline: none;
+        }
+
+        .btn-submit {
+            width: 100%;
+            padding: 16px;
+            background: linear-gradient(135deg, #D4AF37, #B8962E);
+            color: #0A0A0A;
+            border: none;
+            border-radius: 8px;
+            font-size: 15px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 8px;
+        }
+
+        .btn-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.2);
+        }
+
+        .result-block {
+            display: none;
+            text-align: center;
+            padding: 20px 0;
+        }
+
+        .result-block .score-display {
+            font-size: 64px;
+            font-weight: 800;
+            color: #D4AF37;
+            margin: 16px 0;
+        }
+
+        .result-block .feedback-text {
+            font-size: 15px;
+            color: #AAA;
+            line-height: 1.7;
+            max-width: 480px;
+            margin: 0 auto 24px;
+        }
+
+        .result-block .cta-link {
+            display: inline-block;
+            padding: 16px 40px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            color: #FFFFFF;
+            border-radius: 8px;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .result-block .cta-link:hover {
+            border-color: #D4AF37;
+            color: #D4AF37;
+        }
+
+        /* ===== TESTIMONIALS ===== */
+        .testimonials {
+            padding: 80px 0;
+            background: #0A0A0A;
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 48px;
+        }
+
+        .testimonial-card {
+            background: #141414;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            border-radius: 12px;
+            padding: 32px;
+            transition: all 0.3s;
+        }
+
+        .testimonial-card:hover {
+            border-color: rgba(212, 175, 55, 0.1);
+        }
+
+        .testimonial-card .stars {
+            color: #D4AF37;
+            font-size: 14px;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+
+        .testimonial-card blockquote {
+            font-size: 15px;
+            color: #CCC;
+            line-height: 1.7;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .testimonial-card .author {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .testimonial-card .author .avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #D4AF37, #6C63FF);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .testimonial-card .author .name {
+            font-weight: 500;
+            font-size: 14px;
+        }
+
+        .testimonial-card .author .handle {
+            font-size: 12px;
+            color: #666;
+        }
+
+        /* ===== FINAL CTA ===== */
+        .final-cta {
+            padding: 80px 0 100px;
+            background: #0D0D0D;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .final-cta h2 {
+            font-size: clamp(28px, 3.5vw, 48px);
+            font-weight: 700;
+            letter-spacing: -1px;
+            margin-bottom: 16px;
+        }
+
+        .final-cta p {
+            font-size: 18px;
+            color: #888;
+            max-width: 500px;
+            margin: 0 auto 32px;
+            font-weight: 300;
+        }
+
+        .final-cta .btn-primary {
+            font-size: 17px;
+            padding: 18px 48px;
+        }
+
+        /* ===== FOOTER ===== */
+        .footer {
+            padding: 40px 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.04);
+            background: #0A0A0A;
+        }
+
+        .footer .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .footer .socials {
+            display: flex;
+            gap: 16px;
+        }
+
+        .footer .socials a {
+            color: #555;
+            font-size: 18px;
+            transition: color 0.3s;
+        }
+
+        .footer .socials a:hover {
+            color: #D4AF37;
+        }
+
+        .footer .footer-links {
+            display: flex;
+            gap: 24px;
+            font-size: 13px;
+            color: #555;
+        }
+
+        .footer .footer-links a:hover {
+            color: #D4AF37;
+        }
+
+        .footer .copy {
+            font-size: 13px;
+            color: #333;
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .top-bar .container {
+                flex-wrap: wrap;
+                gap: 12px;
+                justify-content: center;
+            }
+
+            .lang-switcher {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .hero {
+                padding: 40px 0;
+                text-align: center;
+            }
+
+            .hero p {
+                margin-left: auto;
+                margin-right: auto;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+
+            .hero-stats {
+                justify-content: center;
+                gap: 24px;
+                flex-wrap: wrap;
+            }
+
+            .quiz-wrapper {
+                padding: 24px;
+            }
+
+            .footer .container {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .footer .footer-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+
+        /* ===== LANGUAGE CONTENT HIDING ===== */
+        .lang-content {
+            display: none;
+        }
+
+        .lang-content.active {
+            display: block;
+        }
+    </style>
 </head>
 <body>
 
-  <nav class="navbar">
-    <img src="logo.png" class="nav-logo-img" alt="SUPERNOVA" onclick="switchPage('home')">
-    <div class="right-nav">
-      <ul class="nav-links">
-        <li class="nav-item active" id="btn-home" onclick="switchPage('home')" data-i18n="nav-hub">Systems Hub</li>
-        <li class="nav-item" id="btn-solutions" onclick="switchPage('solutions')" data-i18n="nav-marketing">Infrastructure</li>
-        <li class="nav-item" id="btn-philosophy" onclick="switchPage('philosophy')" data-i18n="nav-paradigm">Our Paradigm</li>
-      </ul>
-      <div class="lang-selector">
-        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
-        <button class="lang-btn" onclick="setLanguage('jp')">JP</button>
-        <button class="lang-btn" onclick="setLanguage('ro')">RO</button>
-      </div>
+<!-- ============================================================ -->
+<!-- TOP BAR -->
+<!-- ============================================================ -->
+<div class="top-bar">
+    <div class="container">
+        <div class="logo-area">
+            <!-- Replace 'logo.png' with your actual logo file -->
+            <img src="logo.png" alt="Supernova" onerror="this.style.display='none'">
+            <span class="logo-text">SUPERNOVA</span>
+        </div>
+        <div class="lang-switcher">
+            <button class="lang-btn active" data-lang="en" onclick="switchLang('en')">
+                <span class="flag">🇬🇧</span> EN
+            </button>
+            <button class="lang-btn" data-lang="jp" onclick="switchLang('jp')">
+                <span class="flag">🇯🇵</span> JP
+            </button>
+            <button class="lang-btn" data-lang="ro" onclick="switchLang('ro')">
+                <span class="flag">🇷🇴</span> RO
+            </button>
+            <button class="lang-btn" data-lang="ms" onclick="switchLang('ms')">
+                <span class="flag">🇲🇾</span> MS
+            </button>
+        </div>
     </div>
-  </nav>
+</div>
 
-  <main class="page-view active" id="page-home">
-    <section class="container">
-      <div class="hero-block">
-        <div class="hero-badge" data-i18n="hero-badge">Talent Systems Integration</div>
-        <h1 class="headline" id="main-headline" data-i18n="hero-title">The End of the<br>Streaming Plateau.</h1>
-        <p class="subheadline" id="main-subheadline" data-i18n="hero-desc">You’ve proven you can earn on TikTok Live. Now build the systematic infrastructure that insulates, scales, and multiplies your independent revenue footprint.</p>
-        <button onclick="document.getElementById('diagnostic-matrix').scrollIntoView({behavior: 'smooth'});" class="btn-premium" data-i18n="hero-cta">Initiate Growth Assessment</button>
-      </div>
+<!-- ============================================================ -->
+<!-- ENGLISH CONTENT -->
+<!-- ============================================================ -->
+<div id="lang-en" class="lang-content active">
 
-      <div class="critique-section">
-        <div class="critique-header">
-          <h2 data-i18n="critique-title">The Market Infrastructure is Broken.</h2>
-          <p data-i18n="critique-desc">Traditional "agencies" extract percentages while offering nothing but empty promises. We operate differently.</p>
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">✦ Invite-Only Assessment</div>
+            <h1>
+                For Serious TikTok Live Creators<br>
+                Who <span class="highlight">Refuse to Plateau</span>
+            </h1>
+            <p>
+                You're already earning on TikTok Live.<br>
+                The question is: <strong>Can you protect, understand, and scale your success</strong> before the platform changes again?
+            </p>
+            <div class="hero-actions">
+                <a href="#quiz" class="btn-primary">
+                    <i class="fas fa-arrow-right"></i> Apply for a Creator Growth Assessment
+                </a>
+                <a href="#solutions" class="btn-secondary">
+                    <i class="fas fa-play-circle"></i> See What We Do
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Creators Assessed</p>
+                </div>
+                <div class="stat">
+                    <h3>40%</h3>
+                    <p>Average Growth Uplift</p>
+                </div>
+                <div class="stat">
+                    <h3>5</h3>
+                    <p>Global Markets</p>
+                </div>
+            </div>
         </div>
-        <div class="critique-grid">
-          <div class="critique-card">
-            <h3 data-i18n="c1-title">Algorithmic Stagnation</h3>
-            <p data-i18n="c1-desc">Sudden drop-offs in viewer onboarding indexes aren't luck. They happen because you lack automated pacing structures to maintain live weight limits.</p>
-          </div>
-          <div class="critique-card">
-            <h3 data-i18n="c2-title">Gifter Fragility</h3>
-            <p data-i18n="c2-desc">Relying on a tiny cluster of major gifters creates systematic high-risk vulnerabilities. We introduce conversion models to diversify support channels.</p>
-          </div>
-          <div class="critique-card">
-            <h3 data-i18n="c3-title">Regulatory Stress</h3>
-            <p data-i18n="c3-desc">Streaming under constant anxiety regarding shifting warning guidelines kills artistic energy. Our dedicated desks secure back-end channel mapping.</p>
-          </div>
-        </div>
-      </div>
-
-      <div id="diagnostic-matrix" class="quiz-section">
-        <div id="quiz-form">
-          <h2 data-i18n="calc-title">Creator Growth Score™</h2>
-          <div class="question-block">
-            <label for="volume" data-i18n="q1-label">Current Monthly Diamond Volume</label>
-            <select id="volume">
-              <option value="high" data-i18n="q1-o1">150K - 500K+ Diamonds/mo</option>
-              <option value="mid" data-i18n="q1-o2">50K - 150K Diamonds/mo</option>
-              <option value="low" data-i18n="q1-o3">Under 50K Diamonds/mo</option>
-            </select>
-          </div>
-          <div class="question-block">
-            <label for="hours" data-i18n="q2-label">Average Weekly Live Streaming Hours</label>
-            <select id="hours">
-              <option value="optimized" data-i18n="q2-o1">12 - 25 Hours (Structured)</option>
-              <option value="overworked" data-i18n="q2-o2">25+ Hours (High Burnout Risk)</option>
-              <option value="irregular" data-i18n="q2-o3">Under 12 Hours (Inconsistent)</option>
-            </select>
-          </div>
-          <div class="question-block">
-            <label for="challenge" data-i18n="q3-label">Primary Algorithmic Core Bottleneck</label>
-            <select id="challenge">
-              <option value="retention" data-i18n="q3-o1">Viewer Retention & Sudden View Drops</option>
-              <option value="conversion" data-i18n="q3-o2">Gifter Monotonization & Flat Income</option>
-              <option value="policy" data-i18n="q3-o3">Policy Anxiety & Compliance Warnings</option>
-            </select>
-          </div>
-          <button type="button" class="btn-submit" onclick="calculateScore()" data-i18n="calc-btn">Analyze System Performance</button>
-        </div>
-
-        <div id="quiz-result" class="result-block">
-          <h2 data-i18n="res-title">Diagnostics Complete</h2>
-          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #525252; margin-top: 15px;" data-i18n="res-index">CREATOR INSIGHT INDEX</div>
-          <div class="score-display" id="score-val">00/100</div>
-          <div class="feedback-box" id="feedback-val"></div>
-          <a href="https://forms.gle/g8J1CTPfWCPvxmpk8" class="cta-link" data-i18n="res-cta">Apply For A Free Stream Audit & Review →</a>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <main class="page-view" id="page-solutions">
-    <section class="container">
-      <div class="showcase-grid">
-        <div class="showcase-text">
-          <div class="hero-badge" data-i18n="m-badge">Growth Mechanics</div>
-          <h2 data-i18n="m-title">Strategic Operational Frameworks.</h2>
-          <p data-i18n="m-desc">Scaling your broadcast volume is not an artistic lottery. It is a systematic extraction of algorithmic data hooks mixed with real-time viewer psychology vectors.</p>
+    <!-- PROBLEMS -->
+    <section class="problems" id="problems">
+        <div class="container">
+            <div class="section-label">The Real Risk</div>
+            <h2 class="section-title">Your Biggest Risk Isn't Low Diamonds.<br>It's Losing Momentum.</h2>
+            <p class="section-sub">Creators fail because growth stops, retention drops, and nobody explains why the numbers changed.</p>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Algorithm Anxiety</h4>
+                    <p>You wake up, go live, and reach is down 60%. You don't know if it's you, the platform, or the time slot.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-fire"></i></div>
+                    <h4>The Burnout Cycle</h4>
+                    <p>You're working double the hours, but earning the same. Your creativity is draining faster than your wallet fills.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-eye-slash"></i></div>
+                    <h4>Invisible Retention</h4>
+                    <p>Viewers enter, but they leave. You feel like you're performing to a ghost town.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Policy Paranoia</h4>
+                    <p>One wrong move, a false report, and your career is paused indefinitely.</p>
+                </div>
+            </div>
         </div>
-        <div class="showcase-img-box">
-          <img src="dashboard-preview.png" alt="Growth Intelligence Dashboard">
-        </div>
-      </div>
-
-      <div class="grid-layout">
-        <div class="info-card">
-          <h3 data-i18n="m-c1-t">Retention Architecture</h3>
-          <p data-i18n="m-c1-d">We dismantle sudden viewer drop loops by restructuring your first 180 seconds of screen onboarding. Turn fast scrolling drops into high-retention structural stays.</p>
-        </div>
-        <div class="info-card">
-          <h3 data-i18n="m-c2-t">Gifter Conversion Scaling</h3>
-          <p data-i18n="m-c2-d">Move completely past top-heavy room dependencies. We install micro-interaction sequences that naturally broaden your commercial engagement surface.</p>
-        </div>
-        <div class="info-card">
-          <h3 data-i18n="m-c3-t">Localized Regional Scaling</h3>
-          <p data-i18n="m-c3-d">Expand outside localized regional pockets. Our technical frameworks route stream traffic markers to hook high-value international viewer pools safely.</p>
-        </div>
-        <div class="info-card">
-          <h3 data-i18n="m-c4-t">Stream Suite Engineering</h3>
-          <p data-i18n="m-c4-d">Eliminate hardware rendering choke points. We optimize visual parameters and setup compression loops to assure fluid, ultra-clean interaction feedback profiles.</p>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <main class="page-view" id="page-philosophy">
-    <section class="container">
-      <div class="showcase-grid">
-        <div class="showcase-img-box" id="market-banner-view">
-          <img src="market-en.png" alt="Market Operational Matrix">
+    <!-- SOLUTIONS -->
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-label">What We Actually Do</div>
+            <h2 class="section-title">We Engineer Creator Businesses.</h2>
+            <p class="section-sub">Data-driven systems. No guesswork.</p>
+            <div class="solutions-grid">
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h4>Creator Intelligence</h4>
+                    <p>Understand why your gifts rise and fall.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4>Growth Systems</h4>
+                    <p>Replace "hustle" with repeatable frameworks.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-video"></i></div>
+                    <h4>Stream Audits</h4>
+                    <p>Surgical feedback on retention &amp; strategy.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-shield-virus"></i></div>
+                    <h4>Risk Guidance</h4>
+                    <p>Protect yourself from policy violations.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-road"></i></div>
+                    <h4>Strategic Planning</h4>
+                    <p>30/60/90 day roadmap. No more guessing.</p>
+                </div>
+            </div>
         </div>
-        <div class="showcase-text">
-          <div class="hero-badge" data-i18n="p-badge">Talent Advisory Alignment</div>
-          <h2 data-i18n="p-title">We Are Not An Agency.<br>We Are Your Growth Partners.</h2>
-          <p data-i18n="p-desc">Traditional talent agencies engineer restrictive control models to capture creative upside. Supernova operates strictly as an structural infrastructure layer backing independent elite brands.</p>
-        </div>
-      </div>
-
-      <div class="grid-layout">
-        <div class="info-card">
-          <h3>The Partner Disincentive Matrix</h3>
-          <p>We work exclusively on clear structural alignment models. Our primary advisory and technological execution systems succeed solely when your long-term monthly baseline volume expands.</p>
-        </div>
-        <div class="info-card">
-          <h3>Protecting Creative Autonomy</h3>
-          <p>True talent operations scale your reach without managing or dictating your voice. You control your room layout, identity, and schedule completely; we manage the complex engineering patterns supporting it.</p>
-        </div>
-      </div>
     </section>
-  </main>
 
-  <footer class="hub-footer">
-    <div class="hub-title" data-i18n="footer-title">Verified Communications Integration Comms</div>
-    <div class="hub-grid">
-      <a href="https://www.tiktok.com/@supernova_us" target="_blank" class="hub-btn">TikTok USA <span>US Territory</span></a>
-      <a href="https://www.tiktok.com/@supernova__uk" target="_blank" class="hub-btn">TikTok UK <span>UK Territory</span></a>
-      <a href="https://wa.me/447923116272" target="_blank" class="hub-btn">WhatsApp <span>Secure Gateway</span></a>
-      <a href="https://discord.gg/TpEBMADW" target="_blank" class="hub-btn">Discord HQ <span>Creator Network</span></a>
+    <!-- QUIZ -->
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <div class="quiz-wrapper">
+                <div id="quiz-form">
+                    <h2>Calculate Your Creator Growth Score™</h2>
+                    <p class="sub">Select the options that match your current performance.</p>
+
+                    <div class="question-block">
+                        <label for="volume">Current Monthly Diamond Volume</label>
+                        <select id="volume">
+                            <option value="high">150K - 500K+ Diamonds/mo</option>
+                            <option value="mid">50K - 150K Diamonds/mo</option>
+                            <option value="low">Under 50K Diamonds/mo</option>
+                        </select>
+                    </div>
+
+                    <div class="question-block">
+                        <label for="hours">Average Weekly Live Streaming Hours</label>
+                        <select id="hours">
+                            <option value="optimized">12 - 25 Hours (Structured)</option>
+                            <option value="overworked">25+ Hours (High Burnout Risk)</option>
+                            <option value="irregular">Under 12 Hours (Inconsistent)</option>
+                        </select>
+                    </div>
+
+                    <div class="question-block">
+                        <label for="challenge">Primary Algorithmic Core Bottleneck</label>
+                        <select id="challenge">
+                            <option value="retention">Viewer Retention &amp; Sudden View Drops</option>
+                            <option value="conversion">Gifter Monotonization &amp; Flat Income</option>
+                            <option value="policy">Policy Anxiety &amp; Compliance Warnings</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="btn-submit" onclick="calculateScore()">
+                        <i class="fas fa-chart-simple"></i> Analyze My Performance Metrics
+                    </button>
+                </div>
+
+                <div id="quiz-result" class="result-block">
+                    <h2>Your Performance Matrix Diagnostics</h2>
+                    <div class="feedback-text" id="verdict-label">CREATOR INSIGHT SCORE</div>
+                    <div class="score-display" id="score-val">00/100</div>
+                    <div class="feedback-text" id="feedback-val">
+                        Analysis complete. Stagnation vulnerabilities detected in system infrastructure and audience retention loops.
+                    </div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScBSKy2qXP7Yo7WVxZHmO0dCfgDlfceFdmRodNiXT-YTeQwmw/viewform?usp=header" target="_blank" class="cta-link">
+                        <i class="fas fa-arrow-right"></i> Apply For a Free Stream Audit &amp; Review →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TESTIMONIALS -->
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-label">Social Proof</div>
+            <h2 class="section-title">Serious Creators Choose Serious Partners.</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"I was making $8k/month but felt like I was guessing. Supernova gave me a system. I hit $15k last month with half the stress."</blockquote>
+                    <div class="author">
+                        <div class="avatar">G</div>
+                        <div>
+                            <div class="name">@GamerVault</div>
+                            <div class="handle">UK • 400K Diamonds/mo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"I was about to quit. The algorithm changed and I lost 40% of my audience. They audited my stream, fixed my hook, and within 2 weeks I was back."</blockquote>
+                    <div class="author">
+                        <div class="avatar">L</div>
+                        <div>
+                            <div class="name">@LunaLive</div>
+                            <div class="handle">USA • 280K Diamonds/mo</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"I got a violation that made zero sense. Supernova's risk team helped me appeal it and set up safeguards so it never happens again."</blockquote>
+                    <div class="author">
+                        <div class="avatar">R</div>
+                        <div>
+                            <div class="name">@RyuStreams</div>
+                            <div class="handle">Japan • 350K Diamonds/mo</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+        <div class="container">
+            <h2>You've Already Proven You Can Earn on TikTok Live.</h2>
+            <p>Now build something that survives algorithm changes, avoids burnout, and keeps growing.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScBSKy2qXP7Yo7WVxZHmO0dCfgDlfceFdmRodNiXT-YTeQwmw/viewform?usp=header" target="_blank" class="btn-primary">
+                <i class="fas fa-arrow-right"></i> Claim Your Creator Growth Assessment →
+            </a>
+        </div>
+    </section>
+
+</div>
+<!-- END ENGLISH -->
+
+
+<!-- ============================================================ -->
+<!-- JAPANESE CONTENT (日本語) -->
+<!-- ============================================================ -->
+<div id="lang-jp" class="lang-content">
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">✦ 招待制アセスメント</div>
+            <h1>
+                プラトーに甘んじない<br>
+                <span class="highlight">本気のTikTok LIVEクリエイターへ</span>
+            </h1>
+            <p>
+                あなたはすでにTikTok LIVEで収益を上げています。<br>
+                問題は: <strong>プラットフォームが変わる前に、成功を守り、理解し、拡大できますか？</strong>
+            </p>
+            <div class="hero-actions">
+                <a href="#quiz" class="btn-primary">
+                    <i class="fas fa-arrow-right"></i> クリエイター成長評価に申し込む
+                </a>
+                <a href="#solutions" class="btn-secondary">
+                    <i class="fas fa-play-circle"></i> サービス内容を見る
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>評価済みクリエイター</p>
+                </div>
+                <div class="stat">
+                    <h3>40%</h3>
+                    <p>平均成長率</p>
+                </div>
+                <div class="stat">
+                    <h3>5</h3>
+                    <p>グローバル市場</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problems">
+        <div class="container">
+            <div class="section-label">本当のリスク</div>
+            <h2 class="section-title">最大のリスクは低いダイヤモンドではない。<br>勢いを失うことだ。</h2>
+            <p class="section-sub">クリエイターは、成長が止まり、リテンションが低下し、誰も数字の変化の理由を説明してくれないために失敗します。</p>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>アルゴリズム不安</h4>
+                    <p>ライブ配信を開始すると、リーチが60%減少する。自分なのか、プラットフォームなのか、時間帯なのかが分からない。</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-fire"></i></div>
+                    <h4>バーンアウトの連鎖</h4>
+                    <p>倍の時間を働いても、収入は同じ。創造性が枯渇し、財布は空っぽになる。</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-eye-slash"></i></div>
+                    <h4>見えないリテンション</h4>
+                    <p>視聴者は入ってくるが、すぐに去っていく。まるでゴーストタウンでパフォーマンスしているようだ。</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>ポリシーパラノイア</h4>
+                    <p>たった一つのミス、虚偽の報告で、キャリアが無期限に停止される。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-label">私たちの提供内容</div>
+            <h2 class="section-title">クリエイタービジネスをエンジニアリングします。</h2>
+            <p class="section-sub">データ駆動型システム。推測は不要。</p>
+            <div class="solutions-grid">
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h4>クリエイターインテリジェンス</h4>
+                    <p>ギフトの増減理由を理解する。</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4>成長システム</h4>
+                    <p>「ハッスル」を再現可能なフレームワークに置き換える。</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-video"></i></div>
+                    <h4>ストリーム監査</h4>
+                    <p>リテンションと戦略に関する外科的フィードバック。</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-shield-virus"></i></div>
+                    <h4>リスクガイダンス</h4>
+                    <p>ポリシー違反から身を守る。</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-road"></i></div>
+                    <h4>戦略的計画</h4>
+                    <p>30/60/90日ロードマップ。もう迷わない。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <div class="quiz-wrapper">
+                <div id="quiz-form-jp">
+                    <h2>クリエイター成長スコア™ を計算</h2>
+                    <p class="sub">現在のパフォーマンスに合ったオプションを選択してください。</p>
+                    <div class="question-block">
+                        <label for="volume-jp">現在の月間ダイヤモンドボリューム</label>
+                        <select id="volume-jp">
+                            <option value="high">150K - 500K+ ダイヤモンド/月</option>
+                            <option value="mid">50K - 150K ダイヤモンド/月</option>
+                            <option value="low">50K未満 ダイヤモンド/月</option>
+                        </select>
+                    </div>
+                    <div class="question-block">
+                        <label for="hours-jp">週平均ライブ配信時間</label>
+                        <select id="hours-jp">
+                            <option value="optimized">12 - 25 時間 (構造化)</option>
+                            <option value="overworked">25+ 時間 (バーンアウトリスク高)</option>
+                            <option value="irregular">12時間未満 (不安定)</option>
+                        </select>
+                    </div>
+                    <div class="question-block">
+                        <label for="challenge-jp">主要なアルゴリズムボトルネック</label>
+                        <select id="challenge-jp">
+                            <option value="retention">視聴者維持率と突然の視聴者減少</option>
+                            <option value="conversion">ギフター依存と収入の停滞</option>
+                            <option value="policy">ポリシー不安とコンプライアンス警告</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn-submit" onclick="calculateScoreJP()">
+                        <i class="fas fa-chart-simple"></i> パフォーマンスを分析
+                    </button>
+                </div>
+                <div id="quiz-result-jp" class="result-block">
+                    <h2>パフォーマンス診断結果</h2>
+                    <div class="feedback-text" id="verdict-label-jp">クリエイターインサイトスコア</div>
+                    <div class="score-display" id="score-val-jp">00/100</div>
+                    <div class="feedback-text" id="feedback-val-jp">分析完了。システムインフラと視聴者維持ループに停滞の脆弱性が検出されました。</div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScBSKy2qXP7Yo7WVxZHmO0dCfgDlfceFdmRodNiXT-YTeQwmw/viewform?usp=header" target="_blank" class="cta-link">
+                        <i class="fas fa-arrow-right"></i> 無料ストリーム監査に申し込む →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-label">実績</div>
+            <h2 class="section-title">本気のクリエイターは本気のパートナーを選ぶ。</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"月に$8kを稼いでいたが、すべては推測だった。Supernovaはシステムをくれた。ストレスは半分で、先月は$15kに達した。"</blockquote>
+                    <div class="author">
+                        <div class="avatar">G</div>
+                        <div>
+                            <div class="name">@GamerVault</div>
+                            <div class="handle">UK • 400K ダイヤモンド/月</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"辞めようと思っていた。アルゴリズムが変わり、視聴者の40%を失った。彼らがストリームを監査し、フックを修正し、2週間で回復した。"</blockquote>
+                    <div class="author">
+                        <div class="avatar">L</div>
+                        <div>
+                            <div class="name">@LunaLive</div>
+                            <div class="handle">USA • 280K ダイヤモンド/月</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"意味不明な違反を受けた。Supernovaのリスクチームが異議申し立てを支援し、再発防止策を講じてくれた。"</blockquote>
+                    <div class="author">
+                        <div class="avatar">R</div>
+                        <div>
+                            <div class="name">@RyuStreams</div>
+                            <div class="handle">日本 • 350K ダイヤモンド/月</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>TikTok LIVEで収益を上げられることは証明済みです。</h2>
+            <p>アルゴリズムの変更に耐え、バーンアウトを避け、成長を続けるものを作りましょう。</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScBSKy2qXP7Yo7WVxZHmO0dCfgDlfceFdmRodNiXT-YTeQwmw/viewform?usp=header" target="_blank" class="btn-primary">
+                <i class="fas fa-arrow-right"></i> クリエイター成長評価を受ける →
+            </a>
+        </div>
+    </section>
+
+</div>
+<!-- END JAPANESE -->
+
+
+<!-- ============================================================ -->
+<!-- ROMANIAN CONTENT (Română) -->
+<!-- ============================================================ -->
+<div id="lang-ro" class="lang-content">
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">✦ Evaluare Invitație</div>
+            <h1>
+                Pentru Creatorii TikTok LIVE Serioși<br>
+                Care <span class="highlight">Refuză să Stagneze</span>
+            </h1>
+            <p>
+                Deja câștigi pe TikTok Live.<br>
+                Întrebarea este: <strong>Poți să îți protejezi, să îți înțelegi și să îți scalezi succesul înainte ca platforma să se schimbe din nou?</strong>
+            </p>
+            <div class="hero-actions">
+                <a href="#quiz" class="btn-primary">
+                    <i class="fas fa-arrow-right"></i> Aplică pentru o Evaluare a Creșterii
+                </a>
+                <a href="#solutions" class="btn-secondary">
+                    <i class="fas fa-play-circle"></i> Ce Facem Noi
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Creatori Evaluați</p>
+                </div>
+                <div class="stat">
+                    <h3>40%</h3>
+                    <p>Creștere Medie</p>
+                </div>
+                <div class="stat">
+                    <h3>5</h3>
+                    <p>Piețe Globale</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problems">
+        <div class="container">
+            <div class="section-label">Riscul Real</div>
+            <h2 class="section-title">Cel Mai Mare Risc Nu Sunt Diamantele Mici.<br>Este Pierderea Momentului.</h2>
+            <p class="section-sub">Creatorii eșuează pentru că creșterea se oprește, retenția scade și nimeni nu explică de ce se schimbă cifrele.</p>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Anxietate Algoritmică</h4>
+                    <p>Te trezești, intri live, și reach-ul este cu 60% mai mic. Nu știi dacă e vina ta, a platformei sau a intervalului orar.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-fire"></i></div>
+                    <h4>Ciclul Epuizării</h4>
+                    <p>Lucrezi dublu, dar câștigi la fel. Creativitatea se epuizează mai repede decât se umple portofelul.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-eye-slash"></i></div>
+                    <h4>Retenție Invizibilă</h4>
+                    <p>Viewerii intră, dar pleacă. Simți că performezi pentru un oraș fantomă.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Paranoia Politicilor</h4>
+                    <p>O greșeală, un raport fals, și cariera ta este suspendată pe termen nelimitat.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-label">Ce Facem Noi</div>
+            <h2 class="section-title">Inginerim Afaceri de Creatori.</h2>
+            <p class="section-sub">Sisteme bazate pe date. Fără presupuneri.</p>
+            <div class="solutions-grid">
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h4>Inteligență Creativă</h4>
+                    <p>Înțelege de ce cresc și scad cadourile.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4>Sisteme de Creștere</h4>
+                    <p>Înlocuiește "hustle-ul" cu cadre reproductibile.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-video"></i></div>
+                    <h4>Audituri Live</h4>
+                    <p>Feedback chirurgical pentru retenție și strategie.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-shield-virus"></i></div>
+                    <h4>Ghidare de Risc</h4>
+                    <p>Protejează-te de încălcările politicilor.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-road"></i></div>
+                    <h4>Planificare Strategică</h4>
+                    <p>Foaie de parcurs 30/60/90 de zile. Fără mai multe presupuneri.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <div class="quiz-wrapper">
+                <div id="quiz-form-ro">
+                    <h2>Calculează-ți Scorul de Creștere™</h2>
+                    <p class="sub">Selectează opțiunile care corespund performanței tale actuale.</p>
+                    <div class="question-block">
+                        <label for="volume-ro">Volumul Lunar de Diamante</label>
+                        <select id="volume-ro">
+                            <option value="high">150K - 500K+ Diamante/lună</option>
+                            <option value="mid">50K - 150K Diamante/lună</option>
+                            <option value="low">Sub 50K Diamante/lună</option>
+                        </select>
+                    </div>
+                    <div class="question-block">
+                        <label for="hours-ro">Ore Săptămânale de Live</label>
+                        <select id="hours-ro">
+                            <option value="optimized">12 - 25 Ore (Structurate)</option>
+                            <option value="overworked">25+ Ore (Risc Mare de Epuizare)</option>
+                            <option value="irregular">Sub 12 Ore (Inconstant)</option>
+                        </select>
+                    </div>
+                    <div class="question-block">
+                        <label for="challenge-ro">Principalul Blocaj Algoritmic</label>
+                        <select id="challenge-ro">
+                            <option value="retention">Retenție &amp; Scăderi Bruste de Vizualizări</option>
+                            <option value="conversion">Dependență de Gifteri &amp; Venit Stagnant</option>
+                            <option value="policy">Anxietate Politici &amp; Avertismente</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn-submit" onclick="calculateScoreRO()">
+                        <i class="fas fa-chart-simple"></i> Analizează-mi Performanța
+                    </button>
+                </div>
+                <div id="quiz-result-ro" class="result-block">
+                    <h2>Diagnostic Performanță</h2>
+                    <div class="feedback-text" id="verdict-label-ro">SCOR DE INSIGHT CREATIV</div>
+                    <div class="score-display" id="score-val-ro">00/100</div>
+                    <div class="feedback-text" id="feedback-val-ro">Analiză finalizată. Vulnerabilități de stagnare detectate în infrastructură și buclele de retenție.</div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScBSKy2qXP7Yo7WVxZHmO0dCfgDlfceFdmRodNiXT-YTeQwmw/viewform?usp=header" target="_blank" class="cta-link">
+                        <i class="fas fa-arrow-right"></i> Aplică pentru Audit Gratuit →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-label">Dovezi Sociale</div>
+            <h2 class="section-title">Creatorii Serioși Aleg Parteneri Serioși.</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Câștigam $8k/lună dar simțeam că ghicesc. Supernova mi-a dat un sistem. Am ajuns la $15k luna trecută cu jumătate din stres."</blockquote>
+                    <div class="author">
+                        <div class="avatar">G</div>
+                        <div>
+                            <div class="name">@GamerVault</div>
+                            <div class="handle">UK • 400K Diamante/lună</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Eram pe punctul să renunț. Algoritmul s-a schimbat și am pierdut 40% din audiență. Mi-au auditat live-ul, mi-au reparat hook-ul, și în 2 săptămâni am revenit."</blockquote>
+                    <div class="author">
+                        <div class="avatar">L</div>
+                        <div>
+                            <div class="name">@LunaLive</div>
+                            <div class="handle">USA • 280K Diamante/lună</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Am primit o încălcare care nu avea sens. Echipa de risc Supernova m-a ajutat să fac apel și să implementez măsuri de siguranță."</blockquote>
+                    <div class="author">
+                        <div class="avatar">R</div>
+                        <div>
+                            <div class="name">@RyuStreams</div>
+                            <div class="handle">Japonia • 350K Diamante/lună</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Ai Demonstrat deja că Poți Câștiga pe TikTok Live.</h2>
+            <p>Acum construiește ceva care supraviețuiește schimbărilor de algoritm, evită epuizarea și continuă să crească.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScBSKy2qXP7Yo7WVxZHmO0dCfgDlfceFdmRodNiXT-YTeQwmw/viewform?usp=header" target="_blank" class="btn-primary">
+                <i class="fas fa-arrow-right"></i> Revendică Evaluarea Ta de Creștere →
+            </a>
+        </div>
+    </section>
+
+</div>
+<!-- END ROMANIAN -->
+
+
+<!-- ============================================================ -->
+<!-- MALAY CONTENT (Bahasa Malaysia) -->
+<!-- ============================================================ -->
+<div id="lang-ms" class="lang-content">
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge">✦ Penilaian Jemputan</div>
+            <h1>
+                Untuk Pencipta TikTok Live Yang Serius<br>
+                Yang <span class="highlight">Enggan Mendatar</span>
+            </h1>
+            <p>
+                Anda sudah buktikan mampu meraih pendapatan di TikTok Live.<br>
+                Persoalannya: <strong>Bolehkah anda melindungi, memahami, dan mengembangkan kejayaan ini sebelum platform berubah lagi?</strong>
+            </p>
+            <div class="hero-actions">
+                <a href="#quiz" class="btn-primary">
+                    <i class="fas fa-arrow-right"></i> Mohon Penilaian Pertumbuhan Kreator
+                </a>
+                <a href="#solutions" class="btn-secondary">
+                    <i class="fas fa-play-circle"></i> Apa Yang Kami Lakukan
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <h3>500+</h3>
+                    <p>Kreator Dinilai</p>
+                </div>
+                <div class="stat">
+                    <h3>40%</h3>
+                    <p>Purata Peningkatan</p>
+                </div>
+                <div class="stat">
+                    <h3>5</h3>
+                    <p>Pasaran Global</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="problems">
+        <div class="container">
+            <div class="section-label">Risiko Sebenar</div>
+            <h2 class="section-title">Risiko Terbesar Bukanlah Berlian Rendah.<br>Ia Kehilangan Momentum.</h2>
+            <p class="section-sub">Kreator gagal kerana pertumbuhan terhenti, pengekalan merosot, dan tiada siapa yang menerangkan mengapa nombor berubah.</p>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-chart-line"></i></div>
+                    <h4>Kebimbangan Algoritma</h4>
+                    <p>Anda bangun, pergi live, dan capaian turun 60%. Anda tidak tahu sama ada anda, platform, atau waktu siaran.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-fire"></i></div>
+                    <h4>Kitaran Keletihan</h4>
+                    <p>Anda bekerja dua kali ganda, tetapi pendapatan sama. Kreativiti anda semakin kering lebih cepat daripada dompet terisi.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-eye-slash"></i></div>
+                    <h4>Pengekalan Halimunan</h4>
+                    <p>Penonton masuk, tetapi mereka pergi. Anda rasa seperti membuat persembahan di bandar hantu.</p>
+                </div>
+                <div class="problem-card">
+                    <div class="icon"><i class="fas fa-shield-alt"></i></div>
+                    <h4>Paranoia Polisi</h4>
+                    <p>Satu kesilapan, laporan palsu, dan kerjaya anda digantung tanpa had.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="solutions" id="solutions">
+        <div class="container">
+            <div class="section-label">Apa Yang Kami Lakukan</div>
+            <h2 class="section-title">Kami Rekabentuk Perniagaan Kreator.</h2>
+            <p class="section-sub">Sistem berpandukan data. Tanpa tekaan.</p>
+            <div class="solutions-grid">
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-brain"></i></div>
+                    <h4>Kepintaran Kreator</h4>
+                    <p>Fahami mengapa hadiah naik dan turun.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-sync-alt"></i></div>
+                    <h4>Sistem Pertumbuhan</h4>
+                    <p>Gantikan "hustle" dengan rangka kerja yang boleh diulang.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-video"></i></div>
+                    <h4>Audit Siaran</h4>
+                    <p>Maklum balas tepat untuk pengekalan dan strategi.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-shield-virus"></i></div>
+                    <h4>Panduan Risiko</h4>
+                    <p>Lindungi diri anda daripada pelanggaran polisi.</p>
+                </div>
+                <div class="solution-item">
+                    <div class="icon"><i class="fas fa-road"></i></div>
+                    <h4>Perancangan Strategik</h4>
+                    <p>Peta jalan 30/60/90 hari. Tanpa tekaan lagi.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="quiz-section" id="quiz">
+        <div class="container">
+            <div class="quiz-wrapper">
+                <div id="quiz-form-ms">
+                    <h2>Kira Skor Pertumbuhan Kreator Anda™</h2>
+                    <p class="sub">Pilih pilihan yang sepadan dengan prestasi semasa anda.</p>
+                    <div class="question-block">
+                        <label for="volume-ms">Jumlah Berlian Bulanan</label>
+                        <select id="volume-ms">
+                            <option value="high">150K - 500K+ Berlian/bulan</option>
+                            <option value="mid">50K - 150K Berlian/bulan</option>
+                            <option value="low">Bawah 50K Berlian/bulan</option>
+                        </select>
+                    </div>
+                    <div class="question-block">
+                        <label for="hours-ms">Purata Jam Siaran Langsung Mingguan</label>
+                        <select id="hours-ms">
+                            <option value="optimized">12 - 25 Jam (Berstruktur)</option>
+                            <option value="overworked">25+ Jam (Risiko Keletihan Tinggi)</option>
+                            <option value="irregular">Bawah 12 Jam (Tidak Konsisten)</option>
+                        </select>
+                    </div>
+                    <div class="question-block">
+                        <label for="challenge-ms">Bottleneck Algoritma Utama</label>
+                        <select id="challenge-ms">
+                            <option value="retention">Pengekalan Penonton &amp; Penurunan Mendadak</option>
+                            <option value="conversion">Pergantungan Gifter &amp; Pendapatan Rata</option>
+                            <option value="policy">Kebimbangan Polisi &amp; Amaran Pematuhan</option>
+                        </select>
+                    </div>
+                    <button type="button" class="btn-submit" onclick="calculateScoreMS()">
+                        <i class="fas fa-chart-simple"></i> Analisis Prestasi Saya
+                    </button>
+                </div>
+                <div id="quiz-result-ms" class="result-block">
+                    <h2>Diagnostik Prestasi Anda</h2>
+                    <div class="feedback-text" id="verdict-label-ms">SKOR INSIGHT KREATOR</div>
+                    <div class="score-display" id="score-val-ms">00/100</div>
+                    <div class="feedback-text" id="feedback-val-ms">Analisis selesai. Kelemahan genangan dikesan dalam infrastruktur sistem dan gelung pengekalan penonton.</div>
+                    <a href="https://docs.google.com/forms/d/e/1FAIpQLScBSKy2qXP7Yo7WVxZHmO0dCfgDlfceFdmRodNiXT-YTeQwmw/viewform?usp=header" target="_blank" class="cta-link">
+                        <i class="fas fa-arrow-right"></i> Mohon Audit Siaran Percuma →
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="section-label">Bukti Sosial</div>
+            <h2 class="section-title">Kreator Serius Pilih Rakan Kongsi Serius.</h2>
+            <div class="testimonial-grid">
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Saya meraih $8k/sebulan tetapi rasa seperti meneka. Supernova memberi saya sistem. Saya capai $15k bulan lepas dengan separuh tekanan."</blockquote>
+                    <div class="author">
+                        <div class="avatar">G</div>
+                        <div>
+                            <div class="name">@GamerVault</div>
+                            <div class="handle">UK • 400K Berlian/bulan</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Saya hampir berhenti. Algoritma berubah dan saya kehilangan 40% penonton. Mereka mengaudit siaran saya, membaiki hook saya, dan dalam 2 minggu saya kembali."</blockquote>
+                    <div class="author">
+                        <div class="avatar">L</div>
+                        <div>
+                            <div class="name">@LunaLive</div>
+                            <div class="handle">USA • 280K Berlian/bulan</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <blockquote>"Saya mendapat pelanggaran yang tidak masuk akal. Pasukan risiko Supernova membantu saya merayu dan menetapkan langkah keselamatan."</blockquote>
+                    <div class="author">
+                        <div class="avatar">R</div>
+                        <div>
+                            <div class="name">@RyuStreams</div>
+                            <div class="handle">Jepun • 350K Berlian/bulan</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-cta">
+        <div class="container">
+            <h2>Anda Telah Buktikan Anda Boleh Meraih Pendapatan di TikTok Live.</h2>
+            <p>Sekarang bina sesuatu yang bertahan daripada perubahan algoritma, mengelakkan keletihan, dan terus berkembang.</p>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScBSKy2qXP7Yo7WVxZHmO0dCfgDlfceFdmRodNiXT-YTeQwmw/viewform?usp=header" target="_blank" class="btn-primary">
+                <i class="fas fa-arrow-right"></i> Dapatkan Penilaian Pertumbuhan Anda →
+            </a>
+        </div>
+    </section>
+
+</div>
+<!-- END MALAY -->
+
+
+<!-- ============================================================ -->
+<!-- FOOTER -->
+<!-- ============================================================ -->
+<footer class="footer">
+    <div class="container">
+        <div class="logo-area">
+            <img src="logo.png" alt="Supernova" onerror="this.style.display='none'" style="height:24px;">
+            <span class="logo-text" style="font-size:16px;">SUPERNOVA</span>
+        </div>
+        <div class="socials">
+            <!-- TikTok - USA -->
+            <a href="https://www.tiktok.com/@supernova_us" target="_blank" title="TikTok USA">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <!-- TikTok - UK -->
+            <a href="https://www.tiktok.com/@supernova__uk" target="_blank" title="TikTok UK">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <!-- TikTok - Japan -->
+            <a href="https://www.tiktok.com/@supernova.japan" target="_blank" title="TikTok Japan">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <!-- TikTok - Romania -->
+            <a href="https://www.tiktok.com/@supernova_ro" target="_blank" title="TikTok Romania">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <!-- TikTok - Malaysia -->
+            <a href="https://www.tiktok.com/@supernova_mys" target="_blank" title="TikTok Malaysia">
+                <i class="fab fa-tiktok"></i>
+            </a>
+            <!-- Discord -->
+            <a href="https://discord.gg/TpEBMADW" target="_blank" title="Discord">
+                <i class="fab fa-discord"></i>
+            </a>
+            <!-- LINE (Japan) -->
+            <a href="https://lin.ee/zzmexVn" target="_blank" title="LINE">
+                <i class="fab fa-line"></i>
+            </a>
+            <!-- WhatsApp -->
+            <a href="https://wa.me/447923116272" target="_blank" title="WhatsApp">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+        <div class="footer-links">
+            <a href="#problems">The Risk</a>
+            <a href="#solutions">What We Do</a>
+            <a href="#quiz">Your Score</a>
+            <a href="https://docs.google.com/forms/d/e/1FAIpQLScBSKy2qXP7Yo7WVxZHmO0dCfgDlfceFdmRodNiXT-YTeQwmw/viewform?usp=header" target="_blank">Apply</a>
+        </div>
+        <div class="copy">
+            &copy; 2026 Supernova. All rights reserved.
+        </div>
     </div>
-  </footer>
+</footer>
 
-  <script>
-    const i18n = {
-      en: {
-        "nav-hub": "Systems Hub", "nav-marketing": "Infrastructure", "nav-paradigm": "Our Paradigm",
-        "hero-badge": "Talent Systems Integration", "hero-title": "The End of the<br>Streaming Plateau.",
-        "hero-desc": "You’ve proven you can earn on TikTok Live. Now build the systematic infrastructure that insulates, scales, and multiplies your independent revenue footprint.",
-        "hero-cta": "Initiate Growth Assessment", "critique-title": "The Market Infrastructure is Broken.",
-        "critique-desc": "Traditional 'agencies' extract percentages while offering nothing but empty promises. We operate differently.",
-        "c1-title": "Algorithmic Stagnation", "c1-desc": "Sudden drop-offs in viewer onboarding indexes aren't luck. They happen because you lack automated pacing structures to maintain live weight limits.",
-        "c2-title": "Gifter Fragility", "c2-desc": "Relying on a tiny cluster of major gifters creates systematic high-risk vulnerabilities. We introduce conversion models to diversify support channels.",
-        "c3-title": "Regulatory Stress", "c3-desc": "Streaming under constant anxiety regarding shifting warning guidelines kills artistic energy. Our dedicated desks secure back-end channel mapping.",
-        "calc-title": "Creator Growth Score™", "q1-label": "Current Monthly Diamond Volume",
-        "q1-o1": "150K - 500K+ Diamonds/mo", "q1-o2": "50K - 150K Diamonds/mo", "q1-o3": "Under 50K Diamonds/mo",
-        "q2-label": "Average Weekly Live Streaming Hours", "q2-o1": "12 - 25 Hours (Structured)", "q2-o2": "25+ Hours (High Burnout Risk)", "q2-o3": "Under 12 Hours (Inconsistent)",
-        "q3-label": "Primary Algorithmic Core Bottleneck", "q3-o1": "Viewer Retention & Sudden View Drops", "q3-o2": "Gifter Monotonization & Flat Income", "q3-o3": "Policy Anxiety & Compliance Warnings",
-        "calc-btn": "Analyze System Performance", "res-title": "Diagnostics Complete", "res-index": "CREATOR INSIGHT INDEX", "res-cta": "Apply For A Free Stream Audit & Review →",
-        "m-badge": "Growth Mechanics", "m-title": "Strategic Operational Frameworks.", "m-desc": "Scaling your broadcast volume is not an artistic lottery. It is a systematic extraction of algorithmic data hooks mixed with real-time viewer psychology vectors.",
-        "m-c1-t": "Retention Architecture", "m-c1-d": "We dismantle sudden viewer drop loops by restructuring your first 180 seconds of screen onboarding. Turn fast scrolling drops into high-retention structural stays.",
-        "m-c2-t": "Gifter Conversion Scaling", "m-c2-d": "Move completely past top-heavy room dependencies. We install micro-interaction sequences that naturally broaden your commercial engagement surface.",
-        "m-c3-t": "Localized Regional Scaling", "m-c3-d": "Expand outside localized regional pockets. Our technical frameworks route stream traffic markers to hook high-value international viewer pools safely.",
-        "m-c4-t": "Stream Suite Engineering", "m-c4-d": "Eliminate hardware rendering choke points. We optimize visual parameters and setup compression loops to assure fluid, ultra-clean interaction feedback profiles.",
-        "p-badge": "Talent Advisory Alignment", "p-title": "We Are Not An Agency.<br>We Are Your Growth Partners.", "p-desc": "Traditional talent agencies engineer restrictive control models to capture creative upside. Supernova operates strictly as an structural infrastructure layer backing independent elite brands.",
-        "footer-title": "Verified Communications Integration Comms"
-      },
-      jp: {
-        "nav-hub": "システムハブ", "nav-marketing": "インフラ構築", "nav-paradigm": "私たちの理念",
-        "hero-badge": "プロフェッショナル配信システム統合", "hero-title": "配信プラトーの終焉、<br>真のスケールへ。",
-        "hero-desc": "TikTok Liveでの実績はすでに証明されています。これからは、あなたの独立した収益基盤を守り、安定的に倍増させる構造的なシステムを構築する番です。",
-        "hero-cta": "無料成長診断を開始する", "critique-title": "既存の「事務所」という仕組みの限界",
-        "critique-desc": "根拠のない言葉だけで高い手数料を徴収する従来のMCNとは一線を画し、私たちは完全な技術とバックエンドシステムを提供します。",
-        "c1-title": "アルゴリズムの停滞要因", "c1-desc": "視聴者流入数の急激な減少は「運」ではありません。配信内のエンゲージメント維持パターンの欠如が原因です。",
-        "c2-title": "ギフター依存のリスク", "c2-desc": "一部のコアなギフターのみに依存することは、配信活動における最大の財務リスクです。ファン層を健全に多角化する転換モデルを導入します。",
-        "c3-title": "アカウント運用の安全性", "c3-desc": "警告や規制ガイドラインの度重なる変更による不安は、創造的なエネルギーを奪います。専任デスクがあなたのアカウントの安全性を背後から完全に保護します。",
-        "calc-title": "クリエイター成長指数測定（スコア）", "q1-label": "現在の月間平均獲得ダイヤモンドボリューム",
-        "q1-o1": "15万 - 50万+ Diamonds/月", "q1-o2": "5万 - 15万 Diamonds/月", "q1-o3": "5万 Diamonds未満/月",
-        "q2-label": "週間平均ライブ配信時間", "q2-o1": "12 - 25 時間（効率的かつ構造化された配信）", "q2-o2": "25 時間以上（過労・燃え尽きのリスク高）", "q2-o3": "12 時間未満（不定期・露出不足の傾向）",
-        "q3-label": "現在直面している最も深刻なボトルネック", "q3-o1": "視聴者維持率の低下および急激なアクティブ減少", "q3-o2": "ギフター層の固定化による収益の頭打ち", "q3-o3": "コミュニティガイドライン等の規約違反リスクへの不安",
-        "calc-btn": "パフォーマンス指標を分析する", "res-title": "システム診断完了", "res-index": "クリエイター成長潜在指数", "res-cta": "無料個別配信アカウント監査を申請する →",
-        "m-badge": "成長ロジック", "m-title": "戦略的データ運用フレームワーク", "m-desc": "配信ボリュームの拡大は偶然の産物ではありません。プラットフォームのアルゴリズム特性の抽出と、リアルタイムの視聴者心理の科学的分析によるものです。",
-        "m-c1-t": "視聴維持リテンション構造", "m-c1-d": "最初の180秒間のユーザー体験を再構築。スクロールで通り過ぎるだけだった新規視聴者を、中長期的なコアリスナーへと定着させます。",
-        "m-c2-t": "収益転換の最適化", "m-c2-d": "一部の大きなギフトに依存しない、持続可能な収益基盤を確立。ルーム全体の小さなエンゲージメントを積み重ねる仕組みを構築します。",
-        "m-c3-t": "国際市場へのトラフィック誘導", "m-c3-d": "国内の限られた市場から脱却。技術的なネットワーク最適化により、高価値なグローバル視聴者層へリーチを拡大します。",
-        "m-c4-t": "配信環境・機材の最適化エンジニアリング", "m-c4-d": "ハードウェアのトラブルや画質劣化による離脱をゼロに。最高画質を維持する圧縮伝送設定をバックアップします。",
-        "p-badge": "対等な成長パートナーシップ", "p-title": "私たちは「事務所（エージェンシー）」<br>ではありません。", "p-desc": "独立したトップクリエイターの声を縛るような専属契約ではなく、あなたのブランド価値を裏側から技術的に拡張・保全する、完全な技術・インフラパートナーとして機能します。",
-        "footer-title": "認証済み公式機関連携ゲートウェイ"
-      },
-      ro: {
-        "nav-hub": "Sisteme Core", "nav-marketing": "Infrastructură", "nav-paradigm": "Paradigma Noastră",
-        "hero-badge": "Integrare Sisteme Talent", "hero-title": "Sfârșitul Plafonării<br>În Streaming.",
-        "hero-desc": "Ai demonstrat deja că poți genera volum pe TikTok Live. Acum este momentul să construiești infrastructura sistematică ce îți protejează, securizează și multiplică veniturile.",
-        "hero-cta": "Inițiază Evaluarea de Creștere", "critique-title": "Infrastructura Actuală de Management este Defectă.",
-        "critique-desc": "Agensiile tradiționale opresc procente masive oferind doar promisiuni goale. Modelul nostru de consultanță funcționează complet diferit.",
-        "c1-title": "Stagnare Algoritmica", "c1-desc": "Scăderile bruște de audiență nu sunt o chestiune de noroc. Apar din cauza lipsei unei structuri strategice de ritm live capabile să mențină indexul platformei.",
-        "c2-title": "Vulnerabilitatea Gifterilor", "c2-desc": "Baza de venituri concentrată pe doar 2-3 gifteri majori expune contul tău unui risc financiar masiv. Introducem modele de diversificare structurală.",
-        "c3-title": "Presiune Regulamentară", "c3-desc": "Streamingul sub anxietate constantă din cauza avertismentelor blochează energia creativă. Birourile noastre tehnice securizează maparea contului direct în spate.",
-        "calc-title": "Creator Growth Score™", "q1-label": "Volumul Lunar Actual de Diamante",
-        "q1-o1": "150K - 500K+ Diamante/lună", "q1-o2": "50K - 150K Diamante/lună", "q1-o3": "Sub 50K Diamante/lună",
-        "q2-label": "Media Săptămânală de Ore de Live", "q2-o1": "12 - 25 Ore (Structurat și Eficient)", "q2-o2": "Peste 25 Ore (Risc Ridicat de Burnout)", "q2-o3": "Sub 12 Ore (Inconsistent / Vizibilitate Redusă)",
-        "q3-label": "Principalul Blocaj Algoritmice Înfruntat", "q3-o1": "Retenția Audienei & Scăderi Bruște de View-uri", "q3-o2": "Monotonizarea Gifterilor & Venit Plat", "q3-o3": "Anxietate Legată de Politici & Avertismente de Conformitate",
-        "calc-btn": "Analizează Performanța", "res-title": "Diagnostic Finalizat", "res-index": "INDEXUL DE CREȘTERE AL CREATORULUI", "res-cta": "Aplică Pentru un Audit de Stream Gratuit →",
-        "m-badge": "Mecanica de Creștere", "m-title": "Framework-uri Operaționale și Strategice.", "m-desc": "Scalarea volumului tău în live nu este o loterie artistică. Este o extracție exactă din algoritmi combinată cu vectori de psihologie comportamentală a audienței în timp real.",
-        "m-c1-t": "Arhitectura Retenției", "m-c1-d": "Eliminăm buclele de drop-off restructurând primele 180 de secunde ale live-ului tău. Transformăm utilizatorii care navighează rapid în spectatori fideli pe termen lung.",
-        "m-c2-t": "Scalarea Conversiei Gifterilor", "m-c2-d": "Depășește dependența camerelor grele. Instalăm secvențe de micro-interacțiune care lărgesc în mod organic suprafața de susținere financiară.",
-        "m-c3-t": "Scalare Internațională Directă", "m-c3-d": "Ieși din limitele algoritmului local regional. Sistemele noastre tehnice ghidează markerii de trafic pentru a deschide comunități internaționale de mare valoare.",
-        "m-c4-t": "Optimizare Tehnică de Stream", "m-c4-d": "Elimină problemele tehnice de randare. Optimizăm parametrii hardware și setările de compresie video pentru un stream perfect fluid și clar.",
-        "p-badge": "Aliniere Partener de Creștere", "p-title": "Nu Suntem o Agenție.<br>Suntem Partenerii Tăi de Creștere.", "p-desc": "Agențiile tradiționale de management creează modele restrictive de control. Supernova operează strict ca un strat de suport tehnic și strategic pentru branduri independente.",
-        "footer-title": "Canale de Comunicare Securizate și Verificate"
-      }
+
+<!-- ============================================================ -->
+<!-- SCRIPTS -->
+<!-- ============================================================ -->
+<script>
+    // ===== LANGUAGE SWITCHER =====
+    function switchLang(lang) {
+        // Hide all language contents
+        document.querySelectorAll('.lang-content').forEach(el => {
+            el.classList.remove('active');
+        });
+        // Show selected
+        const target = document.getElementById('lang-' + lang);
+        if (target) target.classList.add('active');
+        
+        // Update button states
+        document.querySelectorAll('.lang-btn').forEach(btn => {
+            btn.classList.remove('active');
+            if (btn.dataset.lang === lang) btn.classList.add('active');
+        });
+        
+        // Save preference
+        localStorage.setItem('supernova-lang', lang);
+    }
+
+    // Load saved language preference
+    document.addEventListener('DOMContentLoaded', function() {
+        const saved = localStorage.getItem('supernova-lang');
+        if (saved && document.getElementById('lang-' + saved)) {
+            switchLang(saved);
+        }
+    });
+
+    // ===== SCROLL ANIMATIONS =====
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
     };
 
-    function setLanguage(lang) {
-      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
-      event.target.classList.add('active');
-      
-      document.querySelectorAll('[data-i18n]').forEach(el => {
-        const key = el.getAttribute('data-i18n');
-        if (i18n[lang][key]) {
-          el.innerHTML = i18n[lang][key];
-        }
-      });
-      
-      // Dynamic psychological visual switcher for banners
-      const banner = document.querySelector('#market-banner-view img');
-      if (banner) {
-        banner.src = `market-${lang}.png`;
-      }
-    }
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('visible');
+            }
+        });
+    }, observerOptions);
 
-    function switchPage(pageId) {
-      document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
-      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
-      
-      document.getElementById('page-' + pageId).classList.add('active');
-      document.getElementById('btn-' + pageId).classList.add('active');
-      window.scrollTo(0, 0);
-    }
+    document.addEventListener('DOMContentLoaded', function() {
+        document.querySelectorAll('.animate-on-scroll').forEach(el => {
+            observer.observe(el);
+        });
+    });
 
+    // ===== QUIZ FUNCTIONS (English) =====
     function calculateScore() {
-      const vol = document.getElementById('volume').value;
-      const hrs = document.getElementById('hours').value;
-      const chal = document.getElementById('challenge').value;
-      
-      let score = 85;
-      let feedback = "";
+        const vol = document.getElementById('volume').value;
+        const hrs = document.getElementById('hours').value;
+        const chal = document.getElementById('challenge').value;
+        
+        let score = 85;
+        let feedback = "";
 
-      if (vol === 'high') score -= 5;
-      if (vol === 'mid') score -= 15;
-      if (vol === 'low') score -= 30;
+        if (vol === 'high') score -= 5;
+        else if (vol === 'mid') score -= 15;
+        else if (vol === 'low') score -= 30;
 
-      if (hrs === 'overworked') {
-        score -= 15;
-        feedback += "High structural burnout risks found. Your revenue is tied directly to physical exhaustion rather than operational systems. ";
-      } else if (hrs === 'irregular') {
-        score -= 10;
-        feedback += "Inconsistent pacing anchors your visibility index lower in the platform's algorithmic queue. ";
-      }
+        if (hrs === 'overworked') {
+            score -= 15;
+            feedback += "High structural burnout risks found. Your revenue is tied directly to physical exhaustion rather than operational systems. ";
+        } else if (hrs === 'irregular') {
+            score -= 10;
+            feedback += "Inconsistent pacing anchors your visibility index lower in the algorithmic queue. ";
+        }
 
-      if (chal === 'retention') {
-        score -= 10;
-        feedback += "Critical retention leaks detected during your peak viewer onboarding sequence.";
-      } else if (chal === 'conversion') {
-        score -= 12;
-        feedback += "Gifter dependency concentration is unsustainably narrow. You require optimized conversion scaling frameworks.";
-      } else if (chal === 'policy') {
-        score -= 5;
-        feedback += "Account safety parameters show severe regulatory risk exposure.";
-      }
+        if (chal === 'retention') {
+            score -= 10;
+            feedback += "Critical retention leaks detected during your peak viewer onboarding sequence.";
+        } else if (chal === 'conversion') {
+            score -= 12;
+            feedback += "Gifter dependency concentration is unsustainably narrow. You require conversion scaling systems.";
+        } else if (chal === 'policy') {
+            score -= 5;
+            feedback += "Account safety parameters show severe regulatory risk exposure.";
+        }
 
-      document.getElementById('quiz-form').style.display = 'none';
-      document.getElementById('score-val').innerText = score + "/100";
-      document.getElementById('feedback-val').innerText = feedback;
-      document.getElementById('quiz-result').style.display = 'block';
+        if (score > 80 && feedback.length < 20) {
+            feedback = "Strong baseline performance, but highly vulnerable to unexpected platform shifts and retention plateaus. Optimization is highly recommended.";
+        }
+
+        document.getElementById('quiz-form').style.display = 'none';
+        document.getElementById('score-val').innerText = score + "/100";
+        document.getElementById('feedback-val').innerText = feedback;
+        document.getElementById('quiz-result').style.display = 'block';
     }
-  </script>
+
+    // ===== QUIZ FUNCTIONS (Japanese) =====
+    function calculateScoreJP() {
+        const vol = document.getElementById('volume-jp').value;
+        const hrs = document.getElementById('hours-jp').value;
+        const chal = document.getElementById('challenge-jp').value;
+        
+        let score = 85;
+        let feedback = "";
+
+        if (vol === 'high') score -= 5;
+        else if (vol === 'mid') score -= 15;
+        else if (vol === 'low') score -= 30;
+
+        if (hrs === 'overworked') {
+            score -= 15;
+            feedback += "構造的なバーンアウトリスクが検出されました。収益が運用システムではなく身体的疲労に直結しています。";
+        } else if (hrs === 'irregular') {
+            score -= 10;
+            feedback += "一貫性のないペーシングにより、アルゴリズムキューでの可視性が低下しています。";
+        }
+
+        if (chal === 'retention') {
+            score -= 10;
+            feedback += "ピーク時の視聴者オンボーディングシーケンスで重大なリテンションリークが検出されました。";
+        } else if (chal === 'conversion') {
+            score -= 12;
+            feedback += "ギフターへの依存度が持続不可能なほど狭くなっています。変換スケーリングシステムが必要です。";
+        } else if (chal === 'policy') {
+            score -= 5;
+            feedback += "アカウントの安全性パラメータに深刻な規制リスクが露出しています。";
+        }
+
+        if (score > 80 && feedback.length < 20) {
+            feedback = "強固なベースライン性能ですが、予期せぬプラットフォームの変動やリテンションの停滞に対して非常に脆弱です。最適化を強く推奨します。";
+        }
+
+        document.getElementById('quiz-form-jp').style.display = 'none';
+        document.getElementById('score-val-jp').innerText = score + "/100";
+        document.getElementById('feedback-val-jp').innerText = feedback;
+        document.getElementById('quiz-result-jp').style.display = 'block';
+    }
+
+    // ===== QUIZ FUNCTIONS (Romanian) =====
+    function calculateScoreRO() {
+        const vol = document.getElementById('volume-ro').value;
+        const hrs = document.getElementById('hours-ro').value;
+        const chal = document.getElementById('challenge-ro').value;
+        
+        let score = 85;
+        let feedback = "";
+
+        if (vol === 'high') score -= 5;
+        else if (vol === 'mid') score -= 15;
+        else if (vol === 'low') score -= 30;
+
+        if (hrs === 'overworked') {
+            score -= 15;
+            feedback += "Risc ridicat de epuizare structurală detectat. Veniturile tale sunt legate direct de epuizarea fizică, nu de sisteme operaționale. ";
+        } else if (hrs === 'irregular') {
+            score -= 10;
+            feedback += "Pacing-ul inconsecvent îți ancorează indicele de vizibilitate mai jos în coada algoritmică. ";
+        }
+
+        if (chal === 'retention') {
+            score -= 10;
+            feedback += "Scurgeri critice de retenție detectate în secvența de onboardizare a vizitatorilor.";
+        } else if (chal === 'conversion') {
+            score -= 12;
+            feedback += "Concentrarea dependenței de gifteri este nesustenabil de îngustă. Ai nevoie de sisteme de scalare a conversiei.";
+        } else if (chal === 'policy') {
+            score -= 5;
+            feedback += "Parametrii de siguranță ai contului arată o expunere severă la riscuri de reglementare.";
+        }
+
+        if (score > 80 && feedback.length < 20) {
+            feedback = "Performanță de bază solidă, dar foarte vulnerabilă la schimbări neașteptate ale platformei și platouri de retenție. Optimizarea este recomandată.";
+        }
+
+        document.getElementById('quiz-form-ro').style.display = 'none';
+        document.getElementById('score-val-ro').innerText = score + "/100";
+        document.getElementById('feedback-val-ro').innerText = feedback;
+        document.getElementById('quiz-result-ro').style.display = 'block';
+    }
+
+    // ===== QUIZ FUNCTIONS (Malay) =====
+    function calculateScoreMS() {
+        const vol = document.getElementById('volume-ms').value;
+        const hrs = document.getElementById('hours-ms').value;
+        const chal = document.getElementById('challenge-ms').value;
+        
+        let score = 85;
+        let feedback = "";
+
+        if (vol === 'high') score -= 5;
+        else if (vol === 'mid') score -= 15;
+        else if (vol === 'low') score -= 30;
+
+        if (hrs === 'overworked') {
+            score -= 15;
+            feedback += "Risiko keletihan struktur yang tinggi dikesan. Pendapatan anda terikat secara langsung dengan keletihan fizikal dan bukannya sistem operasi. ";
+        } else if (hrs === 'irregular') {
+            score -= 10;
+            feedback += "Pacing yang tidak konsisten menjadikan indeks keterlihatan anda lebih rendah dalam barisan algoritma. ";
+        }
+
+        if (chal === 'retention') {
+            score -= 10;
+            feedback += "Kebocoran pengekalan kritikal dikesan semasa urutan onboarding penonton puncak anda.";
+        } else if (chal === 'conversion') {
+            score -= 12;
+            feedback += "Kebergantungan kepada gifter adalah terlalu sempit dan tidak mampan. Anda memerlukan sistem penskalaan penukaran.";
+        } else if (chal === 'policy') {
+            score -= 5;
+            feedback += "Parameter keselamatan akaun menunjukkan pendedahan risiko kawal selia yang serius.";
+        }
+
+        if (score > 80 && feedback.length < 20) {
+            feedback = "Prestasi asas yang kukuh, tetapi sangat terdedah kepada perubahan platform yang tidak dijangka dan genangan pengekalan. Pengoptimuman sangat disyorkan.";
+        }
+
+        document.getElementById('quiz-form-ms').style.display = 'none';
+        document.getElementById('score-val-ms').innerText = score + "/100";
+        document.getElementById('feedback-val-ms').innerText = feedback;
+        document.getElementById('quiz-result-ms').style.display = 'block';
+    }
+</script>
 
 </body>
 </html>
