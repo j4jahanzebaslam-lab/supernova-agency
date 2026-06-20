@@ -2,297 +2,113 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supernova | Live Alchemy</title>
 <style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  html { scroll-behavior: smooth; }
   body {
-    background-color: #050505;
+    background-color: #0d0d0d;
     color: #ffffff;
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-    padding: 0 20px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    margin: 0;
+    padding: 10px;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    overflow-x: hidden;
-  }
-
-  /* CINEMATIC HERO SECTION */
-  .hero-section {
-    width: 100%;
-    max-width: 1000px;
-    min-height: 85vh;
-    display: flex;
-    flex-direction: column;
     justify-content: center;
-    align-items: center;
+  }
+  .hub-container {
+    width: 100%;
+    max-width: 900px;
     text-align: center;
-    padding: 80px 0;
-    position: relative;
   }
-
-  /* Elegant Ambient Lighting Accent */
-  .hero-section::before {
-    content: '';
-    position: absolute;
-    width: 300px;
-    height: 300px;
-    background: rgba(255, 255, 255, 0.03);
-    border-radius: 50%;
-    filter: blur(80px);
-    top: 20%;
-    z-index: -1;
-  }
-  
-  .hero-badge {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 8px 18px;
-    border-radius: 30px;
-    font-size: 11px;
+  .hub-title {
+    font-size: 13px;
+    font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 2px;
-    color: #8c8c8c;
-    margin-bottom: 32px;
-    animation: fadeUp 1s ease forwards;
+    color: #666666;
+    margin-bottom: 20px;
   }
-  .hero-badge::before {
-    content: '';
-    width: 6px;
-    height: 6px;
-    background: #ffffff;
-    border-radius: 50%;
-    box-shadow: 0 0 10px #ffffff;
+  .hub-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
   }
-
-  .headline {
-    font-size: 56px;
-    font-weight: 800;
-    letter-spacing: -2.5px;
-    line-height: 1.1;
-    margin-bottom: 24px;
-    opacity: 0;
-    animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.2s forwards;
+  @media (max-width: 768px) {
+    .hub-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
   }
-  @media (max-width: 600px) { .headline { font-size: 38px; } }
-  
-  .subheadline {
-    font-size: 20px;
-    font-weight: 400;
-    color: #a6a6a6;
-    line-height: 1.6;
-    max-width: 680px;
-    margin: 0 auto 48px auto;
-    opacity: 0;
-    animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+  @media (max-width: 480px) {
+    .hub-grid {
+      grid-template-columns: 1fr;
+    }
   }
-  @media (max-width: 600px) { .subheadline { font-size: 16px; margin-bottom: 36px; } }
-  
-  .premium-btn {
-    opacity: 0;
-    display: inline-block;
-    background: #ffffff;
-    color: #000000;
-    text-decoration: none;
-    padding: 20px 42px;
-    font-size: 15px;
-    font-weight: 600;
-    border-radius: 4px;
-    border: 1px solid #ffffff;
-    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-    cursor: pointer;
-    animation: fadeUp 1.2s cubic-bezier(0.16, 1, 0.3, 1) 0.6s forwards;
-  }
-  .premium-btn:hover {
-    background: #050505;
-    color: #ffffff;
-    transform: translateY(-4px);
-    box-shadow: 0 15px 30px rgba(255,255,255,0.08);
-  }
-
-  /* PREMIUM DIAGNOSTICS CALCULATOR */
-  .quiz-section {
-    width: 100%;
-    max-width: 600px;
-    background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
-    padding: 45px 40px;
-    border-radius: 12px;
-    border: 1px solid #1f1f1f;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
-    margin-bottom: 100px;
-    scroll-margin-top: 60px;
-  }
-  @media (max-width: 600px) { .quiz-section { padding: 30px 20px; } }
-
-  h2 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; border-bottom: 1px solid #1f1f1f; padding-bottom: 20px; margin-bottom: 30px; }
-  .question-block { margin-bottom: 32px; }
-  label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; color: #737373; }
-  
-  select { 
-    width: 100%; 
-    padding: 16px; 
-    background: #141414; 
-    border: 1px solid #262626; 
-    border-radius: 6px; 
-    color: #ffffff; 
-    font-size: 15px; 
-    box-sizing: border-box; 
-    transition: all 0.3s ease;
-    cursor: pointer;
-    appearance: none;
-    -webkit-appearance: none;
-    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='grey'><path d='M0 3l5 5 5-5z'/></svg>");
-    background-repeat: no-repeat;
-    background-position: right 20px center;
-  }
-  select:focus { border-color: #ffffff; background-color: #1a1a1a; outline: none; }
-  
-  .btn-submit { width: 100%; padding: 18px; background: #ffffff; color: #000000; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 1.5px; }
-  .btn-submit:hover { opacity: 0.9; transform: translateY(-1px); }
-  
-  /* RESULTS DASHBOARD */
-  .result-block { display: none; text-align: center; }
-  .score-display { font-size: 72px; font-weight: 800; margin: 24px 0; color: #ffffff; letter-spacing: -3px; }
-  .feedback-box { font-size: 14px; color: #cccccc; line-height: 1.6; margin-bottom: 40px; text-align: left; background: #141414; padding: 20px; border-left: 3px solid #ffffff; border-radius: 4px; }
-  
-  .cta-link { display: inline-block; width: 100%; padding: 18px; background: transparent; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600; box-sizing: border-box; border: 1px solid #ffffff; cursor: pointer; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1.5px; }
-  .cta-link:hover { background: #ffffff; color: #000000; }
-
-  /* VERIFICATION HUB FOOTER */
-  .hub-footer { width: 100%; max-width: 900px; text-align: center; border-top: 1px solid #1f1f1f; padding: 60px 0; margin-top: auto; }
-  .hub-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #525252; margin-bottom: 30px; }
-  .hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
-  @media (max-width: 768px) { .hub-grid { grid-template-columns: repeat(2, 1fr); } }
-  @media (max-width: 480px) { .hub-grid { grid-template-columns: 1fr; } }
   .hub-btn {
-    background: #0d0d0d;
-    border: 1px solid #1f1f1f;
-    border-radius: 6px;
-    padding: 20px 15px;
+    background: #141414;
+    border: 1px solid #222222;
+    border-radius: 4px;
+    padding: 18px 12px;
     color: #ffffff;
     text-decoration: none;
-    font-size: 14px;
+    font-size: 13px;
     font-weight: 500;
-    transition: all 0.3s ease;
+    transition: all 0.2s ease-in-out;
     display: flex;
     flex-direction: column;
+    align-items: center;
+    justify-content: center;
     gap: 6px;
   }
-  .hub-btn:hover { border-color: #ffffff; background: #141414; transform: translateY(-3px); }
-  .hub-btn span { color: #525252; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
-  .hub-btn:hover span { color: #ffffff; }
-
-  @keyframes fadeUp { to { opacity: 1; transform: translateY(0); } }
+  .hub-btn:hover {
+    border-color: #ffffff; /* Premium Pure White border highlight */
+    background: #191919;
+    transform: translateY(-2px);
+  }
+  .hub-btn span {
+    color: #888888;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    transition: color 0.2s ease-in-out;
+  }
+  .hub-btn:hover span {
+    color: #ffffff; /* Pure White subtitle text on hover */
+  }
+  .arrow {
+    font-size: 14px;
+    font-weight: bold;
+  }
 </style>
 </head>
 <body>
 
-  <section class="hero-section">
-    <div class="hero-badge">Supernova Operations</div>
-    <h1 class="headline">The End of the<br>Streaming Plateau.</h1>
-    <p class="subheadline">You’ve proven you can earn on TikTok Live. Now build the system that protects and multiplies your success.</p>
-    <a onclick="document.getElementById('assessment').scrollIntoView({behavior: 'smooth'});" class="premium-btn">Take Free Growth Assessment →</a>
-  </section>
+<div class="hub-container">
+  <div class="hub-title">Verified Agency Integration Comms</div>
+  <div class="hub-grid">
+    
+    <!-- CHANNEL 1: TIKTOK USA -->
+    <a href="https://www.tiktok.com/@supernova_us" target="_blank" class="hub-btn">
+      TikTok USA <span class="arrow">↗</span>
+      <span>US Territory</span>
+    </a>
 
-  <section id="assessment" class="quiz-section">
-    <div id="quiz-form">
-      <h2>Creator Growth Score™</h2>
-      
-      <div class="question-block">
-        <label for="volume">Current Monthly Diamond Volume</label>
-        <select id="volume">
-          <option value="high">150K - 500K+ Diamonds/mo</option>
-          <option value="mid">50K - 150K Diamonds/mo</option>
-          <option value="low">Under 50K Diamonds/mo</option>
-        </select>
-      </div>
+    <!-- CHANNEL 2: TIKTOK UK -->
+    <a href="https://www.tiktok.com/@supernova__uk" target="_blank" class="hub-btn">
+      TikTok UK <span class="arrow">↗</span>
+      <span>UK Territory</span>
+    </a>
 
-      <div class="question-block">
-        <label for="hours">Average Weekly Live Streaming Hours</label>
-        <select id="hours">
-          <option value="optimized">12 - 25 Hours (Structured)</option>
-          <option value="overworked">25+ Hours (High Burnout Risk)</option>
-          <option value="irregular">Under 12 Hours (Inconsistent)</option>
-        </select>
-      </div>
+    <!-- CHANNEL 3: SECURE WHATSAPP -->
+    <a href="https://wa.me/447923116272" target="_blank" class="hub-btn">
+      WhatsApp <span class="arrow">↗</span>
+      <span>Secure Gateway</span>
+    </a>
 
-      <div class="question-block">
-        <label for="challenge">Primary Algorithmic Core Bottleneck</label>
-        <select id="challenge">
-          <option value="retention">Viewer Retention & Sudden View Drops</option>
-          <option value="conversion">Gifter Monotonization & Flat Income</option>
-          <option value="policy">Policy Anxiety & Compliance Warnings</option>
-        </select>
-      </div>
+    <!-- CHANNEL 4: DISCORD HQ -->
+    <a href="https://discord.gg/TpEBMADW" target="_blank" class="hub-btn">
+      Discord HQ <span class="arrow">↗</span>
+      <span>Creator Network</span>
+    </a>
 
-      <button type="button" class="btn-submit" onclick="calculateScore()">Analyze Performance Metrics</button>
-    </div>
-
-    <div id="quiz-result" class="result-block">
-      <h2>Diagnostics Matrix Complete</h2>
-      <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #525252; margin-top: 15px;">CREATOR INSIGHT INDEX</div>
-      <div class="score-display" id="score-val">00/100</div>
-      <div class="feedback-box" id="feedback-val"></div>
-      <a href="https://forms.gle/g8J1CTPfWCPvxmpk8" class="cta-link">Apply For A Free Stream Audit & Review →</a>
-    </div>
-  </section>
-
-  <footer class="hub-footer">
-    <div class="hub-title">Verified Agency Integration Comms</div>
-    <div class="hub-grid">
-      <a href="https://www.tiktok.com/@supernova_us" target="_blank" class="hub-btn">TikTok USA <span>US Territory</span></a>
-      <a href="https://www.tiktok.com/@supernova__uk" target="_blank" class="hub-btn">TikTok UK <span>UK Territory</span></a>
-      <a href="https://wa.me/447923116272" target="_blank" class="hub-btn">WhatsApp <span>Secure Gateway</span></a>
-      <a href="https://discord.gg/TpEBMADW" target="_blank" class="hub-btn">Discord HQ <span>Creator Network</span></a>
-    </div>
-  </footer>
-
-<script>
-function calculateScore() {
-  const vol = document.getElementById('volume').value;
-  const hrs = document.getElementById('hours').value;
-  const chal = document.getElementById('challenge').value;
-  
-  let score = 85;
-  let feedback = "";
-
-  if (vol === 'high') score -= 5;
-  if (vol === 'mid') score -= 15;
-  if (vol === 'low') score -= 30;
-
-  if (hrs === 'overworked') {
-    score -= 15;
-    feedback += "High structural burnout risks found. Your revenue is tied directly to physical exhaustion rather than operational systems. ";
-  } else if (hrs === 'irregular') {
-    score -= 10;
-    feedback += "Inconsistent pacing anchors your visibility index lower in the platform's algorithmic queue. ";
-  }
-
-  if (chal === 'retention') {
-    score -= 10;
-    feedback += "Critical retention leaks detected during your peak viewer onboarding sequence.";
-  } else if (chal === 'conversion') {
-    score -= 12;
-    feedback += "Gifter dependency concentration is unsustainably narrow. You require optimized conversion scaling frameworks.";
-  } else if (chal === 'policy') {
-    score -= 5;
-    feedback += "Account safety parameters show severe regulatory risk exposure.";
-  }
-
-  if (score > 80) {
-    feedback = "Strong baseline performance, but highly vulnerable to unexpected platform shifts and retention plateaus. Optimization is highly recommended.";
-  }
-
-  document.getElementById('quiz-form').style.display = 'none';
-  document.getElementById('score-val').innerText = score + "/100";
-  document.getElementById('feedback-val').innerText = feedback;
-  document.getElementById('quiz-result').style.display = 'block';
-}
-</script>
+  </div>
+</div>
 
 </body>
 </html>
