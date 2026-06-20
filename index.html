@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Supernova | Talent Systems & Growth Intelligence</title>
+<title>Supernova | International Talent Systems & Growth Intelligence</title>
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
   html { scroll-behavior: smooth; }
@@ -12,285 +12,332 @@
     color: #ffffff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
     overflow-x: hidden;
-    line-height: 1.5;
+    line-height: 1.6;
   }
 
-  /* PREMIUM FIXED NAVIGATION BAR */
+  /* PREMIUM FIXED GLASS NAVIGATION */
   .navbar {
     position: fixed;
     top: 0;
     width: 100%;
-    background: rgba(5, 5, 5, 0.75);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    background: rgba(5, 5, 5, 0.8);
+    backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.03);
     z-index: 1000;
     padding: 20px 40px;
     display: flex;
     justify-content: space-between;
     align-items: center;
   }
-  .nav-logo {
-    font-size: 16px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: #ffffff;
-    cursor: pointer;
-  }
+  @media (max-width: 768px) { .navbar { padding: 20px; } }
+  
+  .nav-logo-img { height: 32px; width: auto; object-fit: contain; cursor: pointer; }
+  
+  .right-nav { display: flex; align-items: center; gap: 40px; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
+  @media (max-width: 768px) { .nav-links { display: none; } }
+  
   .nav-item {
-    font-size: 13px;
-    font-weight: 500;
+    font-size: 12px;
+    font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    color: #8c8c8c;
+    letter-spacing: 2px;
+    color: #737373;
     cursor: pointer;
     transition: color 0.3s ease;
   }
   .nav-item:hover, .nav-item.active { color: #ffffff; }
 
-  /* APP CONTENT VIEW MANAGER */
+  /* MULTI-LANGUAGE SELECTOR CAPSULE */
+  .lang-selector {
+    display: inline-flex;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    padding: 4px;
+    border-radius: 20px;
+  }
+  .lang-btn {
+    background: transparent;
+    border: none;
+    color: #666666;
+    font-size: 11px;
+    font-weight: 700;
+    padding: 6px 14px;
+    border-radius: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+  .lang-btn.active { background: #ffffff; color: #000000; }
+
+  /* APP VIEW CONTROLLER */
   .page-view { display: none; padding-top: 100px; width: 100%; min-height: 100vh; flex-direction: column; align-items: center; }
   .page-view.active { display: flex; }
+  .container { width: 100%; max-width: 1100px; padding: 40px 20px; }
 
-  .container { width: 100%; max-width: 1000px; padding: 40px 20px; }
-
-  /* HERO COMPONENT SETUP */
-  .hero-block { text-align: center; padding: 80px 0 60px 0; position: relative; }
+  /* DYNAMIC HERO LAYOUT WITH HIGH-END BACKGROUND IMAGE */
+  .hero-block {
+    text-align: center;
+    padding: 120px 20px;
+    position: relative;
+    border-radius: 16px;
+    overflow: hidden;
+    background-image: linear-gradient(180deg, rgba(5,5,5,0.4) 0%, #050505 100%), url('hero-bg.png');
+    background-size: cover;
+    background-position: center;
+    border: 1px solid rgba(255,255,255,0.02);
+    box-shadow: inset 0 0 100px rgba(0,0,0,0.8);
+  }
+  
   .hero-badge {
     display: inline-flex;
     align-items: center;
     gap: 8px;
-    background: rgba(255, 255, 255, 0.03);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    padding: 8px 18px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: 8px 20px;
     border-radius: 30px;
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 2px;
-    color: #8c8c8c;
-    margin-bottom: 32px;
+    letter-spacing: 2.5px;
+    color: #a3a3a3;
+    margin-bottom: 35px;
   }
   .hero-badge::before { content: ''; width: 6px; height: 6px; background: #ffffff; border-radius: 50%; box-shadow: 0 0 10px #ffffff; }
   
-  .headline { font-size: 56px; font-weight: 800; letter-spacing: -2.5px; line-height: 1.1; margin-bottom: 24px; }
-  @media (max-width: 600px) { .headline { font-size: 38px; } }
-  .subheadline { font-size: 20px; color: #a6a6a6; max-width: 680px; margin: 0 auto 48px auto; font-weight: 400; }
-  @media (max-width: 600px) { .subheadline { font-size: 16px; } }
+  .headline { font-size: 64px; font-weight: 800; letter-spacing: -3px; line-height: 1.1; margin-bottom: 28px; }
+  @media (max-width: 768px) { .headline { font-size: 40px; letter-spacing: -1.5px; } }
+  
+  .subheadline { font-size: 21px; color: #a3a3a3; max-width: 720px; margin: 0 auto 52px auto; font-weight: 400; line-height: 1.6; }
+  @media (max-width: 768px) { .subheadline { font-size: 16px; } }
 
   .btn-premium {
     display: inline-block;
     background: #ffffff;
     color: #000000;
     text-decoration: none;
-    padding: 20px 42px;
-    font-size: 14px;
-    font-weight: 600;
+    padding: 22px 46px;
+    font-size: 13px;
+    font-weight: 700;
     border-radius: 4px;
     text-transform: uppercase;
-    letter-spacing: 1px;
+    letter-spacing: 1.5px;
     transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
     cursor: pointer;
     border: 1px solid #ffffff;
   }
-  .btn-premium:hover { background: #050505; color: #ffffff; transform: translateY(-4px); box-shadow: 0 15px 30px rgba(255,255,255,0.08); }
+  .btn-premium:hover { background: #050505; color: #ffffff; transform: translateY(-4px); box-shadow: 0 20px 40px rgba(255,255,255,0.08); }
+
+  /* THE STRATEGIC ANCHOR: PAIN CRITIQUE GRID */
+  .critique-section { margin: 80px 0; }
+  .critique-header { text-align: center; margin-bottom: 50px; }
+  .critique-header h2 { font-size: 32px; font-weight: 700; letter-spacing: -1px; margin-bottom: 12px; }
+  .critique-header p { color: #737373; font-size: 16px; }
+  
+  .critique-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  @media (max-width: 768px) { .critique-grid { grid-template-columns: 1fr; } }
+  
+  .critique-card { background: #0a0a0a; border: 1px solid #141414; padding: 35px; border-radius: 8px; }
+  .critique-card h3 { font-size: 18px; font-weight: 600; margin-bottom: 14px; color: #e5e5e5; }
+  .critique-card p { color: #737373; font-size: 14px; line-height: 1.6; }
 
   /* DIAGNOSTICS MODULE CONTAINER */
   .quiz-section {
     width: 100%;
-    max-width: 600px;
-    background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
-    padding: 45px 40px;
+    max-width: 620px;
+    background: linear-gradient(180deg, #0e0e0e 0%, #070707 100%);
+    padding: 50px 45px;
     border-radius: 12px;
-    border: 1px solid #1f1f1f;
-    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    border: 1px solid #1a1a1a;
+    box-shadow: 0 40px 80px rgba(0,0,0,0.9);
     margin: 40px auto 100px auto;
   }
-  @media (max-width: 600px) { .quiz-section { padding: 30px 20px; } }
-  h2 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; border-bottom: 1px solid #1f1f1f; padding-bottom: 20px; margin-bottom: 30px; }
+  @media (max-width: 600px) { .quiz-section { padding: 35px 20px; } }
+  .quiz-section h2 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; border-bottom: 1px solid #1a1a1a; padding-bottom: 20px; margin-bottom: 35px; text-align: center; }
+  
   .question-block { margin-bottom: 32px; }
-  label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; color: #737373; }
+  label { display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 14px; color: #525252; }
+  
   select { 
-    width: 100%; padding: 16px; background: #141414; border: 1px solid #262626; border-radius: 6px; color: #ffffff; font-size: 15px; box-sizing: border-box; transition: all 0.3s ease; cursor: pointer; appearance: none; -webkit-appearance: none;
+    width: 100%; padding: 18px; background: #121212; border: 1px solid #222222; border-radius: 6px; color: #ffffff; font-size: 14px; box-sizing: border-box; transition: all 0.3s ease; cursor: pointer; appearance: none; -webkit-appearance: none;
     background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='grey'><path d='M0 3l5 5 5-5z'/></svg>"); background-repeat: no-repeat; background-position: right 20px center;
   }
-  select:focus { border-color: #ffffff; background-color: #1a1a1a; outline: none; }
-  .btn-submit { width: 100%; padding: 18px; background: #ffffff; color: #000000; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 1.5px; }
+  select:focus { border-color: #ffffff; background-color: #161616; outline: none; }
+  
+  .btn-submit { width: 100%; padding: 18px; background: #ffffff; color: #000000; border: none; border-radius: 6px; font-size: 13px; font-weight: 700; cursor: pointer; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 2px; }
+  .btn-submit:hover { opacity: 0.9; }
   
   .result-block { display: none; text-align: center; }
-  .score-display { font-size: 72px; font-weight: 800; margin: 24px 0; letter-spacing: -3px; }
-  .feedback-box { font-size: 14px; color: #cccccc; line-height: 1.6; margin-bottom: 40px; text-align: left; background: #141414; padding: 20px; border-left: 3px solid #ffffff; border-radius: 4px; }
-  .cta-link { display: inline-block; width: 100%; padding: 18px; background: transparent; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600; box-sizing: border-box; border: 1px solid #ffffff; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1.5px; text-align: center; }
-  .cta-link:hover { background: #ffffff; color: #000000; }
+  .score-display { font-size: 80px; font-weight: 800; margin: 20px 0; letter-spacing: -4px; color: #ffffff; }
+  .feedback-box { font-size: 14px; color: #a3a3a3; line-height: 1.6; margin-bottom: 40px; text-align: left; background: #121212; padding: 25px; border-left: 3px solid #ffffff; border-radius: 4px; }
 
-  /* GRID STRUCTURE SYSTEMS FOR MARKETING/ABOUT */
-  .grid-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
+  /* COMPREHENSIVE HUB PREVIEW LAYOUT (MARKETING/PHILOSOPHY) */
+  .showcase-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; margin-top: 40px; }
+  @media (max-width: 768px) { .showcase-grid { grid-template-columns: 1fr; gap: 40px; } }
+  
+  .showcase-text h2 { font-size: 38px; font-weight: 800; letter-spacing: -1.5px; line-height: 1.2; margin-bottom: 24px; }
+  .showcase-text p { color: #a3a3a3; font-size: 16px; line-height: 1.7; margin-bottom: 30px; }
+  
+  .showcase-img-box { width: 100%; border-radius: 12px; overflow: hidden; border: 1px solid #1a1a1a; background: #0a0a0a; box-shadow: 0 20px 50px rgba(0,0,0,0.6); }
+  .showcase-img-box img { width: 100%; height: auto; display: block; object-fit: cover; }
+
+  .grid-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 30px; margin-top: 60px; }
   @media (max-width: 768px) { .grid-layout { grid-template-columns: 1fr; } }
   
-  .info-card {
-    background: #0f0f0f;
-    border: 1px solid #1f1f1f;
-    padding: 40px;
-    border-radius: 8px;
-    transition: border-color 0.3s ease;
-  }
-  .info-card:hover { border-color: rgba(255,255,255,0.2); }
+  .info-card { background: #0a0a0a; border: 1px solid #141414; padding: 40px; border-radius: 8px; transition: border-color 0.3s ease; }
+  .info-card:hover { border-color: #262626; }
   .info-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.5px; }
-  .info-card p { color: #a6a6a6; font-size: 15px; line-height: 1.6; }
+  .info-card p { color: #737373; font-size: 14px; line-height: 1.6; }
   
-  /* HIGH-END IMAGE WRAPPER STYLING */
-  .graphic-box {
-    width: 100%;
-    height: 300px;
-    background: linear-gradient(135deg, #141414 0%, #070707 100%);
-    border: 1px solid #1f1f1f;
-    border-radius: 8px;
-    margin-bottom: 40px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    overflow: hidden;
-    position: relative;
-  }
-  .graphic-box img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    opacity: 0.6;
-    transition: opacity 0.5s ease;
-  }
-  .graphic-box:hover img { opacity: 0.9; }
-  .graphic-label { position: absolute; bottom: 20px; left: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666666; }
-
-  /* PLATFORM CONNECTIONS GATEWAY */
-  .hub-footer { width: 100%; max-width: 1000px; text-align: center; border-top: 1px solid #1f1f1f; padding: 60px 0; margin: 80px auto 0 auto; }
-  .hub-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #525252; margin-bottom: 30px; }
+  /* GLOBAL CONNECTIONS FOOTER */
+  .hub-footer { width: 100%; max-width: 1100px; text-align: center; border-top: 1px solid #141414; padding: 80px 20px; margin-top: auto; }
+  .hub-title { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 3px; color: #404040; margin-bottom: 35px; }
   .hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
   @media (max-width: 768px) { .hub-grid { grid-template-columns: repeat(2, 1fr); } }
   @media (max-width: 480px) { .hub-grid { grid-template-columns: 1fr; } }
+  
   .hub-btn {
-    background: #0d0d0d; border: 1px solid #1f1f1f; border-radius: 6px; padding: 20px 15px; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.3s ease; display: flex; flex-direction: column; gap: 6px;
+    background: #0a0a0a; border: 1px solid #141414; border-radius: 6px; padding: 22px 15px; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 600; transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1); display: flex; flex-direction: column; gap: 6px;
   }
-  .hub-btn:hover { border-color: #ffffff; background: #141414; transform: translateY(-3px); }
-  .hub-btn span { color: #525252; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+  .hub-btn:hover { border-color: #ffffff; background: #111111; transform: translateY(-4px); box-shadow: 0 10px 20px rgba(255,255,255,0.03); }
+  .hub-btn span { color: #525252; font-size: 10px; text-transform: uppercase; letter-spacing: 1.5px; font-weight: 500; }
   .hub-btn:hover span { color: #ffffff; }
 </style>
 </head>
 <body>
 
-  <!-- GLOBAL EXECUTIVE NAVIGATION -->
   <nav class="navbar">
-    <div class="nav-logo" onclick="switchPage('home')">Supernova</div>
-    <ul class="nav-links">
-      <li class="nav-item active" id="btn-home" onclick="switchPage('home')">Systems Hub</li>
-      <li class="nav-item" id="btn-solutions" onclick="switchPage('solutions')">Marketing Infrastructure</li>
-      <li class="nav-item" id="btn-philosophy" onclick="switchPage('philosophy')">Our Paradigm</li>
-    </ul>
+    <img src="logo.png" class="nav-logo-img" alt="SUPERNOVA" onclick="switchPage('home')">
+    <div class="right-nav">
+      <ul class="nav-links">
+        <li class="nav-item active" id="btn-home" onclick="switchPage('home')" data-i18n="nav-hub">Systems Hub</li>
+        <li class="nav-item" id="btn-solutions" onclick="switchPage('solutions')" data-i18n="nav-marketing">Infrastructure</li>
+        <li class="nav-item" id="btn-philosophy" onclick="switchPage('philosophy')" data-i18n="nav-paradigm">Our Paradigm</li>
+      </ul>
+      <div class="lang-selector">
+        <button class="lang-btn active" onclick="setLanguage('en')">EN</button>
+        <button class="lang-btn" onclick="setLanguage('jp')">JP</button>
+        <button class="lang-btn" onclick="setLanguage('ro')">RO</button>
+      </div>
+    </div>
   </nav>
 
-  <!-- ================= PAGE 1: HOME SYSTEMS HUB ================= -->
   <main class="page-view active" id="page-home">
     <section class="container">
       <div class="hero-block">
-        <div class="hero-badge">Talent Architecture</div>
-        <h1 class="headline">The End of the<br>Streaming Plateau.</h1>
-        <p class="subheadline">You’ve proven you can earn on TikTok Live. Now build the systematic infrastructure that insulates, scales, and multiplies your daily revenue engine.</p>
-        <button onclick="document.getElementById('diagnostic-matrix').scrollIntoView({behavior: 'smooth'});" class="btn-premium">Initiate Growth Assessment</button>
+        <div class="hero-badge" data-i18n="hero-badge">Talent Systems Integration</div>
+        <h1 class="headline" id="main-headline" data-i18n="hero-title">The End of the<br>Streaming Plateau.</h1>
+        <p class="subheadline" id="main-subheadline" data-i18n="hero-desc">You’ve proven you can earn on TikTok Live. Now build the systematic infrastructure that insulates, scales, and multiplies your independent revenue footprint.</p>
+        <button onclick="document.getElementById('diagnostic-matrix').scrollIntoView({behavior: 'smooth'});" class="btn-premium" data-i18n="hero-cta">Initiate Growth Assessment</button>
       </div>
 
-      <!-- INLINE DIAGNOSTICS MATRIX CALC MODULE -->
+      <div class="critique-section">
+        <div class="critique-header">
+          <h2 data-i18n="critique-title">The Market Infrastructure is Broken.</h2>
+          <p data-i18n="critique-desc">Traditional "agencies" extract percentages while offering nothing but empty promises. We operate differently.</p>
+        </div>
+        <div class="critique-grid">
+          <div class="critique-card">
+            <h3 data-i18n="c1-title">Algorithmic Stagnation</h3>
+            <p data-i18n="c1-desc">Sudden drop-offs in viewer onboarding indexes aren't luck. They happen because you lack automated pacing structures to maintain live weight limits.</p>
+          </div>
+          <div class="critique-card">
+            <h3 data-i18n="c2-title">Gifter Fragility</h3>
+            <p data-i18n="c2-desc">Relying on a tiny cluster of major gifters creates systematic high-risk vulnerabilities. We introduce conversion models to diversify support channels.</p>
+          </div>
+          <div class="critique-card">
+            <h3 data-i18n="c3-title">Regulatory Stress</h3>
+            <p data-i18n="c3-desc">Streaming under constant anxiety regarding shifting warning guidelines kills artistic energy. Our dedicated desks secure back-end channel mapping.</p>
+          </div>
+        </div>
+      </div>
+
       <div id="diagnostic-matrix" class="quiz-section">
         <div id="quiz-form">
-          <h2>Creator Growth Score™</h2>
+          <h2 data-i18n="calc-title">Creator Growth Score™</h2>
           <div class="question-block">
-            <label for="volume">Current Monthly Diamond Volume</label>
+            <label for="volume" data-i18n="q1-label">Current Monthly Diamond Volume</label>
             <select id="volume">
-              <option value="high">150K - 500K+ Diamonds/mo</option>
-              <option value="mid">50K - 150K Diamonds/mo</option>
-              <option value="low">Under 50K Diamonds/mo</option>
+              <option value="high" data-i18n="q1-o1">150K - 500K+ Diamonds/mo</option>
+              <option value="mid" data-i18n="q1-o2">50K - 150K Diamonds/mo</option>
+              <option value="low" data-i18n="q1-o3">Under 50K Diamonds/mo</option>
             </select>
           </div>
           <div class="question-block">
-            <label for="hours">Average Weekly Live Streaming Hours</label>
+            <label for="hours" data-i18n="q2-label">Average Weekly Live Streaming Hours</label>
             <select id="hours">
-              <option value="optimized">12 - 25 Hours (Structured)</option>
-              <option value="overworked">25+ Hours (High Burnout Risk)</option>
-              <option value="irregular">Under 12 Hours (Inconsistent)</option>
+              <option value="optimized" data-i18n="q2-o1">12 - 25 Hours (Structured)</option>
+              <option value="overworked" data-i18n="q2-o2">25+ Hours (High Burnout Risk)</option>
+              <option value="irregular" data-i18n="q2-o3">Under 12 Hours (Inconsistent)</option>
             </select>
           </div>
           <div class="question-block">
-            <label for="challenge">Primary Algorithmic Core Bottleneck</label>
+            <label for="challenge" data-i18n="q3-label">Primary Algorithmic Core Bottleneck</label>
             <select id="challenge">
-              <option value="retention">Viewer Retention & Sudden View Drops</option>
-              <option value="conversion">Gifter Monotonization & Flat Income</option>
-              <option value="policy">Policy Anxiety & Compliance Warnings</option>
+              <option value="retention" data-i18n="q3-o1">Viewer Retention & Sudden View Drops</option>
+              <option value="conversion" data-i18n="q3-o2">Gifter Monotonization & Flat Income</option>
+              <option value="policy" data-i18n="q3-o3">Policy Anxiety & Compliance Warnings</option>
             </select>
           </div>
-          <button type="button" class="btn-submit" onclick="calculateScore()">Analyze System Performance</button>
+          <button type="button" class="btn-submit" onclick="calculateScore()" data-i18n="calc-btn">Analyze System Performance</button>
         </div>
 
         <div id="quiz-result" class="result-block">
-          <h2>Diagnostics Complete</h2>
-          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #525252; margin-top: 15px;">CREATOR INSIGHT INDEX</div>
+          <h2 data-i18n="res-title">Diagnostics Complete</h2>
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #525252; margin-top: 15px;" data-i18n="res-index">CREATOR INSIGHT INDEX</div>
           <div class="score-display" id="score-val">00/100</div>
           <div class="feedback-box" id="feedback-val"></div>
-          <a href="https://forms.gle/g8J1CTPfWCPvxmpk8" class="cta-link">Apply For A Free Stream Audit & Review →</a>
+          <a href="https://forms.gle/g8J1CTPfWCPvxmpk8" class="cta-link" data-i18n="res-cta">Apply For A Free Stream Audit & Review →</a>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ================= PAGE 2: MARKETING INFRASTRUCTURE ================= -->
   <main class="page-view" id="page-solutions">
     <section class="container">
-      <div class="hero-block">
-        <div class="hero-badge">Growth Mechanics</div>
-        <h1 class="headline">Strategic Operational<br>Frameworks.</h1>
-        <p class="subheadline">Scaling your broadcast volume is not an art form. It is a systematic extraction of algorithmic patterns and live viewer psychology metrics.</p>
-      </div>
-
-      <!-- VISUAL IMAGE BOX PLACEHOLDER (Upload 'marketing-hub.jpg' to GitHub to change) -->
-      <div class="graphic-box">
-        <div class="graphic-label">Core Asset Array 01 / Data Feed</div>
-        <!-- Defaulting to clean typography accent style, switch 'src' to your filename when ready -->
-        <div style="font-size: 32px; font-weight: 800; opacity: 0.15; letter-spacing: 4px;">ALGORITHMIC ENGINE</div>
+      <div class="showcase-grid">
+        <div class="showcase-text">
+          <div class="hero-badge" data-i18n="m-badge">Growth Mechanics</div>
+          <h2 data-i18n="m-title">Strategic Operational Frameworks.</h2>
+          <p data-i18n="m-desc">Scaling your broadcast volume is not an artistic lottery. It is a systematic extraction of algorithmic data hooks mixed with real-time viewer psychology vectors.</p>
+        </div>
+        <div class="showcase-img-box">
+          <img src="dashboard-preview.png" alt="Growth Intelligence Dashboard">
+        </div>
       </div>
 
       <div class="grid-layout">
         <div class="info-card">
-          <h3>Retention Architecture</h3>
-          <p>We disarm immediate viewer drop-off loops by restructuring your first 180 seconds of broadcast onboarding. Turn random scrolling discovery into focused multi-hour retention blocks.</p>
+          <h3 data-i18n="m-c1-t">Retention Architecture</h3>
+          <p data-i18n="m-c1-d">We dismantle sudden viewer drop loops by restructuring your first 180 seconds of screen onboarding. Turn fast scrolling drops into high-retention structural stays.</p>
         </div>
         <div class="info-card">
-          <h3>Gifter Diversification</h3>
-          <p>Relying heavily on a narrow base of heavy gifters exposes your ecosystem to massive systematic financial vulnerability. We deploy behavioral conversion parameters to build horizontal micro-gifting armies.</p>
+          <h3 data-i18n="m-c2-t">Gifter Conversion Scaling</h3>
+          <p data-i18n="m-c2-d">Move completely past top-heavy room dependencies. We install micro-interaction sequences that naturally broaden your commercial engagement surface.</p>
         </div>
         <div class="info-card">
-          <h3>Policy Compliance Shielding</h3>
-          <p>Eliminate ongoing regulatory anxieties. Our compliance integration actively maps evolving policy matrices to secure your profile against accidental system warning thresholds or unpredicted algorithmic bans.</p>
+          <h3 data-i18n="m-c3-t">Localized Regional Scaling</h3>
+          <p data-i18n="m-c3-d">Expand outside localized regional pockets. Our technical frameworks route stream traffic markers to hook high-value international viewer pools safely.</p>
         </div>
         <div class="info-card">
-          <h3>Hardware & Workspace Optimization</h3>
-          <p>Maximizing live audience loyalty demands optimal technical execution. We audit and adjust custom dedicated streaming suites—ensuring maximum resolution compression architectures and fluid real-time delivery.</p>
+          <h3 data-i18n="m-c4-t">Stream Suite Engineering</h3>
+          <p data-i18n="m-c4-d">Eliminate hardware rendering choke points. We optimize visual parameters and setup compression loops to assure fluid, ultra-clean interaction feedback profiles.</p>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ================= PAGE 3: THE PARADIGM / ABOUT ================= -->
   <main class="page-view" id="page-philosophy">
     <section class="container">
-      <div class="hero-block">
-        <div class="hero-badge">Talent Advisory Philosophy</div>
-        <h1 class="headline">We Are Not An Agency.<br>We Are Your Growth Partners.</h1>
-        <p class="subheadline">Traditional agencies build dependencies to feed off creative output. We install standalone commercial structures directly into your independent career footprint.</p>
-      </div>
-
-      <!-- VISUAL IMAGE BOX PLACEHOLDER (Upload 'philosophy-hub.jpg' to GitHub to change) -->
-      <div class="graphic-box">
-        <div class="graphic-label">Corporate Alignment Matrix 02</div>
-        <div style="font-size: 32px; font-weight: 800; opacity: 0.15; letter-spacing: 4px;">SYSTEM SUSTAINABILITY</div>
+      <div class="showcase-grid">
+        <div class="showcase-img-box" id="market-banner-view">
+          <img src="market-en.png" alt="Market Operational Matrix">
+        </div>
+        <div class="showcase-text">
+          <div class="hero-badge" data-i18n="p-badge">Talent Advisory Alignment</div>
+          <h2 data-i18n="p-title">We Are Not An Agency.<br>We Are Your Growth Partners.</h2>
+          <p data-i18n="p-desc">Traditional talent agencies engineer restrictive control models to capture creative upside. Supernova operates strictly as an structural infrastructure layer backing independent elite brands.</p>
+        </div>
       </div>
 
       <div class="grid-layout">
@@ -306,9 +353,8 @@
     </section>
   </main>
 
-  <!-- GLOBAL ROUTED COMMUNICATIONS INTEGRATION GATEWAY -->
   <footer class="hub-footer">
-    <div class="hub-title">Verified Communications Integration Comms</div>
+    <div class="hub-title" data-i18n="footer-title">Verified Communications Integration Comms</div>
     <div class="hub-grid">
       <a href="https://www.tiktok.com/@supernova_us" target="_blank" class="hub-btn">TikTok USA <span>US Territory</span></a>
       <a href="https://www.tiktok.com/@supernova__uk" target="_blank" class="hub-btn">TikTok UK <span>UK Territory</span></a>
@@ -317,23 +363,100 @@
     </div>
   </footer>
 
-  <!-- MULTI-PAGE CONTROLLER SCRIPT -->
   <script>
-    function switchPage(pageId) {
-      // Hide all standard views
-      document.querySelectorAll('.page-view').forEach(view => {
-        view.classList.remove('active');
-      });
-      // Deactivate all navbar triggers
-      document.querySelectorAll('.nav-item').forEach(item => {
-        item.classList.remove('active');
+    const i18n = {
+      en: {
+        "nav-hub": "Systems Hub", "nav-marketing": "Infrastructure", "nav-paradigm": "Our Paradigm",
+        "hero-badge": "Talent Systems Integration", "hero-title": "The End of the<br>Streaming Plateau.",
+        "hero-desc": "You’ve proven you can earn on TikTok Live. Now build the systematic infrastructure that insulates, scales, and multiplies your independent revenue footprint.",
+        "hero-cta": "Initiate Growth Assessment", "critique-title": "The Market Infrastructure is Broken.",
+        "critique-desc": "Traditional 'agencies' extract percentages while offering nothing but empty promises. We operate differently.",
+        "c1-title": "Algorithmic Stagnation", "c1-desc": "Sudden drop-offs in viewer onboarding indexes aren't luck. They happen because you lack automated pacing structures to maintain live weight limits.",
+        "c2-title": "Gifter Fragility", "c2-desc": "Relying on a tiny cluster of major gifters creates systematic high-risk vulnerabilities. We introduce conversion models to diversify support channels.",
+        "c3-title": "Regulatory Stress", "c3-desc": "Streaming under constant anxiety regarding shifting warning guidelines kills artistic energy. Our dedicated desks secure back-end channel mapping.",
+        "calc-title": "Creator Growth Score™", "q1-label": "Current Monthly Diamond Volume",
+        "q1-o1": "150K - 500K+ Diamonds/mo", "q1-o2": "50K - 150K Diamonds/mo", "q1-o3": "Under 50K Diamonds/mo",
+        "q2-label": "Average Weekly Live Streaming Hours", "q2-o1": "12 - 25 Hours (Structured)", "q2-o2": "25+ Hours (High Burnout Risk)", "q2-o3": "Under 12 Hours (Inconsistent)",
+        "q3-label": "Primary Algorithmic Core Bottleneck", "q3-o1": "Viewer Retention & Sudden View Drops", "q3-o2": "Gifter Monotonization & Flat Income", "q3-o3": "Policy Anxiety & Compliance Warnings",
+        "calc-btn": "Analyze System Performance", "res-title": "Diagnostics Complete", "res-index": "CREATOR INSIGHT INDEX", "res-cta": "Apply For A Free Stream Audit & Review →",
+        "m-badge": "Growth Mechanics", "m-title": "Strategic Operational Frameworks.", "m-desc": "Scaling your broadcast volume is not an artistic lottery. It is a systematic extraction of algorithmic data hooks mixed with real-time viewer psychology vectors.",
+        "m-c1-t": "Retention Architecture", "m-c1-d": "We dismantle sudden viewer drop loops by restructuring your first 180 seconds of screen onboarding. Turn fast scrolling drops into high-retention structural stays.",
+        "m-c2-t": "Gifter Conversion Scaling", "m-c2-d": "Move completely past top-heavy room dependencies. We install micro-interaction sequences that naturally broaden your commercial engagement surface.",
+        "m-c3-t": "Localized Regional Scaling", "m-c3-d": "Expand outside localized regional pockets. Our technical frameworks route stream traffic markers to hook high-value international viewer pools safely.",
+        "m-c4-t": "Stream Suite Engineering", "m-c4-d": "Eliminate hardware rendering choke points. We optimize visual parameters and setup compression loops to assure fluid, ultra-clean interaction feedback profiles.",
+        "p-badge": "Talent Advisory Alignment", "p-title": "We Are Not An Agency.<br>We Are Your Growth Partners.", "p-desc": "Traditional talent agencies engineer restrictive control models to capture creative upside. Supernova operates strictly as an structural infrastructure layer backing independent elite brands.",
+        "footer-title": "Verified Communications Integration Comms"
+      },
+      jp: {
+        "nav-hub": "システムハブ", "nav-marketing": "インフラ構築", "nav-paradigm": "私たちの理念",
+        "hero-badge": "プロフェッショナル配信システム統合", "hero-title": "配信プラトーの終焉、<br>真のスケールへ。",
+        "hero-desc": "TikTok Liveでの実績はすでに証明されています。これからは、あなたの独立した収益基盤を守り、安定的に倍増させる構造的なシステムを構築する番です。",
+        "hero-cta": "無料成長診断を開始する", "critique-title": "既存の「事務所」という仕組みの限界",
+        "critique-desc": "根拠のない言葉だけで高い手数料を徴収する従来のMCNとは一線を画し、私たちは完全な技術とバックエンドシステムを提供します。",
+        "c1-title": "アルゴリズムの停滞要因", "c1-desc": "視聴者流入数の急激な減少は「運」ではありません。配信内のエンゲージメント維持パターンの欠如が原因です。",
+        "c2-title": "ギフター依存のリスク", "c2-desc": "一部のコアなギフターのみに依存することは、配信活動における最大の財務リスクです。ファン層を健全に多角化する転換モデルを導入します。",
+        "c3-title": "アカウント運用の安全性", "c3-desc": "警告や規制ガイドラインの度重なる変更による不安は、創造的なエネルギーを奪います。専任デスクがあなたのアカウントの安全性を背後から完全に保護します。",
+        "calc-title": "クリエイター成長指数測定（スコア）", "q1-label": "現在の月間平均獲得ダイヤモンドボリューム",
+        "q1-o1": "15万 - 50万+ Diamonds/月", "q1-o2": "5万 - 15万 Diamonds/月", "q1-o3": "5万 Diamonds未満/月",
+        "q2-label": "週間平均ライブ配信時間", "q2-o1": "12 - 25 時間（効率的かつ構造化された配信）", "q2-o2": "25 時間以上（過労・燃え尽きのリスク高）", "q2-o3": "12 時間未満（不定期・露出不足の傾向）",
+        "q3-label": "現在直面している最も深刻なボトルネック", "q3-o1": "視聴者維持率の低下および急激なアクティブ減少", "q3-o2": "ギフター層の固定化による収益の頭打ち", "q3-o3": "コミュニティガイドライン等の規約違反リスクへの不安",
+        "calc-btn": "パフォーマンス指標を分析する", "res-title": "システム診断完了", "res-index": "クリエイター成長潜在指数", "res-cta": "無料個別配信アカウント監査を申請する →",
+        "m-badge": "成長ロジック", "m-title": "戦略的データ運用フレームワーク", "m-desc": "配信ボリュームの拡大は偶然の産物ではありません。プラットフォームのアルゴリズム特性の抽出と、リアルタイムの視聴者心理の科学的分析によるものです。",
+        "m-c1-t": "視聴維持リテンション構造", "m-c1-d": "最初の180秒間のユーザー体験を再構築。スクロールで通り過ぎるだけだった新規視聴者を、中長期的なコアリスナーへと定着させます。",
+        "m-c2-t": "収益転換の最適化", "m-c2-d": "一部の大きなギフトに依存しない、持続可能な収益基盤を確立。ルーム全体の小さなエンゲージメントを積み重ねる仕組みを構築します。",
+        "m-c3-t": "国際市場へのトラフィック誘導", "m-c3-d": "国内の限られた市場から脱却。技術的なネットワーク最適化により、高価値なグローバル視聴者層へリーチを拡大します。",
+        "m-c4-t": "配信環境・機材の最適化エンジニアリング", "m-c4-d": "ハードウェアのトラブルや画質劣化による離脱をゼロに。最高画質を維持する圧縮伝送設定をバックアップします。",
+        "p-badge": "対等な成長パートナーシップ", "p-title": "私たちは「事務所（エージェンシー）」<br>ではありません。", "p-desc": "独立したトップクリエイターの声を縛るような専属契約ではなく、あなたのブランド価値を裏側から技術的に拡張・保全する、完全な技術・インフラパートナーとして機能します。",
+        "footer-title": "認証済み公式機関連携ゲートウェイ"
+      },
+      ro: {
+        "nav-hub": "Sisteme Core", "nav-marketing": "Infrastructură", "nav-paradigm": "Paradigma Noastră",
+        "hero-badge": "Integrare Sisteme Talent", "hero-title": "Sfârșitul Plafonării<br>În Streaming.",
+        "hero-desc": "Ai demonstrat deja că poți genera volum pe TikTok Live. Acum este momentul să construiești infrastructura sistematică ce îți protejează, securizează și multiplică veniturile.",
+        "hero-cta": "Inițiază Evaluarea de Creștere", "critique-title": "Infrastructura Actuală de Management este Defectă.",
+        "critique-desc": "Agensiile tradiționale opresc procente masive oferind doar promisiuni goale. Modelul nostru de consultanță funcționează complet diferit.",
+        "c1-title": "Stagnare Algoritmica", "c1-desc": "Scăderile bruște de audiență nu sunt o chestiune de noroc. Apar din cauza lipsei unei structuri strategice de ritm live capabile să mențină indexul platformei.",
+        "c2-title": "Vulnerabilitatea Gifterilor", "c2-desc": "Baza de venituri concentrată pe doar 2-3 gifteri majori expune contul tău unui risc financiar masiv. Introducem modele de diversificare structurală.",
+        "c3-title": "Presiune Regulamentară", "c3-desc": "Streamingul sub anxietate constantă din cauza avertismentelor blochează energia creativă. Birourile noastre tehnice securizează maparea contului direct în spate.",
+        "calc-title": "Creator Growth Score™", "q1-label": "Volumul Lunar Actual de Diamante",
+        "q1-o1": "150K - 500K+ Diamante/lună", "q1-o2": "50K - 150K Diamante/lună", "q1-o3": "Sub 50K Diamante/lună",
+        "q2-label": "Media Săptămânală de Ore de Live", "q2-o1": "12 - 25 Ore (Structurat și Eficient)", "q2-o2": "Peste 25 Ore (Risc Ridicat de Burnout)", "q2-o3": "Sub 12 Ore (Inconsistent / Vizibilitate Redusă)",
+        "q3-label": "Principalul Blocaj Algoritmice Înfruntat", "q3-o1": "Retenția Audienei & Scăderi Bruște de View-uri", "q3-o2": "Monotonizarea Gifterilor & Venit Plat", "q3-o3": "Anxietate Legată de Politici & Avertismente de Conformitate",
+        "calc-btn": "Analizează Performanța", "res-title": "Diagnostic Finalizat", "res-index": "INDEXUL DE CREȘTERE AL CREATORULUI", "res-cta": "Aplică Pentru un Audit de Stream Gratuit →",
+        "m-badge": "Mecanica de Creștere", "m-title": "Framework-uri Operaționale și Strategice.", "m-desc": "Scalarea volumului tău în live nu este o loterie artistică. Este o extracție exactă din algoritmi combinată cu vectori de psihologie comportamentală a audienței în timp real.",
+        "m-c1-t": "Arhitectura Retenției", "m-c1-d": "Eliminăm buclele de drop-off restructurând primele 180 de secunde ale live-ului tău. Transformăm utilizatorii care navighează rapid în spectatori fideli pe termen lung.",
+        "m-c2-t": "Scalarea Conversiei Gifterilor", "m-c2-d": "Depășește dependența camerelor grele. Instalăm secvențe de micro-interacțiune care lărgesc în mod organic suprafața de susținere financiară.",
+        "m-c3-t": "Scalare Internațională Directă", "m-c3-d": "Ieși din limitele algoritmului local regional. Sistemele noastre tehnice ghidează markerii de trafic pentru a deschide comunități internaționale de mare valoare.",
+        "m-c4-t": "Optimizare Tehnică de Stream", "m-c4-d": "Elimină problemele tehnice de randare. Optimizăm parametrii hardware și setările de compresie video pentru un stream perfect fluid și clar.",
+        "p-badge": "Aliniere Partener de Creștere", "p-title": "Nu Suntem o Agenție.<br>Suntem Partenerii Tăi de Creștere.", "p-desc": "Agențiile tradiționale de management creează modele restrictive de control. Supernova operează strict ca un strat de suport tehnic și strategic pentru branduri independente.",
+        "footer-title": "Canale de Comunicare Securizate și Verificate"
+      }
+    };
+
+    function setLanguage(lang) {
+      document.querySelectorAll('.lang-btn').forEach(btn => btn.classList.remove('active'));
+      event.target.classList.add('active');
+      
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (i18n[lang][key]) {
+          el.innerHTML = i18n[lang][key];
+        }
       });
       
-      // Activate selected page and navbar elements
+      // Dynamic psychological visual switcher for banners
+      const banner = document.querySelector('#market-banner-view img');
+      if (banner) {
+        banner.src = `market-${lang}.png`;
+      }
+    }
+
+    function switchPage(pageId) {
+      document.querySelectorAll('.page-view').forEach(view => view.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(item => item.classList.remove('active'));
+      
       document.getElementById('page-' + pageId).classList.add('active');
       document.getElementById('btn-' + pageId).classList.add('active');
-      
-      // Reset view depth window placement instantly
       window.scrollTo(0, 0);
     }
 
@@ -366,10 +489,6 @@
       } else if (chal === 'policy') {
         score -= 5;
         feedback += "Account safety parameters show severe regulatory risk exposure.";
-      }
-
-      if (score > 80) {
-        feedback = "Strong baseline performance, but highly vulnerable to unexpected platform shifts and retention plateaus. Optimization is highly recommended.";
       }
 
       document.getElementById('quiz-form').style.display = 'none';
