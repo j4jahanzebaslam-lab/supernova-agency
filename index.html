@@ -2,113 +2,382 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Supernova | Talent Systems & Growth Intelligence</title>
 <style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
   body {
-    background-color: #0d0d0d;
+    background-color: #050505;
     color: #ffffff;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    margin: 0;
-    padding: 10px;
-    display: flex;
-    justify-content: center;
+    overflow-x: hidden;
+    line-height: 1.5;
   }
-  .hub-container {
+
+  /* PREMIUM FIXED NAVIGATION BAR */
+  .navbar {
+    position: fixed;
+    top: 0;
     width: 100%;
-    max-width: 900px;
-    text-align: center;
+    background: rgba(5, 5, 5, 0.75);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    z-index: 1000;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
-  .hub-title {
-    font-size: 13px;
-    font-weight: 600;
-    text-transform: uppercase;
+  .nav-logo {
+    font-size: 16px;
+    font-weight: 700;
     letter-spacing: 2px;
-    color: #666666;
-    margin-bottom: 20px;
-  }
-  .hub-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 12px;
-  }
-  @media (max-width: 768px) {
-    .hub-grid {
-      grid-template-columns: repeat(2, 1fr);
-    }
-  }
-  @media (max-width: 480px) {
-    .hub-grid {
-      grid-template-columns: 1fr;
-    }
-  }
-  .hub-btn {
-    background: #141414;
-    border: 1px solid #222222;
-    border-radius: 4px;
-    padding: 18px 12px;
+    text-transform: uppercase;
     color: #ffffff;
-    text-decoration: none;
+    cursor: pointer;
+  }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-item {
     font-size: 13px;
     font-weight: 500;
-    transition: all 0.2s ease-in-out;
-    display: flex;
-    flex-direction: column;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #8c8c8c;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+  .nav-item:hover, .nav-item.active { color: #ffffff; }
+
+  /* APP CONTENT VIEW MANAGER */
+  .page-view { display: none; padding-top: 100px; width: 100%; min-height: 100vh; flex-direction: column; align-items: center; }
+  .page-view.active { display: flex; }
+
+  .container { width: 100%; max-width: 1000px; padding: 40px 20px; }
+
+  /* HERO COMPONENT SETUP */
+  .hero-block { text-align: center; padding: 80px 0 60px 0; position: relative; }
+  .hero-badge {
+    display: inline-flex;
     align-items: center;
-    justify-content: center;
-    gap: 6px;
-  }
-  .hub-btn:hover {
-    border-color: #ffffff; /* Premium Pure White border highlight */
-    background: #191919;
-    transform: translateY(-2px);
-  }
-  .hub-btn span {
-    color: #888888;
+    gap: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: 8px 18px;
+    border-radius: 30px;
     font-size: 11px;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
-    transition: color 0.2s ease-in-out;
+    letter-spacing: 2px;
+    color: #8c8c8c;
+    margin-bottom: 32px;
   }
-  .hub-btn:hover span {
-    color: #ffffff; /* Pure White subtitle text on hover */
-  }
-  .arrow {
+  .hero-badge::before { content: ''; width: 6px; height: 6px; background: #ffffff; border-radius: 50%; box-shadow: 0 0 10px #ffffff; }
+  
+  .headline { font-size: 56px; font-weight: 800; letter-spacing: -2.5px; line-height: 1.1; margin-bottom: 24px; }
+  @media (max-width: 600px) { .headline { font-size: 38px; } }
+  .subheadline { font-size: 20px; color: #a6a6a6; max-width: 680px; margin: 0 auto 48px auto; font-weight: 400; }
+  @media (max-width: 600px) { .subheadline { font-size: 16px; } }
+
+  .btn-premium {
+    display: inline-block;
+    background: #ffffff;
+    color: #000000;
+    text-decoration: none;
+    padding: 20px 42px;
     font-size: 14px;
-    font-weight: bold;
+    font-weight: 600;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    cursor: pointer;
+    border: 1px solid #ffffff;
   }
+  .btn-premium:hover { background: #050505; color: #ffffff; transform: translateY(-4px); box-shadow: 0 15px 30px rgba(255,255,255,0.08); }
+
+  /* DIAGNOSTICS MODULE CONTAINER */
+  .quiz-section {
+    width: 100%;
+    max-width: 600px;
+    background: linear-gradient(180deg, #111111 0%, #0a0a0a 100%);
+    padding: 45px 40px;
+    border-radius: 12px;
+    border: 1px solid #1f1f1f;
+    box-shadow: 0 30px 60px rgba(0,0,0,0.8);
+    margin: 40px auto 100px auto;
+  }
+  @media (max-width: 600px) { .quiz-section { padding: 30px 20px; } }
+  h2 { font-size: 24px; font-weight: 600; letter-spacing: -0.5px; border-bottom: 1px solid #1f1f1f; padding-bottom: 20px; margin-bottom: 30px; }
+  .question-block { margin-bottom: 32px; }
+  label { display: block; font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 14px; color: #737373; }
+  select { 
+    width: 100%; padding: 16px; background: #141414; border: 1px solid #262626; border-radius: 6px; color: #ffffff; font-size: 15px; box-sizing: border-box; transition: all 0.3s ease; cursor: pointer; appearance: none; -webkit-appearance: none;
+    background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='10' height='10' fill='grey'><path d='M0 3l5 5 5-5z'/></svg>"); background-repeat: no-repeat; background-position: right 20px center;
+  }
+  select:focus { border-color: #ffffff; background-color: #1a1a1a; outline: none; }
+  .btn-submit { width: 100%; padding: 18px; background: #ffffff; color: #000000; border: none; border-radius: 6px; font-size: 14px; font-weight: 600; cursor: pointer; transition: all 0.2s ease; text-transform: uppercase; letter-spacing: 1.5px; }
+  
+  .result-block { display: none; text-align: center; }
+  .score-display { font-size: 72px; font-weight: 800; margin: 24px 0; letter-spacing: -3px; }
+  .feedback-box { font-size: 14px; color: #cccccc; line-height: 1.6; margin-bottom: 40px; text-align: left; background: #141414; padding: 20px; border-left: 3px solid #ffffff; border-radius: 4px; }
+  .cta-link { display: inline-block; width: 100%; padding: 18px; background: transparent; color: #ffffff; text-decoration: none; border-radius: 6px; font-size: 14px; font-weight: 600; box-sizing: border-box; border: 1px solid #ffffff; transition: all 0.3s ease; text-transform: uppercase; letter-spacing: 1.5px; text-align: center; }
+  .cta-link:hover { background: #ffffff; color: #000000; }
+
+  /* GRID STRUCTURE SYSTEMS FOR MARKETING/ABOUT */
+  .grid-layout { display: grid; grid-template-columns: repeat(2, 1fr); gap: 40px; margin-top: 40px; }
+  @media (max-width: 768px) { .grid-layout { grid-template-columns: 1fr; } }
+  
+  .info-card {
+    background: #0f0f0f;
+    border: 1px solid #1f1f1f;
+    padding: 40px;
+    border-radius: 8px;
+    transition: border-color 0.3s ease;
+  }
+  .info-card:hover { border-color: rgba(255,255,255,0.2); }
+  .info-card h3 { font-size: 20px; font-weight: 600; margin-bottom: 16px; letter-spacing: -0.5px; }
+  .info-card p { color: #a6a6a6; font-size: 15px; line-height: 1.6; }
+  
+  /* HIGH-END IMAGE WRAPPER STYLING */
+  .graphic-box {
+    width: 100%;
+    height: 300px;
+    background: linear-gradient(135deg, #141414 0%, #070707 100%);
+    border: 1px solid #1f1f1f;
+    border-radius: 8px;
+    margin-bottom: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    position: relative;
+  }
+  .graphic-box img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.6;
+    transition: opacity 0.5s ease;
+  }
+  .graphic-box:hover img { opacity: 0.9; }
+  .graphic-label { position: absolute; bottom: 20px; left: 20px; font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #666666; }
+
+  /* PLATFORM CONNECTIONS GATEWAY */
+  .hub-footer { width: 100%; max-width: 1000px; text-align: center; border-top: 1px solid #1f1f1f; padding: 60px 0; margin: 80px auto 0 auto; }
+  .hub-title { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 2px; color: #525252; margin-bottom: 30px; }
+  .hub-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+  @media (max-width: 768px) { .hub-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 480px) { .hub-grid { grid-template-columns: 1fr; } }
+  .hub-btn {
+    background: #0d0d0d; border: 1px solid #1f1f1f; border-radius: 6px; padding: 20px 15px; color: #ffffff; text-decoration: none; font-size: 14px; font-weight: 500; transition: all 0.3s ease; display: flex; flex-direction: column; gap: 6px;
+  }
+  .hub-btn:hover { border-color: #ffffff; background: #141414; transform: translateY(-3px); }
+  .hub-btn span { color: #525252; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; }
+  .hub-btn:hover span { color: #ffffff; }
 </style>
 </head>
 <body>
 
-<div class="hub-container">
-  <div class="hub-title">Verified Agency Integration Comms</div>
-  <div class="hub-grid">
-    
-    <!-- CHANNEL 1: TIKTOK USA -->
-    <a href="https://www.tiktok.com/@supernova_us" target="_blank" class="hub-btn">
-      TikTok USA <span class="arrow">↗</span>
-      <span>US Territory</span>
-    </a>
+  <!-- GLOBAL EXECUTIVE NAVIGATION -->
+  <nav class="navbar">
+    <div class="nav-logo" onclick="switchPage('home')">Supernova</div>
+    <ul class="nav-links">
+      <li class="nav-item active" id="btn-home" onclick="switchPage('home')">Systems Hub</li>
+      <li class="nav-item" id="btn-solutions" onclick="switchPage('solutions')">Marketing Infrastructure</li>
+      <li class="nav-item" id="btn-philosophy" onclick="switchPage('philosophy')">Our Paradigm</li>
+    </ul>
+  </nav>
 
-    <!-- CHANNEL 2: TIKTOK UK -->
-    <a href="https://www.tiktok.com/@supernova__uk" target="_blank" class="hub-btn">
-      TikTok UK <span class="arrow">↗</span>
-      <span>UK Territory</span>
-    </a>
+  <!-- ================= PAGE 1: HOME SYSTEMS HUB ================= -->
+  <main class="page-view active" id="page-home">
+    <section class="container">
+      <div class="hero-block">
+        <div class="hero-badge">Talent Architecture</div>
+        <h1 class="headline">The End of the<br>Streaming Plateau.</h1>
+        <p class="subheadline">You’ve proven you can earn on TikTok Live. Now build the systematic infrastructure that insulates, scales, and multiplies your daily revenue engine.</p>
+        <button onclick="document.getElementById('diagnostic-matrix').scrollIntoView({behavior: 'smooth'});" class="btn-premium">Initiate Growth Assessment</button>
+      </div>
 
-    <!-- CHANNEL 3: SECURE WHATSAPP -->
-    <a href="https://wa.me/447923116272" target="_blank" class="hub-btn">
-      WhatsApp <span class="arrow">↗</span>
-      <span>Secure Gateway</span>
-    </a>
+      <!-- INLINE DIAGNOSTICS MATRIX CALC MODULE -->
+      <div id="diagnostic-matrix" class="quiz-section">
+        <div id="quiz-form">
+          <h2>Creator Growth Score™</h2>
+          <div class="question-block">
+            <label for="volume">Current Monthly Diamond Volume</label>
+            <select id="volume">
+              <option value="high">150K - 500K+ Diamonds/mo</option>
+              <option value="mid">50K - 150K Diamonds/mo</option>
+              <option value="low">Under 50K Diamonds/mo</option>
+            </select>
+          </div>
+          <div class="question-block">
+            <label for="hours">Average Weekly Live Streaming Hours</label>
+            <select id="hours">
+              <option value="optimized">12 - 25 Hours (Structured)</option>
+              <option value="overworked">25+ Hours (High Burnout Risk)</option>
+              <option value="irregular">Under 12 Hours (Inconsistent)</option>
+            </select>
+          </div>
+          <div class="question-block">
+            <label for="challenge">Primary Algorithmic Core Bottleneck</label>
+            <select id="challenge">
+              <option value="retention">Viewer Retention & Sudden View Drops</option>
+              <option value="conversion">Gifter Monotonization & Flat Income</option>
+              <option value="policy">Policy Anxiety & Compliance Warnings</option>
+            </select>
+          </div>
+          <button type="button" class="btn-submit" onclick="calculateScore()">Analyze System Performance</button>
+        </div>
 
-    <!-- CHANNEL 4: DISCORD HQ -->
-    <a href="https://discord.gg/TpEBMADW" target="_blank" class="hub-btn">
-      Discord HQ <span class="arrow">↗</span>
-      <span>Creator Network</span>
-    </a>
+        <div id="quiz-result" class="result-block">
+          <h2>Diagnostics Complete</h2>
+          <div style="font-size: 11px; text-transform: uppercase; letter-spacing: 2px; color: #525252; margin-top: 15px;">CREATOR INSIGHT INDEX</div>
+          <div class="score-display" id="score-val">00/100</div>
+          <div class="feedback-box" id="feedback-val"></div>
+          <a href="https://forms.gle/g8J1CTPfWCPvxmpk8" class="cta-link">Apply For A Free Stream Audit & Review →</a>
+        </div>
+      </div>
+    </section>
+  </main>
 
-  </div>
-</div>
+  <!-- ================= PAGE 2: MARKETING INFRASTRUCTURE ================= -->
+  <main class="page-view" id="page-solutions">
+    <section class="container">
+      <div class="hero-block">
+        <div class="hero-badge">Growth Mechanics</div>
+        <h1 class="headline">Strategic Operational<br>Frameworks.</h1>
+        <p class="subheadline">Scaling your broadcast volume is not an art form. It is a systematic extraction of algorithmic patterns and live viewer psychology metrics.</p>
+      </div>
+
+      <!-- VISUAL IMAGE BOX PLACEHOLDER (Upload 'marketing-hub.jpg' to GitHub to change) -->
+      <div class="graphic-box">
+        <div class="graphic-label">Core Asset Array 01 / Data Feed</div>
+        <!-- Defaulting to clean typography accent style, switch 'src' to your filename when ready -->
+        <div style="font-size: 32px; font-weight: 800; opacity: 0.15; letter-spacing: 4px;">ALGORITHMIC ENGINE</div>
+      </div>
+
+      <div class="grid-layout">
+        <div class="info-card">
+          <h3>Retention Architecture</h3>
+          <p>We disarm immediate viewer drop-off loops by restructuring your first 180 seconds of broadcast onboarding. Turn random scrolling discovery into focused multi-hour retention blocks.</p>
+        </div>
+        <div class="info-card">
+          <h3>Gifter Diversification</h3>
+          <p>Relying heavily on a narrow base of heavy gifters exposes your ecosystem to massive systematic financial vulnerability. We deploy behavioral conversion parameters to build horizontal micro-gifting armies.</p>
+        </div>
+        <div class="info-card">
+          <h3>Policy Compliance Shielding</h3>
+          <p>Eliminate ongoing regulatory anxieties. Our compliance integration actively maps evolving policy matrices to secure your profile against accidental system warning thresholds or unpredicted algorithmic bans.</p>
+        </div>
+        <div class="info-card">
+          <h3>Hardware & Workspace Optimization</h3>
+          <p>Maximizing live audience loyalty demands optimal technical execution. We audit and adjust custom dedicated streaming suites—ensuring maximum resolution compression architectures and fluid real-time delivery.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= PAGE 3: THE PARADIGM / ABOUT ================= -->
+  <main class="page-view" id="page-philosophy">
+    <section class="container">
+      <div class="hero-block">
+        <div class="hero-badge">Talent Advisory Philosophy</div>
+        <h1 class="headline">We Are Not An Agency.<br>We Are Your Growth Partners.</h1>
+        <p class="subheadline">Traditional agencies build dependencies to feed off creative output. We install standalone commercial structures directly into your independent career footprint.</p>
+      </div>
+
+      <!-- VISUAL IMAGE BOX PLACEHOLDER (Upload 'philosophy-hub.jpg' to GitHub to change) -->
+      <div class="graphic-box">
+        <div class="graphic-label">Corporate Alignment Matrix 02</div>
+        <div style="font-size: 32px; font-weight: 800; opacity: 0.15; letter-spacing: 4px;">SYSTEM SUSTAINABILITY</div>
+      </div>
+
+      <div class="grid-layout">
+        <div class="info-card">
+          <h3>The Partner Disincentive Matrix</h3>
+          <p>We work exclusively on clear structural alignment models. Our primary advisory and technological execution systems succeed solely when your long-term monthly baseline volume expands.</p>
+        </div>
+        <div class="info-card">
+          <h3>Protecting Creative Autonomy</h3>
+          <p>True talent operations scale your reach without managing or dictating your voice. You control your room layout, identity, and schedule completely; we manage the complex engineering patterns supporting it.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- GLOBAL ROUTED COMMUNICATIONS INTEGRATION GATEWAY -->
+  <footer class="hub-footer">
+    <div class="hub-title">Verified Communications Integration Comms</div>
+    <div class="hub-grid">
+      <a href="https://www.tiktok.com/@supernova_us" target="_blank" class="hub-btn">TikTok USA <span>US Territory</span></a>
+      <a href="https://www.tiktok.com/@supernova__uk" target="_blank" class="hub-btn">TikTok UK <span>UK Territory</span></a>
+      <a href="https://wa.me/447923116272" target="_blank" class="hub-btn">WhatsApp <span>Secure Gateway</span></a>
+      <a href="https://discord.gg/TpEBMADW" target="_blank" class="hub-btn">Discord HQ <span>Creator Network</span></a>
+    </div>
+  </footer>
+
+  <!-- MULTI-PAGE CONTROLLER SCRIPT -->
+  <script>
+    function switchPage(pageId) {
+      // Hide all standard views
+      document.querySelectorAll('.page-view').forEach(view => {
+        view.classList.remove('active');
+      });
+      // Deactivate all navbar triggers
+      document.querySelectorAll('.nav-item').forEach(item => {
+        item.classList.remove('active');
+      });
+      
+      // Activate selected page and navbar elements
+      document.getElementById('page-' + pageId).classList.add('active');
+      document.getElementById('btn-' + pageId).classList.add('active');
+      
+      // Reset view depth window placement instantly
+      window.scrollTo(0, 0);
+    }
+
+    function calculateScore() {
+      const vol = document.getElementById('volume').value;
+      const hrs = document.getElementById('hours').value;
+      const chal = document.getElementById('challenge').value;
+      
+      let score = 85;
+      let feedback = "";
+
+      if (vol === 'high') score -= 5;
+      if (vol === 'mid') score -= 15;
+      if (vol === 'low') score -= 30;
+
+      if (hrs === 'overworked') {
+        score -= 15;
+        feedback += "High structural burnout risks found. Your revenue is tied directly to physical exhaustion rather than operational systems. ";
+      } else if (hrs === 'irregular') {
+        score -= 10;
+        feedback += "Inconsistent pacing anchors your visibility index lower in the platform's algorithmic queue. ";
+      }
+
+      if (chal === 'retention') {
+        score -= 10;
+        feedback += "Critical retention leaks detected during your peak viewer onboarding sequence.";
+      } else if (chal === 'conversion') {
+        score -= 12;
+        feedback += "Gifter dependency concentration is unsustainably narrow. You require optimized conversion scaling frameworks.";
+      } else if (chal === 'policy') {
+        score -= 5;
+        feedback += "Account safety parameters show severe regulatory risk exposure.";
+      }
+
+      if (score > 80) {
+        feedback = "Strong baseline performance, but highly vulnerable to unexpected platform shifts and retention plateaus. Optimization is highly recommended.";
+      }
+
+      document.getElementById('quiz-form').style.display = 'none';
+      document.getElementById('score-val').innerText = score + "/100";
+      document.getElementById('feedback-val').innerText = feedback;
+      document.getElementById('quiz-result').style.display = 'block';
+    }
+  </script>
 
 </body>
 </html>
