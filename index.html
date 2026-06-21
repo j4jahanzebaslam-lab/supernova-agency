@@ -176,7 +176,7 @@
     .hero-stats .stat h3 { font-size: 28px; font-weight: 700; color: #1A1A1A; }
     .hero-stats .stat p { font-size: 13px; color: #6E6E73; }
 
-    /* ===== AWARDS - NO CARDS, LARGE IMAGES ===== */
+    /* ===== AWARDS - LARGE IMAGES, NO CARDS ===== */
     .awards { background: #F5F5F7; }
     .awards-grid {
       display: grid;
@@ -573,7 +573,7 @@
 <!-- ============================================================ -->
 <div id="lang-en" class="lang-content active">
 
-  <section class="hero">
+  <section class="hero" id="hero-en">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
@@ -581,8 +581,8 @@
           <h1>You've Already Proven You Can Earn.<br />Now Let's Make It <span class="highlight">Unstoppable.</span></h1>
           <p>Every creator hits a wall. The ones who break through don't work harder — they work smarter. <strong>We'll show you how.</strong></p>
           <div class="hero-actions">
-            <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Calculate Your Creator Growth Score</a>
-            <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> See Our Recognition</a>
+            <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> Calculate Your Creator Growth Score</a>
+            <a href="#awards" class="btn-secondary" onclick="scrollToSection('awards')"><i class="fas fa-trophy"></i> See Our Recognition</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><h3>500+</h3><p>Creators Assessed</p></div>
@@ -597,7 +597,6 @@
     </div>
   </section>
 
-  <!-- ===== AWARDS - NO CARDS, LARGE IMAGES ===== -->
   <section class="awards section-padding" id="awards">
     <div class="container">
       <span class="section-badge">✦ Recognition</span>
@@ -743,7 +742,7 @@
     <div class="container">
       <h2>The Clock Is Ticking. Your Competition Is Growing.</h2>
       <p>Every day you wait is another day you plateau. Don't let that happen.</p>
-      <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Calculate Your Creator Growth Score Now</a>
+      <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> Calculate Your Creator Growth Score Now</a>
     </div>
   </section>
 
@@ -756,7 +755,7 @@
 <!-- ============================================================ -->
 <div id="lang-jp" class="lang-content">
 
-  <section class="hero">
+  <section class="hero" id="hero-jp">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
@@ -764,8 +763,8 @@
           <h1>あなたはすでに収益を上げられることを証明した。<br />それを<span class="highlight">止められないもの</span>にしよう。</h1>
           <p>すべてのクリエイターは壁にぶつかる。乗り越える者は、よりハードに働くのではなく、よりスマートに働く。<strong>その方法を教えます。</strong></p>
           <div class="hero-actions">
-            <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> クリエイター成長スコアを計算</a>
-            <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> 受賞歴を見る</a>
+            <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> クリエイター成長スコアを計算</a>
+            <a href="#awards" class="btn-secondary" onclick="scrollToSection('awards')"><i class="fas fa-trophy"></i> 受賞歴を見る</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><h3>500+</h3><p>評価済みクリエイター</p></div>
@@ -911,7 +910,7 @@
     <div class="container">
       <h2>時計は刻んでいます。あなたの競争相手は増えています。</h2>
       <p>あなたが待つ1日1日が、停滞する日です。それを起こさせないでください。</p>
-      <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> 今すぐクリエイター成長スコアを計算</a>
+      <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> 今すぐクリエイター成長スコアを計算</a>
     </div>
   </section>
 
@@ -924,7 +923,7 @@
 <!-- ============================================================ -->
 <div id="lang-ro" class="lang-content">
 
-  <section class="hero">
+  <section class="hero" id="hero-ro">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
@@ -932,8 +931,8 @@
           <h1>Ai Demonstrat deja că Poți Câștiga.<br />Acum Hai să Facem Acest Lucru <span class="highlight">De Neoprit.</span></h1>
           <p>Fiecare creator lovește un zid. Cei care trec peste nu muncesc mai mult — muncesc mai inteligent. <strong>Noi îți arătăm cum.</strong></p>
           <div class="hero-actions">
-            <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere</a>
-            <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> Vezi Recunoașterile</a>
+            <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere</a>
+            <a href="#awards" class="btn-secondary" onclick="scrollToSection('awards')"><i class="fas fa-trophy"></i> Vezi Recunoașterile</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><h3>500+</h3><p>Creatori Evaluați</p></div>
@@ -1079,7 +1078,7 @@
     <div class="container">
       <h2>Ticăitul Ceasului. Competiția Ta Crește.</h2>
       <p>Fiecare zi în care aștepți este o zi în care stagnezi. Nu lăsa asta să se întâmple.</p>
-      <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere Acum</a>
+      <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere Acum</a>
     </div>
   </section>
 
@@ -1092,7 +1091,7 @@
 <!-- ============================================================ -->
 <div id="lang-ms" class="lang-content">
 
-  <section class="hero">
+  <section class="hero" id="hero-ms">
     <div class="container">
       <div class="hero-grid">
         <div class="hero-content">
@@ -1100,8 +1099,8 @@
           <h1>Anda Telah Buktikan Anda Boleh Meraih Pendapatan.<br />Sekarang Mari Jadikannya <span class="highlight">Tidak Tergendala.</span></h1>
           <p>Setiap kreator menemui tembok. Mereka yang berjaya tidak bekerja lebih keras — mereka bekerja lebih bijak. <strong>Kami akan tunjukkan caranya.</strong></p>
           <div class="hero-actions">
-            <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator</a>
-            <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> Lihat Pengiktirafan</a>
+            <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator</a>
+            <a href="#awards" class="btn-secondary" onclick="scrollToSection('awards')"><i class="fas fa-trophy"></i> Lihat Pengiktirafan</a>
           </div>
           <div class="hero-stats">
             <div class="stat"><h3>500+</h3><p>Kreator Dinilai</p></div>
@@ -1247,7 +1246,7 @@
     <div class="container">
       <h2>Masa Berlalu. Persaingan Anda Semakin Bertambah.</h2>
       <p>Setiap hari anda tunggu adalah hari anda mendatar. Jangan biarkan itu berlaku.</p>
-      <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator Anda Sekarang</a>
+      <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator Anda Sekarang</a>
     </div>
   </section>
 
@@ -1270,8 +1269,8 @@
       <a href="https://wa.me/447923116272" target="_blank"><i class="fab fa-whatsapp"></i></a>
     </div>
     <div class="footer-links">
-      <a href="#awards">Awards</a>
-      <a href="#form-section">Apply</a>
+      <a href="#awards" onclick="scrollToSection('awards')">Awards</a>
+      <a href="#form-section" onclick="scrollToSection('form-section')">Apply</a>
       <a href="#" onclick="switchLang('en')">English</a>
       <a href="#" onclick="switchLang('jp')">日本語</a>
       <a href="#" onclick="switchLang('ro')">Română</a>
@@ -1284,7 +1283,7 @@
 
 <!-- ===== SCRIPTS ===== -->
 <script>
-  // ===== LANGUAGE SWITCHER (WORKS FOR ALL PAGES) =====
+  // ===== LANGUAGE SWITCHER =====
   function switchLang(lang) {
     // Hide all language contents
     document.querySelectorAll('.lang-content').forEach(el => {
@@ -1308,6 +1307,25 @@
     else stopHeroRotation();
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
+
+  // ===== SCROLL TO SECTION (WORKS FOR ALL LANGUAGES) =====
+  function scrollToSection(sectionId) {
+    // Find the section in the currently active language
+    const activeLang = document.querySelector('.lang-content.active');
+    if (!activeLang) return;
+
+    // Find the target section inside the active language
+    const target = activeLang.querySelector('#' + sectionId);
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      // Fallback: try to find it anywhere in the document
+      const fallback = document.getElementById(sectionId);
+      if (fallback) {
+        fallback.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }
   }
 
   // ===== HERO IMAGE AUTO-ROTATION (ENGLISH ONLY) =====
@@ -1368,7 +1386,6 @@
       formId = 'quiz-form-ms';
       resultId = 'quiz-result-ms';
     } else {
-      // English (default)
       volumeId = 'volume';
       hoursId = 'hours';
       challengeId = 'challenge';
@@ -1444,17 +1461,6 @@
     } else {
       switchLang('en');
     }
-  });
-
-  // ===== SMOOTH SCROLL =====
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      const target = document.querySelector(this.getAttribute('href'));
-      if (target) {
-        e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    });
   });
 </script>
 
