@@ -377,8 +377,8 @@
         }
 
         .award-card img {
-            width: 100px;
-            height: 100px;
+            width: 120px;
+            height: 120px;
             border-radius: 50%;
             object-fit: cover;
             margin: 0 auto 16px;
@@ -528,7 +528,7 @@
             color: #6E6E73;
         }
 
-        /* ===== TEAM (SIMPLIFIED) ===== */
+        /* ===== TEAM ===== */
         .team {
             background: #FFFFFF;
         }
@@ -1021,6 +1021,11 @@
             .quiz-wrapper {
                 padding: 16px;
             }
+
+            .award-card img {
+                width: 80px;
+                height: 80px;
+            }
         }
 
         /* ===== LANGUAGE CONTENT ===== */
@@ -1049,40 +1054,30 @@
         </div>
     </header>
 
-    <!-- ===== ENGLISH CONTENT ===== -->
+    <!-- ============================================================ -->
+    <!-- ENGLISH CONTENT -->
+    <!-- ============================================================ -->
     <div id="lang-en" class="lang-content active">
 
-        <!-- HERO -->
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
                         <span class="badge">✦ Global Creator Network</span>
-                        <h1>
-                            You've Already Proven You Can Earn.<br />
-                            Now Let's Make It <span class="highlight">Unstoppable.</span>
-                        </h1>
-                        <p>
-                            Every creator hits a wall. The ones who break through don't work harder — they work smarter. <strong>We'll show you how.</strong>
-                        </p>
+                        <h1>You've Already Proven You Can Earn.<br />Now Let's Make It <span class="highlight">Unstoppable.</span></h1>
+                        <p>Every creator hits a wall. The ones who break through don't work harder — they work smarter. <strong>We'll show you how.</strong></p>
                         <div class="hero-actions">
-                            <a href="#quiz-section" class="btn-primary">
-                                <i class="fas fa-calculator"></i> Calculate Your Creator Growth Score
-                            </a>
-                            <a href="#awards" class="btn-secondary">
-                                <i class="fas fa-trophy"></i> See Our Recognition
-                            </a>
+                            <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Calculate Your Creator Growth Score</a>
+                            <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> See Our Recognition</a>
                         </div>
-
                         <div class="region-selector">
-                            <button class="region-btn active" onclick="switchHero('global')">🌍 Global</button>
-                            <button class="region-btn" onclick="switchHero('usa')">🇺🇸 USA</button>
-                            <button class="region-btn" onclick="switchHero('uk')">🇬🇧 UK</button>
-                            <button class="region-btn" onclick="switchHero('japan')">🇯🇵 Japan</button>
-                            <button class="region-btn" onclick="switchHero('romania')">🇷🇴 Romania</button>
-                            <button class="region-btn" onclick="switchHero('malaysia')">🇲🇾 Malaysia</button>
+                            <button class="region-btn active" data-region="global" onclick="switchHero('global', 'en')">🌍 Global</button>
+                            <button class="region-btn" data-region="usa" onclick="switchHero('usa', 'en')">🇺🇸 USA</button>
+                            <button class="region-btn" data-region="uk" onclick="switchHero('uk', 'en')">🇬🇧 UK</button>
+                            <button class="region-btn" data-region="japan" onclick="switchHero('japan', 'en')">🇯🇵 Japan</button>
+                            <button class="region-btn" data-region="romania" onclick="switchHero('romania', 'en')">🇷🇴 Romania</button>
+                            <button class="region-btn" data-region="malaysia" onclick="switchHero('malaysia', 'en')">🇲🇾 Malaysia</button>
                         </div>
-
                         <div class="hero-stats">
                             <div class="stat"><h3>500+</h3><p>Creators Assessed</p></div>
                             <div class="stat"><h3>30+</h3><p>Global Team</p></div>
@@ -1090,19 +1085,17 @@
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img id="heroImageEn" src="images/hero/hero-global.png" alt="Creator" />
+                        <img id="heroImage-en" src="images/hero/hero-global.png" alt="Creator" />
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- AWARDS -->
         <section class="awards section-padding" id="awards">
             <div class="container">
                 <span class="section-badge">✦ Recognition</span>
                 <h2 class="section-title">Award-Winning Excellence in Creator Growth</h2>
                 <p class="section-sub">We don't just talk about growth. We've been recognized by the industry's most prestigious platforms.</p>
-
                 <div class="awards-grid">
                     <div class="award-card animate-on-scroll">
                         <img src="images/award/award-1.png" alt="Award" />
@@ -1118,13 +1111,11 @@
             </div>
         </section>
 
-        <!-- EVENTS -->
         <section class="events section-padding">
             <div class="container">
                 <span class="section-badge">✦ Presence</span>
                 <h2 class="section-title">Where the Industry Gathers, We're There</h2>
                 <p class="section-sub">From global summits to exclusive creator conferences — we're embedded in the ecosystem shaping the future of LIVE content.</p>
-
                 <div class="events-grid">
                     <div class="event-card animate-on-scroll">
                         <img src="images/events/event-1.png" alt="Event" />
@@ -1137,80 +1128,40 @@
             </div>
         </section>
 
-        <!-- PROBLEMS -->
         <section class="problems section-padding">
             <div class="container">
                 <span class="section-badge">✦ The Risk</span>
                 <h2 class="section-title">The Algorithm Doesn't Care About Your Hard Work.</h2>
                 <p class="section-sub">One update. One policy change. One bad week. And everything you've built can disappear.</p>
                 <div class="problems-grid">
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>The 60% Drop</h4>
-                        <p>You wake up, go live, and your reach is cut in half. No warning. No explanation.</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-fire"></i></div>
-                        <h4>The Exhaustion Trap</h4>
-                        <p>Twice the hours. Same earnings. Your creativity is burning out faster than your bank account grows.</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-eye-slash"></i></div>
-                        <h4>The Ghost Audience</h4>
-                        <p>Viewers come. Viewers leave. You're performing to an empty room and you don't know why.</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                        <h4>The Ban Button</h4>
-                        <p>One false report. One misunderstood rule. And your career is frozen — indefinitely.</p>
-                    </div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-chart-line"></i></div><h4>The 60% Drop</h4><p>You wake up, go live, and your reach is cut in half. No warning. No explanation.</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-fire"></i></div><h4>The Exhaustion Trap</h4><p>Twice the hours. Same earnings. Your creativity is burning out faster than your bank account grows.</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-eye-slash"></i></div><h4>The Ghost Audience</h4><p>Viewers come. Viewers leave. You're performing to an empty room and you don't know why.</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4>The Ban Button</h4><p>One false report. One misunderstood rule. And your career is frozen — indefinitely.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- SOLUTIONS -->
         <section class="solutions section-padding">
             <div class="container">
                 <span class="section-badge">✦ What We Do</span>
                 <h2 class="section-title">We Don't Guess. We Engineer.</h2>
                 <p class="section-sub">Every strategy is built on data. Every move is calculated. No hustle culture. Just systems that work.</p>
                 <div class="solutions-grid">
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-brain"></i></div>
-                        <h4>Data That Tells You Why</h4>
-                        <p>Stop asking "What happened?" Start knowing exactly why your gifts rise and fall.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-sync-alt"></i></div>
-                        <h4>Repeatable Frameworks</h4>
-                        <p>No more waking up wondering what to do today. Your roadmap is already built.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-video"></i></div>
-                        <h4>Surgical Feedback</h4>
-                        <p>We watch your VODs like surgeons. Every missed hook, every retention drop — fixed.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-shield-virus"></i></div>
-                        <h4>Policy Protection</h4>
-                        <p>We've saved creators from bans. We'll protect you too.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-road"></i></div>
-                        <h4>The 90-Day Roadmap</h4>
-                        <p>No more guessing. You'll know exactly what to do — and exactly when.</p>
-                    </div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-brain"></i></div><h4>Data That Tells You Why</h4><p>Stop asking "What happened?" Start knowing exactly why your gifts rise and fall.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-sync-alt"></i></div><h4>Repeatable Frameworks</h4><p>No more waking up wondering what to do today. Your roadmap is already built.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-video"></i></div><h4>Surgical Feedback</h4><p>We watch your VODs like surgeons. Every missed hook, every retention drop — fixed.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-shield-virus"></i></div><h4>Policy Protection</h4><p>We've saved creators from bans. We'll protect you too.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-road"></i></div><h4>The 90-Day Roadmap</h4><p>No more guessing. You'll know exactly what to do — and exactly when.</p></div>
                 </div>
             </div>
         </section>
 
-        <!-- TEAM (SIMPLIFIED) -->
         <section class="team section-padding">
             <div class="container">
                 <span class="section-badge">✦ Our Team</span>
                 <h2 class="section-title">Our Global Creator Team</h2>
                 <p class="section-sub">Experts who've been where you are — and know exactly how to get you where you want to go.</p>
-
                 <div class="team-simple animate-on-scroll">
                     <img src="images/team/team-1.png" alt="Global Team" />
                     <h3>30+ Creator Strategists Worldwide</h3>
@@ -1219,7 +1170,6 @@
             </div>
         </section>
 
-        <!-- BLOX -->
         <section class="blox-section section-padding">
             <div class="container">
                 <div class="blox-content">
@@ -1228,91 +1178,35 @@
                         <h2>SUPERNOVA <span class="blox-style">BLOX</span></h2>
                         <p>Roblox is the next frontier. We're already there. The same systems that made Supernova #1 in TikTok — now powering the next generation of gaming creators across the globe.</p>
                     </div>
-                    <div>
-                        <img src="images/blox/sb-1.png" alt="Supernova Blox" />
-                    </div>
+                    <div><img src="images/blox/sb-1.png" alt="Supernova Blox" /></div>
                 </div>
             </div>
         </section>
 
-        <!-- TESTIMONIALS -->
         <section class="testimonials">
             <div class="container">
                 <span class="section-badge">✦ Social Proof</span>
                 <h2 class="section-title">Don't Take Our Word For It. Take Theirs.</h2>
                 <div class="testimonial-grid">
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"I was making $8K a month but felt like I was guessing. Supernova gave me a system — and within 90 days, I hit $15K. Same hours. Half the stress."</blockquote>
-                        <div class="author">
-                            <div class="avatar">G</div>
-                            <div>
-                                <div class="name">@GamerVault</div>
-                                <div class="handle">UK • 400K Diamonds/mo</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"I was about to quit. The algorithm changed and I lost 40% of my audience. Supernova audited my stream, fixed my hook, and within 2 weeks — I was back."</blockquote>
-                        <div class="author">
-                            <div class="avatar">L</div>
-                            <div>
-                                <div class="name">@LunaLive</div>
-                                <div class="handle">USA • 280K Diamonds/mo</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"I got a violation that made zero sense. I panicked. Supernova's risk team helped me appeal it — and set up safeguards so it never happens again."</blockquote>
-                        <div class="author">
-                            <div class="avatar">R</div>
-                            <div>
-                                <div class="name">@RyuStreams</div>
-                                <div class="handle">Japan • 350K Diamonds/mo</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"I was making $8K a month but felt like I was guessing. Supernova gave me a system — and within 90 days, I hit $15K. Same hours. Half the stress."</blockquote><div class="author"><div class="avatar">G</div><div><div class="name">@GamerVault</div><div class="handle">UK • 400K Diamonds/mo</div></div></div></div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"I was about to quit. The algorithm changed and I lost 40% of my audience. Supernova audited my stream, fixed my hook, and within 2 weeks — I was back."</blockquote><div class="author"><div class="avatar">L</div><div><div class="name">@LunaLive</div><div class="handle">USA • 280K Diamonds/mo</div></div></div></div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"I got a violation that made zero sense. I panicked. Supernova's risk team helped me appeal it — and set up safeguards so it never happens again."</blockquote><div class="author"><div class="avatar">R</div><div><div class="name">@RyuStreams</div><div class="handle">Japan • 350K Diamonds/mo</div></div></div></div>
                 </div>
             </div>
         </section>
 
-        <!-- QUIZ -->
         <section class="quiz-section" id="quiz-section">
             <div class="container">
                 <span class="section-badge" style="color:#888;">✦ Assessment</span>
                 <h2 class="section-title" style="color:#FFFFFF;">How Vulnerable Is Your Creator Career?</h2>
                 <p class="section-sub" style="color:#888; max-width:600px;">3 questions. 2 minutes. A score that tells you exactly where you're at risk.</p>
-
                 <div class="quiz-wrapper">
                     <div id="quiz-form">
                         <h2>Calculate Your Creator Growth Score™</h2>
-                        <div class="question-block">
-                            <label for="volume">Current Monthly Diamond Volume</label>
-                            <select id="volume">
-                                <option value="high">150K - 500K+ Diamonds/mo</option>
-                                <option value="mid">50K - 150K Diamonds/mo</option>
-                                <option value="low">Under 50K Diamonds/mo</option>
-                            </select>
-                        </div>
-                        <div class="question-block">
-                            <label for="hours">Average Weekly Live Streaming Hours</label>
-                            <select id="hours">
-                                <option value="optimized">12 - 25 Hours (Structured)</option>
-                                <option value="overworked">25+ Hours (High Burnout Risk)</option>
-                                <option value="irregular">Under 12 Hours (Inconsistent)</option>
-                            </select>
-                        </div>
-                        <div class="question-block">
-                            <label for="challenge">Primary Algorithmic Core Bottleneck</label>
-                            <select id="challenge">
-                                <option value="retention">Viewer Retention & Sudden View Drops</option>
-                                <option value="conversion">Gifter Monotonization & Flat Income</option>
-                                <option value="policy">Policy Anxiety & Compliance Warnings</option>
-                            </select>
-                        </div>
-                        <button type="button" class="btn-submit" onclick="calculateScore()">Analyze My Performance Metrics</button>
+                        <div class="question-block"><label for="volume">Current Monthly Diamond Volume</label><select id="volume"><option value="high">150K - 500K+ Diamonds/mo</option><option value="mid">50K - 150K Diamonds/mo</option><option value="low">Under 50K Diamonds/mo</option></select></div>
+                        <div class="question-block"><label for="hours">Average Weekly Live Streaming Hours</label><select id="hours"><option value="optimized">12 - 25 Hours (Structured)</option><option value="overworked">25+ Hours (High Burnout Risk)</option><option value="irregular">Under 12 Hours (Inconsistent)</option></select></div>
+                        <div class="question-block"><label for="challenge">Primary Algorithmic Core Bottleneck</label><select id="challenge"><option value="retention">Viewer Retention & Sudden View Drops</option><option value="conversion">Gifter Monotonization & Flat Income</option><option value="policy">Policy Anxiety & Compliance Warnings</option></select></div>
+                        <button type="button" class="btn-submit" onclick="calculateScore('en')">Analyze My Performance Metrics</button>
                     </div>
                     <div id="quiz-result" class="result-block">
                         <h2>Your Performance Matrix Diagnostics</h2>
@@ -1325,7 +1219,6 @@
             </div>
         </section>
 
-        <!-- FORM -->
         <section class="form-section" id="form-section">
             <div class="container">
                 <div style="text-align:center; margin-bottom:32px;">
@@ -1339,14 +1232,11 @@
             </div>
         </section>
 
-        <!-- FINAL CTA -->
         <section class="final-cta">
             <div class="container">
                 <h2>The Clock Is Ticking. Your Competition Is Growing.</h2>
                 <p>Every day you wait is another day you plateau. Don't let that happen.</p>
-                <a href="#quiz-section" class="btn-primary">
-                    <i class="fas fa-calculator"></i> Calculate Your Creator Growth Score Now
-                </a>
+                <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Calculate Your Creator Growth Score Now</a>
             </div>
         </section>
 
@@ -1354,8 +1244,11 @@
     <!-- END ENGLISH -->
 
 
-    <!-- ===== JAPANESE CONTENT ===== -->
+    <!-- ============================================================ -->
+    <!-- JAPANESE CONTENT -->
+    <!-- ============================================================ -->
     <div id="lang-jp" class="lang-content">
+
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
@@ -1368,12 +1261,12 @@
                             <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> 受賞歴を見る</a>
                         </div>
                         <div class="region-selector">
-                            <button class="region-btn active" onclick="switchHero('global')">🌍 グローバル</button>
-                            <button class="region-btn" onclick="switchHero('usa')">🇺🇸 アメリカ</button>
-                            <button class="region-btn" onclick="switchHero('uk')">🇬🇧 イギリス</button>
-                            <button class="region-btn" onclick="switchHero('japan')">🇯🇵 日本</button>
-                            <button class="region-btn" onclick="switchHero('romania')">🇷🇴 ルーマニア</button>
-                            <button class="region-btn" onclick="switchHero('malaysia')">🇲🇾 マレーシア</button>
+                            <button class="region-btn active" data-region="global" onclick="switchHero('global', 'jp')">🌍 グローバル</button>
+                            <button class="region-btn" data-region="usa" onclick="switchHero('usa', 'jp')">🇺🇸 アメリカ</button>
+                            <button class="region-btn" data-region="uk" onclick="switchHero('uk', 'jp')">🇬🇧 イギリス</button>
+                            <button class="region-btn" data-region="japan" onclick="switchHero('japan', 'jp')">🇯🇵 日本</button>
+                            <button class="region-btn" data-region="romania" onclick="switchHero('romania', 'jp')">🇷🇴 ルーマニア</button>
+                            <button class="region-btn" data-region="malaysia" onclick="switchHero('malaysia', 'jp')">🇲🇾 マレーシア</button>
                         </div>
                         <div class="hero-stats">
                             <div class="stat"><h3>500+</h3><p>評価済みクリエイター</p></div>
@@ -1382,7 +1275,7 @@
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img id="heroImageJp" src="images/hero/hero-global.png" alt="Creator" />
+                        <img id="heroImage-jp" src="images/hero/hero-global.png" alt="Creator" />
                     </div>
                 </div>
             </div>
@@ -1394,16 +1287,8 @@
                 <h2 class="section-title">クリエイター成長における受賞歴のある卓越性</h2>
                 <p class="section-sub">私たちは成長について語るだけではありません。業界で最も権威のあるプラットフォームから認められています。</p>
                 <div class="awards-grid">
-                    <div class="award-card animate-on-scroll">
-                        <img src="images/award/award-1.png" alt="Award" />
-                        <span class="award-title">業界からの評価</span>
-                        <span class="award-year">クリエイター開発における卓越性が認められました</span>
-                    </div>
-                    <div class="award-card animate-on-scroll">
-                        <img src="images/award/award-2.png" alt="Award" />
-                        <span class="award-title">チームの卓越性</span>
-                        <span class="award-year">クリエイター成長への新しいアプローチが評価されました</span>
-                    </div>
+                    <div class="award-card animate-on-scroll"><img src="images/award/award-1.png" alt="Award" /><span class="award-title">業界からの評価</span><span class="award-year">クリエイター開発における卓越性が認められました</span></div>
+                    <div class="award-card animate-on-scroll"><img src="images/award/award-2.png" alt="Award" /><span class="award-title">チームの卓越性</span><span class="award-year">クリエイター成長への新しいアプローチが評価されました</span></div>
                 </div>
             </div>
         </section>
@@ -1414,13 +1299,7 @@
                 <h2 class="section-title">業界が集まる場所に、私たちはいる</h2>
                 <p class="section-sub">グローバルサミットから独占的なクリエイターカンファレンスまで — 私たちはLIVEコンテンツの未来を形作るエコシステムに深く関わっています。</p>
                 <div class="events-grid">
-                    <div class="event-card animate-on-scroll">
-                        <img src="images/events/event-1.png" alt="Event" />
-                        <div class="event-info">
-                            <h4>グローバルクリエイターサミット & 業界イベント</h4>
-                            <p>世界で最も野心的なクリエイターとつながる</p>
-                        </div>
-                    </div>
+                    <div class="event-card animate-on-scroll"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>グローバルクリエイターサミット & 業界イベント</h4><p>世界で最も野心的なクリエイターとつながる</p></div></div>
                 </div>
             </div>
         </section>
@@ -1503,7 +1382,7 @@
                         <div class="question-block"><label for="volume-jp">現在の月間ダイヤモンドボリューム</label><select id="volume-jp"><option value="high">150K - 500K+ ダイヤモンド/月</option><option value="mid">50K - 150K ダイヤモンド/月</option><option value="low">50K未満 ダイヤモンド/月</option></select></div>
                         <div class="question-block"><label for="hours-jp">週平均ライブ配信時間</label><select id="hours-jp"><option value="optimized">12 - 25 時間 (構造化)</option><option value="overworked">25+ 時間 (バーンアウトリスク高)</option><option value="irregular">12時間未満 (不安定)</option></select></div>
                         <div class="question-block"><label for="challenge-jp">主要なアルゴリズムボトルネック</label><select id="challenge-jp"><option value="retention">視聴者維持率と突然の視聴者減少</option><option value="conversion">ギフター依存と収入の停滞</option><option value="policy">ポリシー不安とコンプライアンス警告</option></select></div>
-                        <button type="button" class="btn-submit" onclick="calculateScoreJP()">パフォーマンスを分析</button>
+                        <button type="button" class="btn-submit" onclick="calculateScore('jp')">パフォーマンスを分析</button>
                     </div>
                     <div id="quiz-result-jp" class="result-block">
                         <h2>パフォーマンス診断結果</h2>
@@ -1536,12 +1415,16 @@
                 <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> 今すぐクリエイター成長スコアを計算</a>
             </div>
         </section>
+
     </div>
     <!-- END JAPANESE -->
 
 
-    <!-- ===== ROMANIAN CONTENT ===== -->
+    <!-- ============================================================ -->
+    <!-- ROMANIAN CONTENT -->
+    <!-- ============================================================ -->
     <div id="lang-ro" class="lang-content">
+
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
@@ -1554,12 +1437,12 @@
                             <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> Vezi Recunoașterile</a>
                         </div>
                         <div class="region-selector">
-                            <button class="region-btn active" onclick="switchHero('global')">🌍 Global</button>
-                            <button class="region-btn" onclick="switchHero('usa')">🇺🇸 SUA</button>
-                            <button class="region-btn" onclick="switchHero('uk')">🇬🇧 UK</button>
-                            <button class="region-btn" onclick="switchHero('japan')">🇯🇵 Japonia</button>
-                            <button class="region-btn" onclick="switchHero('romania')">🇷🇴 România</button>
-                            <button class="region-btn" onclick="switchHero('malaysia')">🇲🇾 Malaezia</button>
+                            <button class="region-btn active" data-region="global" onclick="switchHero('global', 'ro')">🌍 Global</button>
+                            <button class="region-btn" data-region="usa" onclick="switchHero('usa', 'ro')">🇺🇸 SUA</button>
+                            <button class="region-btn" data-region="uk" onclick="switchHero('uk', 'ro')">🇬🇧 UK</button>
+                            <button class="region-btn" data-region="japan" onclick="switchHero('japan', 'ro')">🇯🇵 Japonia</button>
+                            <button class="region-btn" data-region="romania" onclick="switchHero('romania', 'ro')">🇷🇴 România</button>
+                            <button class="region-btn" data-region="malaysia" onclick="switchHero('malaysia', 'ro')">🇲🇾 Malaezia</button>
                         </div>
                         <div class="hero-stats">
                             <div class="stat"><h3>500+</h3><p>Creatori Evaluați</p></div>
@@ -1568,7 +1451,7 @@
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img id="heroImageRo" src="images/hero/hero-global.png" alt="Creator" />
+                        <img id="heroImage-ro" src="images/hero/hero-global.png" alt="Creator" />
                     </div>
                 </div>
             </div>
@@ -1580,16 +1463,8 @@
                 <h2 class="section-title">Excelență Premiată în Creșterea Creatorilor</h2>
                 <p class="section-sub">Nu doar vorbim despre creștere. Am fost recunoscuți de cele mai prestigioase platforme din industrie.</p>
                 <div class="awards-grid">
-                    <div class="award-card animate-on-scroll">
-                        <img src="images/award/award-1.png" alt="Award" />
-                        <span class="award-title">Recunoaștere în Industrie</span>
-                        <span class="award-year">Apreciată pentru excelența în dezvoltarea creatorilor</span>
-                    </div>
-                    <div class="award-card animate-on-scroll">
-                        <img src="images/award/award-2.png" alt="Award" />
-                        <span class="award-title">Excelența Echipei</span>
-                        <span class="award-year">Recunoscută pentru abordări inovatoare în creșterea creatorilor</span>
-                    </div>
+                    <div class="award-card animate-on-scroll"><img src="images/award/award-1.png" alt="Award" /><span class="award-title">Recunoaștere în Industrie</span><span class="award-year">Apreciată pentru excelența în dezvoltarea creatorilor</span></div>
+                    <div class="award-card animate-on-scroll"><img src="images/award/award-2.png" alt="Award" /><span class="award-title">Excelența Echipei</span><span class="award-year">Recunoscută pentru abordări inovatoare în creșterea creatorilor</span></div>
                 </div>
             </div>
         </section>
@@ -1600,13 +1475,7 @@
                 <h2 class="section-title">Unde Se Adună Industria, Noi Suntem Acolo</h2>
                 <p class="section-sub">De la summit-uri globale la conferințe exclusive pentru creatori — suntem integrați în ecosistemul care modelează viitorul conținutului LIVE.</p>
                 <div class="events-grid">
-                    <div class="event-card animate-on-scroll">
-                        <img src="images/events/event-1.png" alt="Event" />
-                        <div class="event-info">
-                            <h4>Summit-uri Globale pentru Creatori & Evenimente ale Industriei</h4>
-                            <p>Conectându-ne cu cei mai ambițioși creatori din lume</p>
-                        </div>
-                    </div>
+                    <div class="event-card animate-on-scroll"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>Summit-uri Globale pentru Creatori & Evenimente ale Industriei</h4><p>Conectându-ne cu cei mai ambițioși creatori din lume</p></div></div>
                 </div>
             </div>
         </section>
@@ -1689,7 +1558,7 @@
                         <div class="question-block"><label for="volume-ro">Volumul Lunar de Diamante</label><select id="volume-ro"><option value="high">150K - 500K+ Diamante/lună</option><option value="mid">50K - 150K Diamante/lună</option><option value="low">Sub 50K Diamante/lună</option></select></div>
                         <div class="question-block"><label for="hours-ro">Ore Săptămânale de Live</label><select id="hours-ro"><option value="optimized">12 - 25 Ore (Structurate)</option><option value="overworked">25+ Ore (Risc Mare de Epuizare)</option><option value="irregular">Sub 12 Ore (Inconstant)</option></select></div>
                         <div class="question-block"><label for="challenge-ro">Principalul Blocaj Algoritmic</label><select id="challenge-ro"><option value="retention">Retenție & Scăderi Bruste de Vizualizări</option><option value="conversion">Dependență de Gifteri & Venit Stagnant</option><option value="policy">Anxietate Politici & Avertismente</option></select></div>
-                        <button type="button" class="btn-submit" onclick="calculateScoreRO()">Analizează-mi Performanța</button>
+                        <button type="button" class="btn-submit" onclick="calculateScore('ro')">Analizează-mi Performanța</button>
                     </div>
                     <div id="quiz-result-ro" class="result-block">
                         <h2>Diagnostic Performanță</h2>
@@ -1722,12 +1591,16 @@
                 <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere Acum</a>
             </div>
         </section>
+
     </div>
     <!-- END ROMANIAN -->
 
 
-    <!-- ===== MALAY CONTENT ===== -->
+    <!-- ============================================================ -->
+    <!-- MALAY CONTENT -->
+    <!-- ============================================================ -->
     <div id="lang-ms" class="lang-content">
+
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
@@ -1740,12 +1613,12 @@
                             <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> Lihat Pengiktirafan</a>
                         </div>
                         <div class="region-selector">
-                            <button class="region-btn active" onclick="switchHero('global')">🌍 Global</button>
-                            <button class="region-btn" onclick="switchHero('usa')">🇺🇸 USA</button>
-                            <button class="region-btn" onclick="switchHero('uk')">🇬🇧 UK</button>
-                            <button class="region-btn" onclick="switchHero('japan')">🇯🇵 Jepun</button>
-                            <button class="region-btn" onclick="switchHero('romania')">🇷🇴 Romania</button>
-                            <button class="region-btn" onclick="switchHero('malaysia')">🇲🇾 Malaysia</button>
+                            <button class="region-btn active" data-region="global" onclick="switchHero('global', 'ms')">🌍 Global</button>
+                            <button class="region-btn" data-region="usa" onclick="switchHero('usa', 'ms')">🇺🇸 USA</button>
+                            <button class="region-btn" data-region="uk" onclick="switchHero('uk', 'ms')">🇬🇧 UK</button>
+                            <button class="region-btn" data-region="japan" onclick="switchHero('japan', 'ms')">🇯🇵 Jepun</button>
+                            <button class="region-btn" data-region="romania" onclick="switchHero('romania', 'ms')">🇷🇴 Romania</button>
+                            <button class="region-btn" data-region="malaysia" onclick="switchHero('malaysia', 'ms')">🇲🇾 Malaysia</button>
                         </div>
                         <div class="hero-stats">
                             <div class="stat"><h3>500+</h3><p>Kreator Dinilai</p></div>
@@ -1754,7 +1627,7 @@
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img id="heroImageMs" src="images/hero/hero-global.png" alt="Creator" />
+                        <img id="heroImage-ms" src="images/hero/hero-global.png" alt="Creator" />
                     </div>
                 </div>
             </div>
@@ -1766,16 +1639,8 @@
                 <h2 class="section-title">Kecemerlangan Bertaraf Anugerah dalam Pertumbuhan Kreator</h2>
                 <p class="section-sub">Kami bukan sekadar bercakap tentang pertumbuhan. Kami telah diiktiraf oleh platform paling berprestij dalam industri.</p>
                 <div class="awards-grid">
-                    <div class="award-card animate-on-scroll">
-                        <img src="images/award/award-1.png" alt="Award" />
-                        <span class="award-title">Pengiktirafan Industri</span>
-                        <span class="award-year">Diiktiraf untuk kecemerlangan dalam pembangunan kreator</span>
-                    </div>
-                    <div class="award-card animate-on-scroll">
-                        <img src="images/award/award-2.png" alt="Award" />
-                        <span class="award-title">Kecemerlangan Pasukan</span>
-                        <span class="award-year">Diiktiraf untuk pendekatan inovatif dalam pertumbuhan kreator</span>
-                    </div>
+                    <div class="award-card animate-on-scroll"><img src="images/award/award-1.png" alt="Award" /><span class="award-title">Pengiktirafan Industri</span><span class="award-year">Diiktiraf untuk kecemerlangan dalam pembangunan kreator</span></div>
+                    <div class="award-card animate-on-scroll"><img src="images/award/award-2.png" alt="Award" /><span class="award-title">Kecemerlangan Pasukan</span><span class="award-year">Diiktiraf untuk pendekatan inovatif dalam pertumbuhan kreator</span></div>
                 </div>
             </div>
         </section>
@@ -1786,13 +1651,7 @@
                 <h2 class="section-title">Di Mana Industri Berkumpul, Kami Ada</h2>
                 <p class="section-sub">Dari sidang kemuncak global ke persidangan kreator eksklusif — kami tertanam dalam ekosistem yang membentuk masa depan kandungan LIVE.</p>
                 <div class="events-grid">
-                    <div class="event-card animate-on-scroll">
-                        <img src="images/events/event-1.png" alt="Event" />
-                        <div class="event-info">
-                            <h4>Sidang Kemuncak Kreator Global & Acara Industri</h4>
-                            <p>Berhubung dengan kreator paling bercita-cita tinggi di dunia</p>
-                        </div>
-                    </div>
+                    <div class="event-card animate-on-scroll"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>Sidang Kemuncak Kreator Global & Acara Industri</h4><p>Berhubung dengan kreator paling bercita-cita tinggi di dunia</p></div></div>
                 </div>
             </div>
         </section>
@@ -1875,7 +1734,7 @@
                         <div class="question-block"><label for="volume-ms">Jumlah Berlian Bulanan</label><select id="volume-ms"><option value="high">150K - 500K+ Berlian/bulan</option><option value="mid">50K - 150K Berlian/bulan</option><option value="low">Bawah 50K Berlian/bulan</option></select></div>
                         <div class="question-block"><label for="hours-ms">Purata Jam Siaran Langsung Mingguan</label><select id="hours-ms"><option value="optimized">12 - 25 Jam (Berstruktur)</option><option value="overworked">25+ Jam (Risiko Keletihan Tinggi)</option><option value="irregular">Bawah 12 Jam (Tidak Konsisten)</option></select></div>
                         <div class="question-block"><label for="challenge-ms">Bottleneck Algoritma Utama</label><select id="challenge-ms"><option value="retention">Pengekalan Penonton & Penurunan Mendadak</option><option value="conversion">Pergantungan Gifter & Pendapatan Rata</option><option value="policy">Kebimbangan Polisi & Amaran Pematuhan</option></select></div>
-                        <button type="button" class="btn-submit" onclick="calculateScoreMS()">Analisis Prestasi Saya</button>
+                        <button type="button" class="btn-submit" onclick="calculateScore('ms')">Analisis Prestasi Saya</button>
                     </div>
                     <div id="quiz-result-ms" class="result-block">
                         <h2>Diagnostik Prestasi Anda</h2>
@@ -1908,6 +1767,7 @@
                 <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator Anda Sekarang</a>
             </div>
         </section>
+
     </div>
     <!-- END MALAY -->
 
@@ -1943,18 +1803,155 @@
     <script>
         // ===== LANGUAGE SWITCHER =====
         function switchLang(lang) {
+            // Hide all languages
             document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+
+            // Show selected
             const target = document.getElementById('lang-' + lang);
             if (target) target.classList.add('active');
+
+            // Update button states
             document.querySelectorAll('.lang-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.dataset.lang === lang) btn.classList.add('active');
             });
+
+            // Save preference
             localStorage.setItem('supernova-lang', lang);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         }
 
-        // Load saved language
+        // ===== HERO IMAGE SWITCHER (WORKS FOR ALL LANGUAGES) =====
+        function switchHero(region, lang) {
+            // Update all hero images across all languages
+            const heroIds = ['heroImage-en', 'heroImage-jp', 'heroImage-ro', 'heroImage-ms'];
+            heroIds.forEach(id => {
+                const img = document.getElementById(id);
+                if (img) {
+                    img.src = 'images/hero/hero-' + region + '.png';
+                }
+            });
+
+            // Update button states for the current language
+            const container = document.querySelector('#lang-' + lang + ' .region-selector');
+            if (container) {
+                container.querySelectorAll('.region-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.region === region) {
+                        btn.classList.add('active');
+                    }
+                });
+            }
+
+            // Also update buttons in other languages to keep them in sync
+            document.querySelectorAll('.region-selector').forEach(selector => {
+                selector.querySelectorAll('.region-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.region === region) {
+                        btn.classList.add('active');
+                    }
+                });
+            });
+        }
+
+        // ===== QUIZ CALCULATOR (Works for all languages) =====
+        function calculateScore(lang) {
+            let volumeId, hoursId, challengeId, scoreId, feedbackId, formId, resultId;
+
+            if (lang === 'jp') {
+                volumeId = 'volume-jp';
+                hoursId = 'hours-jp';
+                challengeId = 'challenge-jp';
+                scoreId = 'score-val-jp';
+                feedbackId = 'feedback-val-jp';
+                formId = 'quiz-form-jp';
+                resultId = 'quiz-result-jp';
+            } else if (lang === 'ro') {
+                volumeId = 'volume-ro';
+                hoursId = 'hours-ro';
+                challengeId = 'challenge-ro';
+                scoreId = 'score-val-ro';
+                feedbackId = 'feedback-val-ro';
+                formId = 'quiz-form-ro';
+                resultId = 'quiz-result-ro';
+            } else if (lang === 'ms') {
+                volumeId = 'volume-ms';
+                hoursId = 'hours-ms';
+                challengeId = 'challenge-ms';
+                scoreId = 'score-val-ms';
+                feedbackId = 'feedback-val-ms';
+                formId = 'quiz-form-ms';
+                resultId = 'quiz-result-ms';
+            } else {
+                // English (default)
+                volumeId = 'volume';
+                hoursId = 'hours';
+                challengeId = 'challenge';
+                scoreId = 'score-val';
+                feedbackId = 'feedback-val';
+                formId = 'quiz-form';
+                resultId = 'quiz-result';
+            }
+
+            const vol = document.getElementById(volumeId).value;
+            const hrs = document.getElementById(hoursId).value;
+            const chal = document.getElementById(challengeId).value;
+
+            let score = 85;
+            let feedback = "";
+
+            if (vol === 'high') score -= 5;
+            else if (vol === 'mid') score -= 15;
+            else if (vol === 'low') score -= 30;
+
+            if (hrs === 'overworked') {
+                score -= 15;
+                if (lang === 'jp') feedback += "構造的なバーンアウトリスクが検出されました。";
+                else if (lang === 'ro') feedback += "Risc ridicat de epuizare structurală detectat. ";
+                else if (lang === 'ms') feedback += "Risiko keletihan struktur yang tinggi dikesan. ";
+                else feedback += "High structural burnout risks found. ";
+            } else if (hrs === 'irregular') {
+                score -= 10;
+                if (lang === 'jp') feedback += "一貫性のないペーシングにより、可視性が低下しています。";
+                else if (lang === 'ro') feedback += "Pacing-ul inconsecvent îți ancorează vizibilitatea mai jos. ";
+                else if (lang === 'ms') feedback += "Pacing yang tidak konsisten menjadikan keterlihatan anda lebih rendah. ";
+                else feedback += "Inconsistent pacing anchors your visibility lower. ";
+            }
+
+            if (chal === 'retention') {
+                score -= 10;
+                if (lang === 'jp') feedback += "重大なリテンションリークが検出されました。";
+                else if (lang === 'ro') feedback += "Scurgeri critice de retenție detectate.";
+                else if (lang === 'ms') feedback += "Kebocoran pengekalan kritikal dikesan.";
+                else feedback += "Critical retention leaks detected.";
+            } else if (chal === 'conversion') {
+                score -= 12;
+                if (lang === 'jp') feedback += "ギフターへの依存度が持続不可能なほど狭くなっています。";
+                else if (lang === 'ro') feedback += "Dependența de gifteri este nesustenabil de îngustă.";
+                else if (lang === 'ms') feedback += "Kebergantungan kepada gifter adalah terlalu sempit.";
+                else feedback += "Gifter dependency concentration is unsustainably narrow.";
+            } else if (chal === 'policy') {
+                score -= 5;
+                if (lang === 'jp') feedback += "アカウントの安全性に規制リスクが露出しています。";
+                else if (lang === 'ro') feedback += "Parametrii de siguranță ai contului arată riscuri de reglementare.";
+                else if (lang === 'ms') feedback += "Parameter keselamatan akaun menunjukkan risiko kawal selia.";
+                else feedback += "Account safety parameters show regulatory risk exposure.";
+            }
+
+            if (score > 80 && feedback.length < 20) {
+                if (lang === 'jp') feedback = "強固なベースライン性能ですが、予期せぬプラットフォームの変動に対して脆弱です。";
+                else if (lang === 'ro') feedback = "Performanță de bază solidă, dar vulnerabilă la schimbări neașteptate.";
+                else if (lang === 'ms') feedback = "Prestasi asas yang kukuh, tetapi terdedah kepada perubahan platform yang tidak dijangka.";
+                else feedback = "Strong baseline performance, but vulnerable to unexpected platform shifts.";
+            }
+
+            document.getElementById(formId).style.display = 'none';
+            document.getElementById(scoreId).innerText = score + "/100";
+            document.getElementById(feedbackId).innerText = feedback;
+            document.getElementById(resultId).style.display = 'block';
+        }
+
+        // ===== LOAD SAVED LANGUAGE & SCROLL ANIMATIONS =====
         document.addEventListener('DOMContentLoaded', function() {
             const saved = localStorage.getItem('supernova-lang');
             if (saved && document.getElementById('lang-' + saved)) {
@@ -1969,201 +1966,7 @@
             }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
             document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
-
-            // Set initial hero images for all languages
-            updateAllHeroImages('global');
         });
-
-        // ===== HERO REGION SWITCHER =====
-        function switchHero(region) {
-            updateAllHeroImages(region);
-
-            document.querySelectorAll('.region-btn').forEach(btn => {
-                btn.classList.remove('active');
-                if (btn.textContent.toLowerCase().includes(region) ||
-                    btn.textContent.includes('🌍') && region === 'global' ||
-                    btn.textContent.includes('グローバル') && region === 'global' ||
-                    btn.textContent.includes('Global') && region === 'global') {
-                    btn.classList.add('active');
-                }
-            });
-        }
-
-        function updateAllHeroImages(region) {
-            const heroIds = ['heroImageEn', 'heroImageJp', 'heroImageRo', 'heroImageMs'];
-            heroIds.forEach(id => {
-                const img = document.getElementById(id);
-                if (img) img.src = 'images/hero/hero-' + region + '.png';
-            });
-        }
-
-        // ===== QUIZ CALCULATOR (English) =====
-        function calculateScore() {
-            const vol = document.getElementById('volume').value;
-            const hrs = document.getElementById('hours').value;
-            const chal = document.getElementById('challenge').value;
-
-            let score = 85;
-            let feedback = "";
-
-            if (vol === 'high') score -= 5;
-            else if (vol === 'mid') score -= 15;
-            else if (vol === 'low') score -= 30;
-
-            if (hrs === 'overworked') {
-                score -= 15;
-                feedback += "High structural burnout risks found. ";
-            } else if (hrs === 'irregular') {
-                score -= 10;
-                feedback += "Inconsistent pacing anchors your visibility lower. ";
-            }
-
-            if (chal === 'retention') {
-                score -= 10;
-                feedback += "Critical retention leaks detected.";
-            } else if (chal === 'conversion') {
-                score -= 12;
-                feedback += "Gifter dependency concentration is unsustainably narrow.";
-            } else if (chal === 'policy') {
-                score -= 5;
-                feedback += "Account safety parameters show regulatory risk exposure.";
-            }
-
-            if (score > 80 && feedback.length < 20) {
-                feedback = "Strong baseline performance, but vulnerable to unexpected platform shifts.";
-            }
-
-            document.getElementById('quiz-form').style.display = 'none';
-            document.getElementById('score-val').innerText = score + "/100";
-            document.getElementById('feedback-val').innerText = feedback;
-            document.getElementById('quiz-result').style.display = 'block';
-        }
-
-        // ===== QUIZ CALCULATOR (Japanese) =====
-        function calculateScoreJP() {
-            const vol = document.getElementById('volume-jp').value;
-            const hrs = document.getElementById('hours-jp').value;
-            const chal = document.getElementById('challenge-jp').value;
-
-            let score = 85;
-            let feedback = "";
-
-            if (vol === 'high') score -= 5;
-            else if (vol === 'mid') score -= 15;
-            else if (vol === 'low') score -= 30;
-
-            if (hrs === 'overworked') {
-                score -= 15;
-                feedback += "構造的なバーンアウトリスクが検出されました。";
-            } else if (hrs === 'irregular') {
-                score -= 10;
-                feedback += "一貫性のないペーシングにより、可視性が低下しています。";
-            }
-
-            if (chal === 'retention') {
-                score -= 10;
-                feedback += "重大なリテンションリークが検出されました。";
-            } else if (chal === 'conversion') {
-                score -= 12;
-                feedback += "ギフターへの依存度が持続不可能なほど狭くなっています。";
-            } else if (chal === 'policy') {
-                score -= 5;
-                feedback += "アカウントの安全性に規制リスクが露出しています。";
-            }
-
-            if (score > 80 && feedback.length < 20) {
-                feedback = "強固なベースライン性能ですが、予期せぬプラットフォームの変動に対して脆弱です。";
-            }
-
-            document.getElementById('quiz-form-jp').style.display = 'none';
-            document.getElementById('score-val-jp').innerText = score + "/100";
-            document.getElementById('feedback-val-jp').innerText = feedback;
-            document.getElementById('quiz-result-jp').style.display = 'block';
-        }
-
-        // ===== QUIZ CALCULATOR (Romanian) =====
-        function calculateScoreRO() {
-            const vol = document.getElementById('volume-ro').value;
-            const hrs = document.getElementById('hours-ro').value;
-            const chal = document.getElementById('challenge-ro').value;
-
-            let score = 85;
-            let feedback = "";
-
-            if (vol === 'high') score -= 5;
-            else if (vol === 'mid') score -= 15;
-            else if (vol === 'low') score -= 30;
-
-            if (hrs === 'overworked') {
-                score -= 15;
-                feedback += "Risc ridicat de epuizare structurală detectat. ";
-            } else if (hrs === 'irregular') {
-                score -= 10;
-                feedback += "Pacing-ul inconsecvent îți ancorează vizibilitatea mai jos. ";
-            }
-
-            if (chal === 'retention') {
-                score -= 10;
-                feedback += "Scurgeri critice de retenție detectate.";
-            } else if (chal === 'conversion') {
-                score -= 12;
-                feedback += "Dependența de gifteri este nesustenabil de îngustă.";
-            } else if (chal === 'policy') {
-                score -= 5;
-                feedback += "Parametrii de siguranță ai contului arată riscuri de reglementare.";
-            }
-
-            if (score > 80 && feedback.length < 20) {
-                feedback = "Performanță de bază solidă, dar vulnerabilă la schimbări neașteptate.";
-            }
-
-            document.getElementById('quiz-form-ro').style.display = 'none';
-            document.getElementById('score-val-ro').innerText = score + "/100";
-            document.getElementById('feedback-val-ro').innerText = feedback;
-            document.getElementById('quiz-result-ro').style.display = 'block';
-        }
-
-        // ===== QUIZ CALCULATOR (Malay) =====
-        function calculateScoreMS() {
-            const vol = document.getElementById('volume-ms').value;
-            const hrs = document.getElementById('hours-ms').value;
-            const chal = document.getElementById('challenge-ms').value;
-
-            let score = 85;
-            let feedback = "";
-
-            if (vol === 'high') score -= 5;
-            else if (vol === 'mid') score -= 15;
-            else if (vol === 'low') score -= 30;
-
-            if (hrs === 'overworked') {
-                score -= 15;
-                feedback += "Risiko keletihan struktur yang tinggi dikesan. ";
-            } else if (hrs === 'irregular') {
-                score -= 10;
-                feedback += "Pacing yang tidak konsisten menjadikan keterlihatan anda lebih rendah. ";
-            }
-
-            if (chal === 'retention') {
-                score -= 10;
-                feedback += "Kebocoran pengekalan kritikal dikesan.";
-            } else if (chal === 'conversion') {
-                score -= 12;
-                feedback += "Kebergantungan kepada gifter adalah terlalu sempit.";
-            } else if (chal === 'policy') {
-                score -= 5;
-                feedback += "Parameter keselamatan akaun menunjukkan risiko kawal selia.";
-            }
-
-            if (score > 80 && feedback.length < 20) {
-                feedback = "Prestasi asas yang kukuh, tetapi terdedah kepada perubahan platform yang tidak dijangka.";
-            }
-
-            document.getElementById('quiz-form-ms').style.display = 'none';
-            document.getElementById('score-val-ms').innerText = score + "/100";
-            document.getElementById('feedback-val-ms').innerText = feedback;
-            document.getElementById('quiz-result-ms').style.display = 'block';
-        }
 
         // ===== SMOOTH SCROLL =====
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
