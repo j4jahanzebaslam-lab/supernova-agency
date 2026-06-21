@@ -49,7 +49,6 @@
       line-height: 1.7;
     }
 
-    /* TOP BAR */
     .top-bar {
       background: rgba(255,255,255,0.92);
       backdrop-filter: blur(20px);
@@ -82,7 +81,6 @@
     .lang-btn:hover { border-color: #1A1A1A; color: #1A1A1A; }
     .lang-btn.active { background: #1A1A1A; color: #fff; border-color: #1A1A1A; }
 
-    /* HERO */
     .hero {
       padding: 60px 0 80px;
       background: #ffffff;
@@ -178,51 +176,43 @@
     .hero-stats .stat h3 { font-size: 28px; font-weight: 700; color: #1A1A1A; }
     .hero-stats .stat p { font-size: 13px; color: #6E6E73; }
 
-    /* AWARDS */
+    /* ===== AWARDS - NO CARDS, LARGE IMAGES ===== */
     .awards { background: #F5F5F7; }
     .awards-grid {
       display: grid;
       grid-template-columns: repeat(2, 1fr);
-      gap: 24px;
+      gap: 40px;
       margin-top: 40px;
-      max-width: 800px;
+      max-width: 1000px;
       margin-left: auto;
       margin-right: auto;
     }
-    .award-card {
-      background: #fff;
-      border-radius: 12px;
-      padding: 32px;
+    .award-item {
       text-align: center;
-      border: 1px solid rgba(0,0,0,0.04);
-      box-shadow: 0 2px 8px rgba(0,0,0,0.02);
-      transition: all 0.3s;
     }
-    .award-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
-    .award-card img {
-      width: 140px;
-      height: 140px;
-      border-radius: 50%;
-      object-fit: cover;
+    .award-item img {
+      width: 100%;
+      max-width: 400px;
+      height: auto;
+      border-radius: 12px;
       margin: 0 auto 16px;
-      background: #F5F5F7;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     }
-    .award-card .award-title {
-      font-size: 18px;
+    .award-item .award-title {
+      font-size: 20px;
       font-weight: 700;
       display: block;
-      margin-bottom: 4px;
+      margin-bottom: 6px;
       color: #1A1A1A;
     }
-    .award-card .award-desc {
-      font-size: 14px;
+    .award-item .award-desc {
+      font-size: 15px;
       color: #6E6E73;
       line-height: 1.6;
-      max-width: 280px;
+      max-width: 400px;
       margin: 0 auto;
     }
 
-    /* EVENTS */
     .events { background: #fff; }
     .events-grid {
       display: grid;
@@ -257,7 +247,6 @@
       max-width: 500px;
     }
 
-    /* PROBLEMS */
     .problems { background: #fff; }
     .problems-grid {
       display: grid;
@@ -277,7 +266,6 @@
     .problem-card h4 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
     .problem-card p { font-size: 14px; color: #6E6E73; line-height: 1.6; }
 
-    /* SOLUTIONS */
     .solutions { background: #F5F5F7; }
     .solutions-grid {
       display: grid;
@@ -298,7 +286,6 @@
     .solution-item h4 { font-size: 15px; font-weight: 600; margin-bottom: 4px; }
     .solution-item p { font-size: 13px; color: #6E6E73; }
 
-    /* TEAM */
     .team { background: #fff; }
     .team-simple {
       display: flex;
@@ -317,7 +304,6 @@
     .team-simple h3 { font-size: 24px; font-weight: 600; margin-bottom: 8px; }
     .team-simple p { font-size: 16px; color: #6E6E73; max-width: 500px; }
 
-    /* BLOX */
     .blox-section { background: #F5F5F7; }
     .blox-content {
       display: grid;
@@ -348,7 +334,6 @@
     .blox-content p { color: #6E6E73; font-size: 16px; line-height: 1.7; max-width: 480px; }
     .blox-content img { width: 100%; border-radius: 12px; box-shadow: 0 8px 30px rgba(0,0,0,0.06); }
 
-    /* QUIZ */
     .quiz-section { background: #0D0D0D; padding: 80px 0; }
     .quiz-section .section-badge { color: #888; }
     .quiz-section .section-title { color: #fff; }
@@ -428,7 +413,6 @@
     }
     .cta-link:hover { background: #2a2a2a; border-color: #666; }
 
-    /* FORM */
     .form-section { background: #F5F5F7; padding: 80px 0; }
     .form-wrapper {
       max-width: 700px;
@@ -446,7 +430,6 @@
       border-radius: 8px;
     }
 
-    /* TESTIMONIALS */
     .testimonials { background: #fff; padding: 80px 0; }
     .testimonial-grid {
       display: grid;
@@ -489,7 +472,6 @@
     .testimonial-card .author .name { font-weight: 600; font-size: 14px; }
     .testimonial-card .author .handle { font-size: 12px; color: #6E6E73; }
 
-    /* FINAL CTA */
     .final-cta {
       background: #1A1A1A;
       color: #fff;
@@ -512,7 +494,6 @@
     .final-cta .btn-primary { background: #fff; color: #1A1A1A; }
     .final-cta .btn-primary:hover { background: #F5F5F7; box-shadow: 0 12px 30px rgba(255,255,255,0.08); }
 
-    /* FOOTER */
     .footer { background: #0D0D0D; padding: 40px 0; border-top: 1px solid rgba(255,255,255,0.04); }
     .footer .container {
       display: flex;
@@ -559,14 +540,14 @@
       .footer .footer-links { justify-content: center; }
       .footer .socials { justify-content: center; }
       .quiz-wrapper { padding: 24px; }
-      .awards-grid { grid-template-columns: 1fr; max-width: 400px; }
+      .awards-grid { grid-template-columns: 1fr; max-width: 500px; }
     }
     @media (max-width: 480px) {
       .section-padding { padding: 50px 0; }
       .hero { padding: 30px 0 50px; }
       .form-wrapper iframe { height: 450px; }
       .quiz-wrapper { padding: 16px; }
-      .award-card img { width: 100px; height: 100px; }
+      .award-item img { max-width: 100%; }
     }
 
     .lang-content { display: none; }
@@ -575,7 +556,6 @@
 </head>
 <body>
 
-<!-- TOP BAR -->
 <header class="top-bar">
   <div class="container">
     <div class="logo-text">SUPERNOVA</div>
@@ -617,18 +597,19 @@
     </div>
   </section>
 
+  <!-- ===== AWARDS - NO CARDS, LARGE IMAGES ===== -->
   <section class="awards section-padding" id="awards">
     <div class="container">
       <span class="section-badge">✦ Recognition</span>
       <h2 class="section-title">Award-Winning Excellence in Creator Growth</h2>
       <p class="section-sub">We don't just talk about growth. We've been recognized by the industry's most prestigious platforms.</p>
       <div class="awards-grid">
-        <div class="award-card">
+        <div class="award-item">
           <img src="images/awards/award-1.png" alt="Industry Recognition" />
           <span class="award-title">Industry Recognition</span>
           <span class="award-desc">Acknowledged for excellence in creator development and talent building.</span>
         </div>
-        <div class="award-card">
+        <div class="award-item">
           <img src="images/awards/award-2.png" alt="Team Excellence" />
           <span class="award-title">Team Excellence</span>
           <span class="award-desc">Recognized for pioneering new approaches to creator growth and innovation.</span>
@@ -805,8 +786,8 @@
       <h2 class="section-title">クリエイター成長における受賞歴のある卓越性</h2>
       <p class="section-sub">私たちは成長について語るだけではありません。業界で最も権威のあるプラットフォームから認められています。</p>
       <div class="awards-grid">
-        <div class="award-card"><img src="images/awards/award-1.png" alt="Award" /><span class="award-title">業界からの評価</span><span class="award-desc">クリエイター開発とタレント育成における卓越性が認められました</span></div>
-        <div class="award-card"><img src="images/awards/award-2.png" alt="Award" /><span class="award-title">チームの卓越性</span><span class="award-desc">クリエイター成長への革新的なアプローチが評価されました</span></div>
+        <div class="award-item"><img src="images/awards/award-1.png" alt="Award" /><span class="award-title">業界からの評価</span><span class="award-desc">クリエイター開発とタレント育成における卓越性が認められました</span></div>
+        <div class="award-item"><img src="images/awards/award-2.png" alt="Award" /><span class="award-title">チームの卓越性</span><span class="award-desc">クリエイター成長への革新的なアプローチが評価されました</span></div>
       </div>
     </div>
   </section>
@@ -973,8 +954,8 @@
       <h2 class="section-title">Excelență Premiată în Creșterea Creatorilor</h2>
       <p class="section-sub">Nu doar vorbim despre creștere. Am fost recunoscuți de cele mai prestigioase platforme din industrie.</p>
       <div class="awards-grid">
-        <div class="award-card"><img src="images/awards/award-1.png" alt="Award" /><span class="award-title">Recunoaștere în Industrie</span><span class="award-desc">Apreciată pentru excelența în dezvoltarea creatorilor și construirea de talente</span></div>
-        <div class="award-card"><img src="images/awards/award-2.png" alt="Award" /><span class="award-title">Excelența Echipei</span><span class="award-desc">Recunoscută pentru abordări inovatoare în creșterea creatorilor</span></div>
+        <div class="award-item"><img src="images/awards/award-1.png" alt="Award" /><span class="award-title">Recunoaștere în Industrie</span><span class="award-desc">Apreciată pentru excelența în dezvoltarea creatorilor și construirea de talente</span></div>
+        <div class="award-item"><img src="images/awards/award-2.png" alt="Award" /><span class="award-title">Excelența Echipei</span><span class="award-desc">Recunoscută pentru abordări inovatoare în creșterea creatorilor</span></div>
       </div>
     </div>
   </section>
@@ -1141,8 +1122,8 @@
       <h2 class="section-title">Kecemerlangan Bertaraf Anugerah dalam Pertumbuhan Kreator</h2>
       <p class="section-sub">Kami bukan sekadar bercakap tentang pertumbuhan. Kami telah diiktiraf oleh platform paling berprestij dalam industri.</p>
       <div class="awards-grid">
-        <div class="award-card"><img src="images/awards/award-1.png" alt="Award" /><span class="award-title">Pengiktirafan Industri</span><span class="award-desc">Diiktiraf untuk kecemerlangan dalam pembangunan kreator dan bakat</span></div>
-        <div class="award-card"><img src="images/awards/award-2.png" alt="Award" /><span class="award-title">Kecemerlangan Pasukan</span><span class="award-desc">Diiktiraf untuk pendekatan inovatif dalam pertumbuhan kreator</span></div>
+        <div class="award-item"><img src="images/awards/award-1.png" alt="Award" /><span class="award-title">Pengiktirafan Industri</span><span class="award-desc">Diiktiraf untuk kecemerlangan dalam pembangunan kreator dan bakat</span></div>
+        <div class="award-item"><img src="images/awards/award-2.png" alt="Award" /><span class="award-title">Kecemerlangan Pasukan</span><span class="award-desc">Diiktiraf untuk pendekatan inovatif dalam pertumbuhan kreator</span></div>
       </div>
     </div>
   </section>
@@ -1303,20 +1284,33 @@
 
 <!-- ===== SCRIPTS ===== -->
 <script>
+  // ===== LANGUAGE SWITCHER (WORKS FOR ALL PAGES) =====
   function switchLang(lang) {
-    document.querySelectorAll('.lang-content').forEach(el => el.classList.remove('active'));
+    // Hide all language contents
+    document.querySelectorAll('.lang-content').forEach(el => {
+      el.classList.remove('active');
+    });
+
+    // Show selected language
     const target = document.getElementById('lang-' + lang);
     if (target) target.classList.add('active');
+
+    // Update button states
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.remove('active');
       if (btn.dataset.lang === lang) btn.classList.add('active');
     });
+
     localStorage.setItem('supernova-lang', lang);
+
+    // Hero rotation logic
     if (lang === 'en') startHeroRotation();
     else stopHeroRotation();
+
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
+  // ===== HERO IMAGE AUTO-ROTATION (ENGLISH ONLY) =====
   const heroImages = ['hero-global.png', 'hero-uk.png', 'hero-usa.png'];
   let currentIndex = 0;
   let heroInterval;
@@ -1325,10 +1319,13 @@
     stopHeroRotation();
     const img = document.getElementById('heroImage');
     if (!img) return;
+
     const isEnglish = document.getElementById('lang-en').classList.contains('active');
     if (!isEnglish) return;
+
     img.src = 'images/hero/' + heroImages[0];
     currentIndex = 0;
+
     heroInterval = setInterval(() => {
       currentIndex = (currentIndex + 1) % heroImages.length;
       img.src = 'images/hero/' + heroImages[currentIndex];
@@ -1336,32 +1333,55 @@
   }
 
   function stopHeroRotation() {
-    if (heroInterval) { clearInterval(heroInterval); heroInterval = null; }
+    if (heroInterval) {
+      clearInterval(heroInterval);
+      heroInterval = null;
+    }
   }
 
+  // ===== QUIZ CALCULATOR (WORKS FOR ALL LANGUAGES) =====
   function calculateScore(lang) {
     let volumeId, hoursId, challengeId, scoreId, feedbackId, formId, resultId;
+
     if (lang === 'jp') {
-      volumeId = 'volume-jp'; hoursId = 'hours-jp'; challengeId = 'challenge-jp';
-      scoreId = 'score-val-jp'; feedbackId = 'feedback-val-jp';
-      formId = 'quiz-form-jp'; resultId = 'quiz-result-jp';
+      volumeId = 'volume-jp';
+      hoursId = 'hours-jp';
+      challengeId = 'challenge-jp';
+      scoreId = 'score-val-jp';
+      feedbackId = 'feedback-val-jp';
+      formId = 'quiz-form-jp';
+      resultId = 'quiz-result-jp';
     } else if (lang === 'ro') {
-      volumeId = 'volume-ro'; hoursId = 'hours-ro'; challengeId = 'challenge-ro';
-      scoreId = 'score-val-ro'; feedbackId = 'feedback-val-ro';
-      formId = 'quiz-form-ro'; resultId = 'quiz-result-ro';
+      volumeId = 'volume-ro';
+      hoursId = 'hours-ro';
+      challengeId = 'challenge-ro';
+      scoreId = 'score-val-ro';
+      feedbackId = 'feedback-val-ro';
+      formId = 'quiz-form-ro';
+      resultId = 'quiz-result-ro';
     } else if (lang === 'ms') {
-      volumeId = 'volume-ms'; hoursId = 'hours-ms'; challengeId = 'challenge-ms';
-      scoreId = 'score-val-ms'; feedbackId = 'feedback-val-ms';
-      formId = 'quiz-form-ms'; resultId = 'quiz-result-ms';
+      volumeId = 'volume-ms';
+      hoursId = 'hours-ms';
+      challengeId = 'challenge-ms';
+      scoreId = 'score-val-ms';
+      feedbackId = 'feedback-val-ms';
+      formId = 'quiz-form-ms';
+      resultId = 'quiz-result-ms';
     } else {
-      volumeId = 'volume'; hoursId = 'hours'; challengeId = 'challenge';
-      scoreId = 'score-val'; feedbackId = 'feedback-val';
-      formId = 'quiz-form'; resultId = 'quiz-result';
+      // English (default)
+      volumeId = 'volume';
+      hoursId = 'hours';
+      challengeId = 'challenge';
+      scoreId = 'score-val';
+      feedbackId = 'feedback-val';
+      formId = 'quiz-form';
+      resultId = 'quiz-result';
     }
 
     const vol = document.getElementById(volumeId).value;
     const hrs = document.getElementById(hoursId).value;
     const chal = document.getElementById(challengeId).value;
+
     let score = 85;
     let feedback = "";
 
@@ -1369,15 +1389,45 @@
     else if (vol === 'mid') score -= 15;
     else if (vol === 'low') score -= 30;
 
-    if (hrs === 'overworked') { score -= 15; feedback += lang === 'jp' ? '構造的なバーンアウトリスクが検出されました。' : lang === 'ro' ? 'Risc ridicat de epuizare structurală detectat. ' : lang === 'ms' ? 'Risiko keletihan struktur yang tinggi dikesan. ' : 'High structural burnout risks found. '; }
-    else if (hrs === 'irregular') { score -= 10; feedback += lang === 'jp' ? '一貫性のないペーシングにより、可視性が低下しています。' : lang === 'ro' ? 'Pacing-ul inconsecvent îți ancorează vizibilitatea mai jos. ' : lang === 'ms' ? 'Pacing yang tidak konsisten menjadikan keterlihatan anda lebih rendah. ' : 'Inconsistent pacing anchors your visibility lower. '; }
+    if (hrs === 'overworked') {
+      score -= 15;
+      if (lang === 'jp') feedback += "構造的なバーンアウトリスクが検出されました。";
+      else if (lang === 'ro') feedback += "Risc ridicat de epuizare structurală detectat. ";
+      else if (lang === 'ms') feedback += "Risiko keletihan struktur yang tinggi dikesan. ";
+      else feedback += "High structural burnout risks found. ";
+    } else if (hrs === 'irregular') {
+      score -= 10;
+      if (lang === 'jp') feedback += "一貫性のないペーシングにより、可視性が低下しています。";
+      else if (lang === 'ro') feedback += "Pacing-ul inconsecvent îți ancorează vizibilitatea mai jos. ";
+      else if (lang === 'ms') feedback += "Pacing yang tidak konsisten menjadikan keterlihatan anda lebih rendah. ";
+      else feedback += "Inconsistent pacing anchors your visibility lower. ";
+    }
 
-    if (chal === 'retention') { score -= 10; feedback += lang === 'jp' ? '重大なリテンションリークが検出されました。' : lang === 'ro' ? 'Scurgeri critice de retenție detectate.' : lang === 'ms' ? 'Kebocoran pengekalan kritikal dikesan.' : 'Critical retention leaks detected.'; }
-    else if (chal === 'conversion') { score -= 12; feedback += lang === 'jp' ? 'ギフターへの依存度が持続不可能なほど狭くなっています。' : lang === 'ro' ? 'Dependența de gifteri este nesustenabil de îngustă.' : lang === 'ms' ? 'Kebergantungan kepada gifter adalah terlalu sempit.' : 'Gifter dependency concentration is unsustainably narrow.'; }
-    else if (chal === 'policy') { score -= 5; feedback += lang === 'jp' ? 'アカウントの安全性に規制リスクが露出しています。' : lang === 'ro' ? 'Parametrii de siguranță ai contului arată riscuri de reglementare.' : lang === 'ms' ? 'Parameter keselamatan akaun menunjukkan risiko kawal selia.' : 'Account safety parameters show regulatory risk exposure.'; }
+    if (chal === 'retention') {
+      score -= 10;
+      if (lang === 'jp') feedback += "重大なリテンションリークが検出されました。";
+      else if (lang === 'ro') feedback += "Scurgeri critice de retenție detectate.";
+      else if (lang === 'ms') feedback += "Kebocoran pengekalan kritikal dikesan.";
+      else feedback += "Critical retention leaks detected.";
+    } else if (chal === 'conversion') {
+      score -= 12;
+      if (lang === 'jp') feedback += "ギフターへの依存度が持続不可能なほど狭くなっています。";
+      else if (lang === 'ro') feedback += "Dependența de gifteri este nesustenabil de îngustă.";
+      else if (lang === 'ms') feedback += "Kebergantungan kepada gifter adalah terlalu sempit.";
+      else feedback += "Gifter dependency concentration is unsustainably narrow.";
+    } else if (chal === 'policy') {
+      score -= 5;
+      if (lang === 'jp') feedback += "アカウントの安全性に規制リスクが露出しています。";
+      else if (lang === 'ro') feedback += "Parametrii de siguranță ai contului arată riscuri de reglementare.";
+      else if (lang === 'ms') feedback += "Parameter keselamatan akaun menunjukkan risiko kawal selia.";
+      else feedback += "Account safety parameters show regulatory risk exposure.";
+    }
 
     if (score > 80 && feedback.length < 20) {
-      feedback = lang === 'jp' ? '強固なベースライン性能ですが、予期せぬプラットフォームの変動に対して脆弱です。' : lang === 'ro' ? 'Performanță de bază solidă, dar vulnerabilă la schimbări neașteptate.' : lang === 'ms' ? 'Prestasi asas yang kukuh, tetapi terdedah kepada perubahan platform yang tidak dijangka.' : 'Strong baseline performance, but vulnerable to unexpected platform shifts.';
+      if (lang === 'jp') feedback = "強固なベースライン性能ですが、予期せぬプラットフォームの変動に対して脆弱です。";
+      else if (lang === 'ro') feedback = "Performanță de bază solidă, dar vulnerabilă la schimbări neașteptate.";
+      else if (lang === 'ms') feedback = "Prestasi asas yang kukuh, tetapi terdedah kepada perubahan platform yang tidak dijangka.";
+      else feedback = "Strong baseline performance, but vulnerable to unexpected platform shifts.";
     }
 
     document.getElementById(formId).style.display = 'none';
@@ -1386,16 +1436,24 @@
     document.getElementById(resultId).style.display = 'block';
   }
 
+  // ===== LOAD SAVED LANGUAGE =====
   document.addEventListener('DOMContentLoaded', function() {
     const saved = localStorage.getItem('supernova-lang');
-    if (saved && document.getElementById('lang-' + saved)) switchLang(saved);
-    else switchLang('en');
+    if (saved && document.getElementById('lang-' + saved)) {
+      switchLang(saved);
+    } else {
+      switchLang('en');
+    }
   });
 
+  // ===== SMOOTH SCROLL =====
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       const target = document.querySelector(this.getAttribute('href'));
-      if (target) { e.preventDefault(); target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+      if (target) {
+        e.preventDefault();
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
     });
   });
 </script>
