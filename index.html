@@ -79,11 +79,6 @@
             from { opacity: 0; transform: scale(0.96); }
             to { opacity: 1; transform: scale(1); }
         }
-        @keyframes fadeInOut {
-            0% { opacity: 1; }
-            50% { opacity: 0.7; }
-            100% { opacity: 1; }
-        }
 
         .animate-on-scroll {
             opacity: 0;
@@ -144,7 +139,7 @@
             border-color: #1A1A1A;
         }
 
-        /* Hero */
+        /* Hero - PURE WHITE BACKGROUND */
         .hero {
             padding: 60px 0 80px;
             background: #FFFFFF;
@@ -260,7 +255,7 @@
             margin: 0;
         }
 
-        /* Awards */
+        /* Awards - FIXED */
         .awards {
             background: #F5F5F7;
         }
@@ -1600,6 +1595,13 @@
 
             localStorage.setItem('supernova-lang', lang);
             window.scrollTo({ top: 0, behavior: 'smooth' });
+
+            // Restart hero rotation if English
+            if (lang === 'en') {
+                startHeroRotation();
+            } else {
+                stopHeroRotation();
+            }
         }
 
         // ===== HERO IMAGE AUTO-ROTATION (ENGLISH PAGE ONLY) =====
@@ -1608,17 +1610,21 @@
         let heroInterval;
 
         function startHeroRotation() {
+            stopHeroRotation();
             const img = document.getElementById('heroImage');
             if (!img) return;
 
-            // Only run on English page
             const isEnglish = document.getElementById('lang-en').classList.contains('active');
             if (!isEnglish) return;
+
+            // Reset to first image
+            img.src = 'images/hero/' + heroImages[0];
+            currentIndex = 0;
 
             heroInterval = setInterval(() => {
                 currentIndex = (currentIndex + 1) % heroImages.length;
                 img.src = 'images/hero/' + heroImages[currentIndex];
-            }, 4000); // Change every 4 seconds
+            }, 4000);
         }
 
         function stopHeroRotation() {
@@ -1729,10 +1735,10 @@
             const saved = localStorage.getItem('supernova-lang');
             if (saved && document.getElementById('lang-' + saved)) {
                 switchLang(saved);
+            } else {
+                // Default to English with rotation
+                startHeroRotation();
             }
-
-            // Start hero rotation on English page
-            startHeroRotation();
 
             // Scroll animations
             const observer = new IntersectionObserver((entries) => {
