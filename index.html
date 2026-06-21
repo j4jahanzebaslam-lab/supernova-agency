@@ -118,11 +118,6 @@
             }
         }
 
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
         .animate-on-scroll {
             opacity: 0;
             transform: translateY(40px);
@@ -154,7 +149,7 @@
             gap: 12px;
         }
 
-        .logo-area .logo-text {
+        .logo-text {
             font-size: 24px;
             font-weight: 900;
             letter-spacing: -1px;
@@ -323,7 +318,7 @@
             margin: 0;
         }
 
-        /* ===== REGIONAL HERO SWITCHER ===== */
+        /* ===== REGION SELECTOR ===== */
         .region-selector {
             display: flex;
             gap: 8px;
@@ -357,30 +352,22 @@
         /* ===== AWARDS ===== */
         .awards {
             background: #F5F5F7;
-            overflow: hidden;
         }
 
-        .awards-scroll {
-            display: flex;
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
             margin-top: 40px;
-            animation: marquee 20s linear infinite;
-            width: max-content;
-        }
-
-        .awards-scroll:hover {
-            animation-play-state: paused;
         }
 
         .award-card {
             background: #FFFFFF;
             border-radius: 12px;
-            padding: 24px 32px;
+            padding: 32px;
             text-align: center;
-            min-width: 220px;
             border: 1px solid rgba(0, 0, 0, 0.04);
             box-shadow: 0 2px 8px rgba(0, 0, 0, 0.02);
-            flex-shrink: 0;
             transition: all 0.3s;
         }
 
@@ -390,76 +377,42 @@
         }
 
         .award-card img {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             border-radius: 50%;
             object-fit: cover;
-            margin: 0 auto 12px;
+            margin: 0 auto 16px;
             background: #F5F5F7;
         }
 
         .award-card .award-title {
-            font-size: 14px;
+            font-size: 16px;
             font-weight: 600;
             display: block;
             margin-bottom: 4px;
         }
 
         .award-card .award-year {
-            font-size: 12px;
+            font-size: 13px;
             color: #6E6E73;
-        }
-
-        .awards-wrapper {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .awards-wrapper::before,
-        .awards-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 60px;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .awards-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, #F5F5F7, transparent);
-        }
-
-        .awards-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, #F5F5F7, transparent);
         }
 
         /* ===== EVENTS ===== */
         .events {
             background: #FFFFFF;
-            overflow: hidden;
         }
 
-        .events-scroll {
-            display: flex;
+        .events-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 24px;
             margin-top: 40px;
-            animation: marquee 25s linear infinite;
-            width: max-content;
-        }
-
-        .events-scroll:hover {
-            animation-play-state: paused;
         }
 
         .event-card {
             background: #F5F5F7;
             border-radius: 12px;
             overflow: hidden;
-            min-width: 300px;
-            flex-shrink: 0;
             transition: all 0.3s;
         }
 
@@ -470,49 +423,23 @@
 
         .event-card img {
             width: 100%;
-            height: 200px;
+            height: 220px;
             object-fit: cover;
         }
 
         .event-card .event-info {
-            padding: 20px;
+            padding: 24px;
         }
 
         .event-card .event-info h4 {
-            font-size: 16px;
+            font-size: 18px;
             font-weight: 600;
             margin-bottom: 4px;
         }
 
         .event-card .event-info p {
-            font-size: 13px;
+            font-size: 14px;
             color: #6E6E73;
-        }
-
-        .events-wrapper {
-            overflow: hidden;
-            position: relative;
-        }
-
-        .events-wrapper::before,
-        .events-wrapper::after {
-            content: '';
-            position: absolute;
-            top: 0;
-            bottom: 0;
-            width: 60px;
-            z-index: 2;
-            pointer-events: none;
-        }
-
-        .events-wrapper::before {
-            left: 0;
-            background: linear-gradient(to right, #FFFFFF, transparent);
-        }
-
-        .events-wrapper::after {
-            right: 0;
-            background: linear-gradient(to left, #FFFFFF, transparent);
         }
 
         /* ===== PROBLEMS ===== */
@@ -601,68 +528,37 @@
             color: #6E6E73;
         }
 
-        /* ===== TEAM ===== */
+        /* ===== TEAM (SIMPLIFIED) ===== */
         .team {
             background: #FFFFFF;
         }
 
-        .team-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+        .team-simple {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
             margin-top: 40px;
         }
 
-        .team-card {
-            text-align: center;
-            padding: 24px 16px;
-            background: #F5F5F7;
-            border-radius: 12px;
-            transition: all 0.3s;
-            border: 1px solid transparent;
+        .team-simple img {
+            width: 100%;
+            max-width: 600px;
+            border-radius: 16px;
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
+            margin-bottom: 24px;
         }
 
-        .team-card:hover {
-            border-color: #1A1A1A;
-            transform: translateY(-3px);
-        }
-
-        .team-card .flag {
-            font-size: 32px;
-            display: block;
+        .team-simple h3 {
+            font-size: 24px;
+            font-weight: 600;
             margin-bottom: 8px;
         }
 
-        .team-card .team-photo {
-            width: 100px;
-            height: 100px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto 12px;
-            border: 2px solid #E5E5EA;
-        }
-
-        .team-card h4 {
-            font-size: 15px;
-            font-weight: 600;
-        }
-
-        .team-card p {
-            font-size: 13px;
+        .team-simple p {
+            font-size: 16px;
             color: #6E6E73;
-        }
-
-        .team-card.highlight {
-            background: #1A1A1A;
-            color: #FFFFFF;
-        }
-
-        .team-card.highlight p {
-            color: #AAAAAA;
-        }
-
-        .team-card.highlight .team-photo {
-            border-color: #444;
+            max-width: 500px;
         }
 
         /* ===== BLOX ===== */
@@ -716,7 +612,7 @@
             box-shadow: 0 8px 30px rgba(0, 0, 0, 0.06);
         }
 
-        /* ===== QUIZ / CALCULATOR ===== */
+        /* ===== QUIZ ===== */
         .quiz-section {
             background: #0D0D0D;
             padding: 80px 0;
@@ -842,7 +738,7 @@
             border-color: #666;
         }
 
-        /* ===== FORM SECTION ===== */
+        /* ===== FORM ===== */
         .form-section {
             background: #F5F5F7;
             padding: 80px 0;
@@ -1107,13 +1003,6 @@
             .quiz-wrapper {
                 padding: 24px;
             }
-
-            .awards-wrapper::before,
-            .awards-wrapper::after,
-            .events-wrapper::before,
-            .events-wrapper::after {
-                width: 30px;
-            }
         }
 
         @media (max-width: 480px) {
@@ -1125,25 +1014,12 @@
                 padding: 30px 0 50px;
             }
 
-            .team-grid {
-                grid-template-columns: 1fr 1fr;
-            }
-
             .form-wrapper iframe {
                 height: 450px;
             }
 
             .quiz-wrapper {
                 padding: 16px;
-            }
-
-            .award-card {
-                min-width: 160px;
-                padding: 16px 20px;
-            }
-
-            .event-card {
-                min-width: 220px;
             }
         }
 
@@ -1160,14 +1036,10 @@
 
 <body>
 
-    <!-- ============================================================ -->
-    <!-- TOP BAR -->
-    <!-- ============================================================ -->
+    <!-- ===== TOP BAR ===== -->
     <header class="top-bar">
         <div class="container">
-            <div class="logo-area">
-                <span class="logo-text">SUPERNOVA</span>
-            </div>
+            <div class="logo-text">SUPERNOVA</div>
             <div class="lang-switcher">
                 <button class="lang-btn active" data-lang="en" onclick="switchLang('en')">🇬🇧 EN</button>
                 <button class="lang-btn" data-lang="jp" onclick="switchLang('jp')">🇯🇵 JP</button>
@@ -1177,12 +1049,10 @@
         </div>
     </header>
 
-    <!-- ============================================================ -->
-    <!-- ENGLISH CONTENT -->
-    <!-- ============================================================ -->
+    <!-- ===== ENGLISH CONTENT ===== -->
     <div id="lang-en" class="lang-content active">
 
-        <!-- ===== HERO ===== -->
+        <!-- HERO -->
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
@@ -1214,96 +1084,65 @@
                         </div>
 
                         <div class="hero-stats">
-                            <div class="stat">
-                                <h3>500+</h3>
-                                <p>Creators Assessed</p>
-                            </div>
-                            <div class="stat">
-                                <h3>30+</h3>
-                                <p>Global Team</p>
-                            </div>
-                            <div class="stat">
-                                <h3>5</h3>
-                                <p>Markets</p>
-                            </div>
+                            <div class="stat"><h3>500+</h3><p>Creators Assessed</p></div>
+                            <div class="stat"><h3>30+</h3><p>Global Team</p></div>
+                            <div class="stat"><h3>5</h3><p>Markets</p></div>
                         </div>
                     </div>
                     <div class="hero-image">
-                        <img id="heroImage" src="images/hero/hero-global.png" alt="Creator" />
+                        <img id="heroImageEn" src="images/hero/hero-global.png" alt="Creator" />
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== AWARDS (Moving) ===== -->
+        <!-- AWARDS -->
         <section class="awards section-padding" id="awards">
             <div class="container">
                 <span class="section-badge">✦ Recognition</span>
                 <h2 class="section-title">Award-Winning Excellence in Creator Growth</h2>
-                <p class="section-sub">We don't just talk about growth. We've been recognized by the industry's most prestigious platforms for our work in building and scaling creator careers. These aren't participation trophies — they're proof of results.</p>
+                <p class="section-sub">We don't just talk about growth. We've been recognized by the industry's most prestigious platforms.</p>
 
-                <div class="awards-wrapper">
-                    <div class="awards-scroll">
-                        <div class="award-card">
-                            <img src="images/award/award-1.png" alt="Award" />
-                            <span class="award-title">Industry Recognition</span>
-                            <span class="award-year">Acknowledged for excellence in creator development</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-2.png" alt="Award" />
-                            <span class="award-title">Team Excellence</span>
-                            <span class="award-year">Recognized for pioneering new approaches to creator growth</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-1.png" alt="Award" />
-                            <span class="award-title">Industry Recognition</span>
-                            <span class="award-year">Acknowledged for excellence in creator development</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-2.png" alt="Award" />
-                            <span class="award-title">Team Excellence</span>
-                            <span class="award-year">Recognized for pioneering new approaches to creator growth</span>
-                        </div>
+                <div class="awards-grid">
+                    <div class="award-card animate-on-scroll">
+                        <img src="images/award/award-1.png" alt="Award" />
+                        <span class="award-title">Industry Recognition</span>
+                        <span class="award-year">Acknowledged for excellence in creator development</span>
+                    </div>
+                    <div class="award-card animate-on-scroll">
+                        <img src="images/award/award-2.png" alt="Award" />
+                        <span class="award-title">Team Excellence</span>
+                        <span class="award-year">Recognized for pioneering new approaches to creator growth</span>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== EVENTS (Moving) ===== -->
+        <!-- EVENTS -->
         <section class="events section-padding">
             <div class="container">
                 <span class="section-badge">✦ Presence</span>
                 <h2 class="section-title">Where the Industry Gathers, We're There</h2>
-                <p class="section-sub">From global summits to exclusive creator conferences — we're embedded in the ecosystem that's shaping the future of LIVE content. We don't watch from the sidelines. We're on stage, building the next generation of creator success.</p>
+                <p class="section-sub">From global summits to exclusive creator conferences — we're embedded in the ecosystem shaping the future of LIVE content.</p>
 
-                <div class="events-wrapper">
-                    <div class="events-scroll">
-                        <div class="event-card">
-                            <img src="images/events/event-1.png" alt="Event" />
-                            <div class="event-info">
-                                <h4>Global Creator Summits & Industry Events</h4>
-                                <p>Connecting with the world's most ambitious creators</p>
-                            </div>
-                        </div>
-                        <div class="event-card">
-                            <img src="images/events/event-1.png" alt="Event" />
-                            <div class="event-info">
-                                <h4>Global Creator Summits & Industry Events</h4>
-                                <p>Connecting with the world's most ambitious creators</p>
-                            </div>
+                <div class="events-grid">
+                    <div class="event-card animate-on-scroll">
+                        <img src="images/events/event-1.png" alt="Event" />
+                        <div class="event-info">
+                            <h4>Global Creator Summits & Industry Events</h4>
+                            <p>Connecting with the world's most ambitious creators</p>
                         </div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== PROBLEMS ===== -->
+        <!-- PROBLEMS -->
         <section class="problems section-padding">
             <div class="container">
                 <span class="section-badge">✦ The Risk</span>
                 <h2 class="section-title">The Algorithm Doesn't Care About Your Hard Work.</h2>
-                <p class="section-sub">One update. One policy change. One bad week. And everything you've built can disappear. Here's why most creators plateau — and how we stop it.</p>
-
+                <p class="section-sub">One update. One policy change. One bad week. And everything you've built can disappear.</p>
                 <div class="problems-grid">
                     <div class="problem-card animate-on-scroll">
                         <div class="icon"><i class="fas fa-chart-line"></i></div>
@@ -1329,13 +1168,12 @@
             </div>
         </section>
 
-        <!-- ===== SOLUTIONS ===== -->
+        <!-- SOLUTIONS -->
         <section class="solutions section-padding">
             <div class="container">
                 <span class="section-badge">✦ What We Do</span>
                 <h2 class="section-title">We Don't Guess. We Engineer.</h2>
-                <p class="section-sub">Every strategy is built on data. Every move is calculated. No hustle culture. No empty promises. Just systems that work.</p>
-
+                <p class="section-sub">Every strategy is built on data. Every move is calculated. No hustle culture. Just systems that work.</p>
                 <div class="solutions-grid">
                     <div class="solution-item animate-on-scroll">
                         <div class="icon"><i class="fas fa-brain"></i></div>
@@ -1366,55 +1204,22 @@
             </div>
         </section>
 
-        <!-- ===== TEAM ===== -->
+        <!-- TEAM (SIMPLIFIED) -->
         <section class="team section-padding">
             <div class="container">
-                <span class="section-badge">✦ Our People</span>
-                <h2 class="section-title">30+ Strategists. 5 Markets. 1 Mission.</h2>
-                <p class="section-sub">We don't have "managers." We have creator strategists — experts who've been where you are and know exactly how to get you where you want to go. Every market, every timezone, we're here.</p>
+                <span class="section-badge">✦ Our Team</span>
+                <h2 class="section-title">Our Global Creator Team</h2>
+                <p class="section-sub">Experts who've been where you are — and know exactly how to get you where you want to go.</p>
 
-                <div class="team-grid">
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇺🇸</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>USA</h4>
-                        <p>5 Creator Strategists</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇬🇧</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>UK</h4>
-                        <p>5 Creator Strategists</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇯🇵</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Japan</h4>
-                        <p>5 Creator Strategists</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇷🇴</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Romania</h4>
-                        <p>5 Creator Strategists</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇲🇾</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Malaysia</h4>
-                        <p>5 Creator Strategists</p>
-                    </div>
-                    <div class="team-card highlight animate-on-scroll">
-                        <span class="flag">🌍</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Global</h4>
-                        <p>5 Regional Directors</p>
-                    </div>
+                <div class="team-simple animate-on-scroll">
+                    <img src="images/team/team-1.png" alt="Global Team" />
+                    <h3>30+ Creator Strategists Worldwide</h3>
+                    <p>Dedicated professionals across 5 markets, united by one mission: your growth.</p>
                 </div>
             </div>
         </section>
 
-        <!-- ===== SUPERNOVA BLOX ===== -->
+        <!-- BLOX -->
         <section class="blox-section section-padding">
             <div class="container">
                 <div class="blox-content">
@@ -1430,12 +1235,11 @@
             </div>
         </section>
 
-        <!-- ===== TESTIMONIALS ===== -->
+        <!-- TESTIMONIALS -->
         <section class="testimonials">
             <div class="container">
                 <span class="section-badge">✦ Social Proof</span>
                 <h2 class="section-title">Don't Take Our Word For It. Take Theirs.</h2>
-
                 <div class="testimonial-grid">
                     <div class="testimonial-card animate-on-scroll">
                         <div class="stars">★★★★★</div>
@@ -1474,17 +1278,16 @@
             </div>
         </section>
 
-        <!-- ===== QUIZ / CALCULATOR ===== -->
+        <!-- QUIZ -->
         <section class="quiz-section" id="quiz-section">
             <div class="container">
                 <span class="section-badge" style="color:#888;">✦ Assessment</span>
                 <h2 class="section-title" style="color:#FFFFFF;">How Vulnerable Is Your Creator Career?</h2>
-                <p class="section-sub" style="color:#888; max-width:600px;">This isn't a generic quiz. It's a diagnostic tool built by former TikTok strategists. 3 questions. 2 minutes. And a score that tells you exactly where you're at risk.</p>
+                <p class="section-sub" style="color:#888; max-width:600px;">3 questions. 2 minutes. A score that tells you exactly where you're at risk.</p>
 
                 <div class="quiz-wrapper">
                     <div id="quiz-form">
                         <h2>Calculate Your Creator Growth Score™</h2>
-
                         <div class="question-block">
                             <label for="volume">Current Monthly Diamond Volume</label>
                             <select id="volume">
@@ -1493,7 +1296,6 @@
                                 <option value="low">Under 50K Diamonds/mo</option>
                             </select>
                         </div>
-
                         <div class="question-block">
                             <label for="hours">Average Weekly Live Streaming Hours</label>
                             <select id="hours">
@@ -1502,7 +1304,6 @@
                                 <option value="irregular">Under 12 Hours (Inconsistent)</option>
                             </select>
                         </div>
-
                         <div class="question-block">
                             <label for="challenge">Primary Algorithmic Core Bottleneck</label>
                             <select id="challenge">
@@ -1511,30 +1312,26 @@
                                 <option value="policy">Policy Anxiety & Compliance Warnings</option>
                             </select>
                         </div>
-
                         <button type="button" class="btn-submit" onclick="calculateScore()">Analyze My Performance Metrics</button>
                     </div>
-
                     <div id="quiz-result" class="result-block">
                         <h2>Your Performance Matrix Diagnostics</h2>
                         <div class="feedback-text" id="verdict-label">CREATOR INSIGHT SCORE</div>
                         <div class="score-display" id="score-val">00/100</div>
-                        <div class="feedback-text" id="feedback-val">
-                            Analysis complete. Stagnation vulnerabilities detected in system infrastructure and audience retention loops.
-                        </div>
+                        <div class="feedback-text" id="feedback-val">Analysis complete. Stagnation vulnerabilities detected.</div>
                         <a href="#form-section" class="cta-link">Apply For A Free Stream Audit & Review →</a>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- ===== FORM SECTION ===== -->
+        <!-- FORM -->
         <section class="form-section" id="form-section">
             <div class="container">
                 <div style="text-align:center; margin-bottom:32px;">
                     <span class="section-badge">✦ Apply</span>
                     <h2 class="section-title">Let's Take a Look Under the Hood</h2>
-                    <p class="section-sub" style="margin:0 auto;">Fill out the form below and one of our creator strategists will personally review your stream. We'll identify what's holding you back — and tell you exactly how to fix it.</p>
+                    <p class="section-sub" style="margin:0 auto;">Fill out the form below and one of our creator strategists will personally review your stream.</p>
                 </div>
                 <div class="form-wrapper animate-on-scroll">
                     <iframe src="https://tally.so/embed/0QGPvy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Supernova Creator Assessment"></iframe>
@@ -1542,11 +1339,11 @@
             </div>
         </section>
 
-        <!-- ===== FINAL CTA ===== -->
+        <!-- FINAL CTA -->
         <section class="final-cta">
             <div class="container">
                 <h2>The Clock Is Ticking. Your Competition Is Growing.</h2>
-                <p>Every day you wait is another day you plateau. Another day your audience drifts. Another day you lose momentum. Don't let that happen.</p>
+                <p>Every day you wait is another day you plateau. Don't let that happen.</p>
                 <a href="#quiz-section" class="btn-primary">
                     <i class="fas fa-calculator"></i> Calculate Your Creator Growth Score Now
                 </a>
@@ -1557,30 +1354,18 @@
     <!-- END ENGLISH -->
 
 
-    <!-- ============================================================ -->
-    <!-- JAPANESE CONTENT (日本語) -->
-    <!-- ============================================================ -->
+    <!-- ===== JAPANESE CONTENT ===== -->
     <div id="lang-jp" class="lang-content">
-
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
                         <span class="badge">✦ グローバルクリエイターネットワーク</span>
-                        <h1>
-                            あなたはすでに収益を上げられることを証明した。<br />
-                            それを<span class="highlight">止められないもの</span>にしよう。
-                        </h1>
-                        <p>
-                            すべてのクリエイターは壁にぶつかる。乗り越える者は、よりハードに働くのではなく、よりスマートに働く。<strong>その方法を教えます。</strong>
-                        </p>
+                        <h1>あなたはすでに収益を上げられることを証明した。<br />それを<span class="highlight">止められないもの</span>にしよう。</h1>
+                        <p>すべてのクリエイターは壁にぶつかる。乗り越える者は、よりハードに働くのではなく、よりスマートに働く。<strong>その方法を教えます。</strong></p>
                         <div class="hero-actions">
-                            <a href="#quiz-section" class="btn-primary">
-                                <i class="fas fa-calculator"></i> クリエイター成長スコアを計算
-                            </a>
-                            <a href="#awards" class="btn-secondary">
-                                <i class="fas fa-trophy"></i> 受賞歴を見る
-                            </a>
+                            <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> クリエイター成長スコアを計算</a>
+                            <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> 受賞歴を見る</a>
                         </div>
                         <div class="region-selector">
                             <button class="region-btn active" onclick="switchHero('global')">🌍 グローバル</button>
@@ -1591,18 +1376,9 @@
                             <button class="region-btn" onclick="switchHero('malaysia')">🇲🇾 マレーシア</button>
                         </div>
                         <div class="hero-stats">
-                            <div class="stat">
-                                <h3>500+</h3>
-                                <p>評価済みクリエイター</p>
-                            </div>
-                            <div class="stat">
-                                <h3>30+</h3>
-                                <p>グローバルチーム</p>
-                            </div>
-                            <div class="stat">
-                                <h3>5</h3>
-                                <p>市場</p>
-                            </div>
+                            <div class="stat"><h3>500+</h3><p>評価済みクリエイター</p></div>
+                            <div class="stat"><h3>30+</h3><p>グローバルチーム</p></div>
+                            <div class="stat"><h3>5</h3><p>市場</p></div>
                         </div>
                     </div>
                     <div class="hero-image">
@@ -1616,29 +1392,17 @@
             <div class="container">
                 <span class="section-badge">✦ 受賞歴</span>
                 <h2 class="section-title">クリエイター成長における受賞歴のある卓越性</h2>
-                <p class="section-sub">私たちは成長について語るだけではありません。クリエイターキャリアの構築と拡大における私たちの取り組みは、業界で最も権威のあるプラットフォームから認められています。</p>
-                <div class="awards-wrapper">
-                    <div class="awards-scroll">
-                        <div class="award-card">
-                            <img src="images/award/award-1.png" alt="Award" />
-                            <span class="award-title">業界からの評価</span>
-                            <span class="award-year">クリエイター開発における卓越性が認められました</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-2.png" alt="Award" />
-                            <span class="award-title">チームの卓越性</span>
-                            <span class="award-year">クリエイター成長への新しいアプローチが評価されました</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-1.png" alt="Award" />
-                            <span class="award-title">業界からの評価</span>
-                            <span class="award-year">クリエイター開発における卓越性が認められました</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-2.png" alt="Award" />
-                            <span class="award-title">チームの卓越性</span>
-                            <span class="award-year">クリエイター成長への新しいアプローチが評価されました</span>
-                        </div>
+                <p class="section-sub">私たちは成長について語るだけではありません。業界で最も権威のあるプラットフォームから認められています。</p>
+                <div class="awards-grid">
+                    <div class="award-card animate-on-scroll">
+                        <img src="images/award/award-1.png" alt="Award" />
+                        <span class="award-title">業界からの評価</span>
+                        <span class="award-year">クリエイター開発における卓越性が認められました</span>
+                    </div>
+                    <div class="award-card animate-on-scroll">
+                        <img src="images/award/award-2.png" alt="Award" />
+                        <span class="award-title">チームの卓越性</span>
+                        <span class="award-year">クリエイター成長への新しいアプローチが評価されました</span>
                     </div>
                 </div>
             </div>
@@ -1649,21 +1413,12 @@
                 <span class="section-badge">✦ プレゼンス</span>
                 <h2 class="section-title">業界が集まる場所に、私たちはいる</h2>
                 <p class="section-sub">グローバルサミットから独占的なクリエイターカンファレンスまで — 私たちはLIVEコンテンツの未来を形作るエコシステムに深く関わっています。</p>
-                <div class="events-wrapper">
-                    <div class="events-scroll">
-                        <div class="event-card">
-                            <img src="images/events/event-1.png" alt="Event" />
-                            <div class="event-info">
-                                <h4>グローバルクリエイターサミット & 業界イベント</h4>
-                                <p>世界で最も野心的なクリエイターとつながる</p>
-                            </div>
-                        </div>
-                        <div class="event-card">
-                            <img src="images/events/event-1.png" alt="Event" />
-                            <div class="event-info">
-                                <h4>グローバルクリエイターサミット & 業界イベント</h4>
-                                <p>世界で最も野心的なクリエイターとつながる</p>
-                            </div>
+                <div class="events-grid">
+                    <div class="event-card animate-on-scroll">
+                        <img src="images/events/event-1.png" alt="Event" />
+                        <div class="event-info">
+                            <h4>グローバルクリエイターサミット & 業界イベント</h4>
+                            <p>世界で最も野心的なクリエイターとつながる</p>
                         </div>
                     </div>
                 </div>
@@ -1676,26 +1431,10 @@
                 <h2 class="section-title">アルゴリズムはあなたの努力を気にしない。</h2>
                 <p class="section-sub">一度のアップデート。一度のポリシー変更。一度の悪い週。そしてあなたが築いてきたすべてが消え去る可能性があります。</p>
                 <div class="problems-grid">
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>60%の減少</h4>
-                        <p>目を覚まし、ライブ配信を開始すると、リーチが半分に。警告も説明もありません。</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-fire"></i></div>
-                        <h4>疲労の罠</h4>
-                        <p>倍の時間をかけても、収入は同じ。創造性は銀行口座が増えるよりも早く燃え尽きています。</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-eye-slash"></i></div>
-                        <h4>幽霊のような観客</h4>
-                        <p>視聴者は来るが、去っていく。誰もいない部屋でパフォーマンスしているように感じます。</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                        <h4>禁止ボタン</h4>
-                        <p>一度の誤った報告。一度の誤解されたルール。そしてあなたのキャリアは無期限に停止されます。</p>
-                    </div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-chart-line"></i></div><h4>60%の減少</h4><p>目を覚まし、ライブ配信を開始すると、リーチが半分に。警告も説明もありません。</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-fire"></i></div><h4>疲労の罠</h4><p>倍の時間をかけても、収入は同じ。創造性は銀行口座が増えるよりも早く燃え尽きています。</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-eye-slash"></i></div><h4>幽霊のような観客</h4><p>視聴者は来るが、去っていく。誰もいない部屋でパフォーマンスしているように感じます。</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4>禁止ボタン</h4><p>一度の誤った報告。一度の誤解されたルール。そしてあなたのキャリアは無期限に停止されます。</p></div>
                 </div>
             </div>
         </section>
@@ -1704,33 +1443,13 @@
             <div class="container">
                 <span class="section-badge">✦ 私たちの提供内容</span>
                 <h2 class="section-title">私たちは推測しない。エンジニアリングする。</h2>
-                <p class="section-sub">すべての戦略はデータに基づいています。すべての行動は計算されています。ハッスル文化はありません。空虚な約束はありません。機能するシステムだけです。</p>
+                <p class="section-sub">すべての戦略はデータに基づいています。すべての行動は計算されています。</p>
                 <div class="solutions-grid">
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-brain"></i></div>
-                        <h4>理由を教えるデータ</h4>
-                        <p>「何が起こったのか」と尋ねるのをやめて、ギフトがなぜ上下するのかを正確に理解しましょう。</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-sync-alt"></i></div>
-                        <h4>再現可能なフレームワーク</h4>
-                        <p>今日何をすべきか悩むことはもうありません。あなたのロードマップはすでに構築されています。</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-video"></i></div>
-                        <h4>外科的フィードバック</h4>
-                        <p>私たちはあなたのVODを外科医のように見ます。逃したフック、低下したリテンション — すべて修正します。</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-shield-virus"></i></div>
-                        <h4>ポリシー保護</h4>
-                        <p>私たちはクリエイターを禁止から救ってきました。あなたも守ります。</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-road"></i></div>
-                        <h4>90日間のロードマップ</h4>
-                        <p>もう推測はありません。何をすべきか、そしていつ行うべきかが正確にわかります。</p>
-                    </div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-brain"></i></div><h4>理由を教えるデータ</h4><p>「何が起こったのか」と尋ねるのをやめて、ギフトがなぜ上下するのかを正確に理解しましょう。</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-sync-alt"></i></div><h4>再現可能なフレームワーク</h4><p>今日何をすべきか悩むことはもうありません。あなたのロードマップはすでに構築されています。</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-video"></i></div><h4>外科的フィードバック</h4><p>私たちはあなたのVODを外科医のように見ます。逃したフック、低下したリテンション — すべて修正します。</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-shield-virus"></i></div><h4>ポリシー保護</h4><p>私たちはクリエイターを禁止から救ってきました。あなたも守ります。</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-road"></i></div><h4>90日間のロードマップ</h4><p>もう推測はありません。何をすべきか、そしていつ行うべきかが正確にわかります。</p></div>
                 </div>
             </div>
         </section>
@@ -1738,45 +1457,12 @@
         <section class="team section-padding">
             <div class="container">
                 <span class="section-badge">✦ 私たちのチーム</span>
-                <h2 class="section-title">30+ ストラテジスト。5つの市場。1つのミッション。</h2>
-                <p class="section-sub">私たちには「マネージャー」はいません。クリエイターストラテジストがいます — あなたの立場を理解し、あなたが行きたい場所にどうやって連れて行くかを正確に知っている専門家です。</p>
-                <div class="team-grid">
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇺🇸</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>アメリカ</h4>
-                        <p>5 クリエイターストラテジスト</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇬🇧</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>イギリス</h4>
-                        <p>5 クリエイターストラテジスト</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇯🇵</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>日本</h4>
-                        <p>5 クリエイターストラテジスト</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇷🇴</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>ルーマニア</h4>
-                        <p>5 クリエイターストラテジスト</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇲🇾</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>マレーシア</h4>
-                        <p>5 クリエイターストラテジスト</p>
-                    </div>
-                    <div class="team-card highlight animate-on-scroll">
-                        <span class="flag">🌍</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>グローバル</h4>
-                        <p>5 リージョナルディレクター</p>
-                    </div>
+                <h2 class="section-title">グローバルクリエイターチーム</h2>
+                <p class="section-sub">あなたの立場を理解し、あなたが行きたい場所にどうやって連れて行くかを正確に知っている専門家です。</p>
+                <div class="team-simple animate-on-scroll">
+                    <img src="images/team/team-1.png" alt="Global Team" />
+                    <h3>世界中に30+ クリエイターストラテジスト</h3>
+                    <p>5つの市場にわたる専任の専門家が、あなたの成長という一つの使命に団結しています。</p>
                 </div>
             </div>
         </section>
@@ -1789,9 +1475,7 @@
                         <h2>SUPERNOVA <span class="blox-style">BLOX</span></h2>
                         <p>Robloxは次のフロンティアです。私たちはすでにそこにいます。SupernovaをTikTokで#1にしたのと同じシステムが、今や世界中の次世代ゲームクリエイターを支援しています。</p>
                     </div>
-                    <div>
-                        <img src="images/blox/sb-1.png" alt="Supernova Blox" />
-                    </div>
+                    <div><img src="images/blox/sb-1.png" alt="Supernova Blox" /></div>
                 </div>
             </div>
         </section>
@@ -1801,39 +1485,9 @@
                 <span class="section-badge">✦ 実績</span>
                 <h2 class="section-title">私たちの言葉だけを信じないで。彼らの言葉を聞いてください。</h2>
                 <div class="testimonial-grid">
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"月に$8kを稼いでいたが、すべては推測だった。Supernovaはシステムをくれた — そして90日以内に$15kに達した。同じ時間。半分のストレス。"</blockquote>
-                        <div class="author">
-                            <div class="avatar">G</div>
-                            <div>
-                                <div class="name">@GamerVault</div>
-                                <div class="handle">UK • 400K ダイヤモンド/月</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"辞めようと思っていた。アルゴリズムが変わり、視聴者の40%を失った。Supernovaがストリームを監査し、フックを修正し、2週間で戻ってきた。"</blockquote>
-                        <div class="author">
-                            <div class="avatar">L</div>
-                            <div>
-                                <div class="name">@LunaLive</div>
-                                <div class="handle">USA • 280K ダイヤモンド/月</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"意味不明な違反を受けた。パニックになった。Supernovaのリスクチームが異議申し立てを支援し、再発防止策を講じてくれた。"</blockquote>
-                        <div class="author">
-                            <div class="avatar">R</div>
-                            <div>
-                                <div class="name">@RyuStreams</div>
-                                <div class="handle">日本 • 350K ダイヤモンド/月</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"月に$8kを稼いでいたが、すべては推測だった。Supernovaはシステムをくれた — そして90日以内に$15kに達した。同じ時間。半分のストレス。"</blockquote><div class="author"><div class="avatar">G</div><div><div class="name">@GamerVault</div><div class="handle">UK • 400K ダイヤモンド/月</div></div></div></div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"辞めようと思っていた。アルゴリズムが変わり、視聴者の40%を失った。Supernovaがストリームを監査し、フックを修正し、2週間で戻ってきた。"</blockquote><div class="author"><div class="avatar">L</div><div><div class="name">@LunaLive</div><div class="handle">USA • 280K ダイヤモンド/月</div></div></div></div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"意味不明な違反を受けた。パニックになった。Supernovaのリスクチームが異議申し立てを支援し、再発防止策を講じてくれた。"</blockquote><div class="author"><div class="avatar">R</div><div><div class="name">@RyuStreams</div><div class="handle">日本 • 350K ダイヤモンド/月</div></div></div></div>
                 </div>
             </div>
         </section>
@@ -1842,41 +1496,20 @@
             <div class="container">
                 <span class="section-badge" style="color:#888;">✦ 評価</span>
                 <h2 class="section-title" style="color:#FFFFFF;">あなたのクリエイターキャリアはどのくらい脆弱ですか？</h2>
-                <p class="section-sub" style="color:#888; max-width:600px;">これは一般的なクイズではありません。元TikTokストラテジストによって構築された診断ツールです。3つの質問。2分。そして、あなたがどこにリスクがあるかを正確に示すスコア。</p>
+                <p class="section-sub" style="color:#888; max-width:600px;">3つの質問。2分。あなたがどこにリスクがあるかを正確に示すスコア。</p>
                 <div class="quiz-wrapper">
                     <div id="quiz-form-jp">
                         <h2>クリエイター成長スコア™ を計算</h2>
-                        <div class="question-block">
-                            <label for="volume-jp">現在の月間ダイヤモンドボリューム</label>
-                            <select id="volume-jp">
-                                <option value="high">150K - 500K+ ダイヤモンド/月</option>
-                                <option value="mid">50K - 150K ダイヤモンド/月</option>
-                                <option value="low">50K未満 ダイヤモンド/月</option>
-                            </select>
-                        </div>
-                        <div class="question-block">
-                            <label for="hours-jp">週平均ライブ配信時間</label>
-                            <select id="hours-jp">
-                                <option value="optimized">12 - 25 時間 (構造化)</option>
-                                <option value="overworked">25+ 時間 (バーンアウトリスク高)</option>
-                                <option value="irregular">12時間未満 (不安定)</option>
-                            </select>
-                        </div>
-                        <div class="question-block">
-                            <label for="challenge-jp">主要なアルゴリズムボトルネック</label>
-                            <select id="challenge-jp">
-                                <option value="retention">視聴者維持率と突然の視聴者減少</option>
-                                <option value="conversion">ギフター依存と収入の停滞</option>
-                                <option value="policy">ポリシー不安とコンプライアンス警告</option>
-                            </select>
-                        </div>
+                        <div class="question-block"><label for="volume-jp">現在の月間ダイヤモンドボリューム</label><select id="volume-jp"><option value="high">150K - 500K+ ダイヤモンド/月</option><option value="mid">50K - 150K ダイヤモンド/月</option><option value="low">50K未満 ダイヤモンド/月</option></select></div>
+                        <div class="question-block"><label for="hours-jp">週平均ライブ配信時間</label><select id="hours-jp"><option value="optimized">12 - 25 時間 (構造化)</option><option value="overworked">25+ 時間 (バーンアウトリスク高)</option><option value="irregular">12時間未満 (不安定)</option></select></div>
+                        <div class="question-block"><label for="challenge-jp">主要なアルゴリズムボトルネック</label><select id="challenge-jp"><option value="retention">視聴者維持率と突然の視聴者減少</option><option value="conversion">ギフター依存と収入の停滞</option><option value="policy">ポリシー不安とコンプライアンス警告</option></select></div>
                         <button type="button" class="btn-submit" onclick="calculateScoreJP()">パフォーマンスを分析</button>
                     </div>
                     <div id="quiz-result-jp" class="result-block">
                         <h2>パフォーマンス診断結果</h2>
                         <div class="feedback-text" id="verdict-label-jp">クリエイターインサイトスコア</div>
                         <div class="score-display" id="score-val-jp">00/100</div>
-                        <div class="feedback-text" id="feedback-val-jp">分析完了。システムインフラと視聴者維持ループに停滞の脆弱性が検出されました。</div>
+                        <div class="feedback-text" id="feedback-val-jp">分析完了。停滞の脆弱性が検出されました。</div>
                         <a href="#form-section" class="cta-link">無料ストリーム監査に申し込む →</a>
                     </div>
                 </div>
@@ -1888,7 +1521,7 @@
                 <div style="text-align:center; margin-bottom:32px;">
                     <span class="section-badge">✦ 申し込む</span>
                     <h2 class="section-title">内部を詳しく見てみましょう</h2>
-                    <p class="section-sub" style="margin:0 auto;">以下のフォームに記入すると、クリエイターストラテジストがあなたのストリームを個人的にレビューします。何があなたを妨げているのかを特定し、それを修正する方法を正確に教えます。</p>
+                    <p class="section-sub" style="margin:0 auto;">以下のフォームに記入すると、クリエイターストラテジストがあなたのストリームを個人的にレビューします。</p>
                 </div>
                 <div class="form-wrapper animate-on-scroll">
                     <iframe src="https://tally.so/embed/0QGPvy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Supernova Creator Assessment"></iframe>
@@ -1899,41 +1532,26 @@
         <section class="final-cta">
             <div class="container">
                 <h2>時計は刻んでいます。あなたの競争相手は増えています。</h2>
-                <p>あなたが待つ1日1日が、停滞する日です。あなたの視聴者が離れる日です。勢いを失う日です。それを起こさせないでください。</p>
-                <a href="#quiz-section" class="btn-primary">
-                    <i class="fas fa-calculator"></i> 今すぐクリエイター成長スコアを計算
-                </a>
+                <p>あなたが待つ1日1日が、停滞する日です。それを起こさせないでください。</p>
+                <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> 今すぐクリエイター成長スコアを計算</a>
             </div>
         </section>
-
     </div>
     <!-- END JAPANESE -->
 
 
-    <!-- ============================================================ -->
-    <!-- ROMANIAN CONTENT (Română) -->
-    <!-- ============================================================ -->
+    <!-- ===== ROMANIAN CONTENT ===== -->
     <div id="lang-ro" class="lang-content">
-
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
                         <span class="badge">✦ Rețea Globală de Creatori</span>
-                        <h1>
-                            Ai Demonstrat deja că Poți Câștiga.<br />
-                            Acum Hai să Facem Acest Lucru <span class="highlight">De Neoprit.</span>
-                        </h1>
-                        <p>
-                            Fiecare creator lovește un zid. Cei care trec peste nu muncesc mai mult — muncesc mai inteligent. <strong>Noi îți arătăm cum.</strong>
-                        </p>
+                        <h1>Ai Demonstrat deja că Poți Câștiga.<br />Acum Hai să Facem Acest Lucru <span class="highlight">De Neoprit.</span></h1>
+                        <p>Fiecare creator lovește un zid. Cei care trec peste nu muncesc mai mult — muncesc mai inteligent. <strong>Noi îți arătăm cum.</strong></p>
                         <div class="hero-actions">
-                            <a href="#quiz-section" class="btn-primary">
-                                <i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere
-                            </a>
-                            <a href="#awards" class="btn-secondary">
-                                <i class="fas fa-trophy"></i> Vezi Recunoașterile
-                            </a>
+                            <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere</a>
+                            <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> Vezi Recunoașterile</a>
                         </div>
                         <div class="region-selector">
                             <button class="region-btn active" onclick="switchHero('global')">🌍 Global</button>
@@ -1944,18 +1562,9 @@
                             <button class="region-btn" onclick="switchHero('malaysia')">🇲🇾 Malaezia</button>
                         </div>
                         <div class="hero-stats">
-                            <div class="stat">
-                                <h3>500+</h3>
-                                <p>Creatori Evaluați</p>
-                            </div>
-                            <div class="stat">
-                                <h3>30+</h3>
-                                <p>Echipă Globală</p>
-                            </div>
-                            <div class="stat">
-                                <h3>5</h3>
-                                <p>Piețe</p>
-                            </div>
+                            <div class="stat"><h3>500+</h3><p>Creatori Evaluați</p></div>
+                            <div class="stat"><h3>30+</h3><p>Echipă Globală</p></div>
+                            <div class="stat"><h3>5</h3><p>Piețe</p></div>
                         </div>
                     </div>
                     <div class="hero-image">
@@ -1969,29 +1578,17 @@
             <div class="container">
                 <span class="section-badge">✦ Recunoaștere</span>
                 <h2 class="section-title">Excelență Premiată în Creșterea Creatorilor</h2>
-                <p class="section-sub">Nu doar vorbim despre creștere. Am fost recunoscuți de cele mai prestigioase platforme din industrie pentru munca noastră în construirea și scalarea carierelor creatorilor.</p>
-                <div class="awards-wrapper">
-                    <div class="awards-scroll">
-                        <div class="award-card">
-                            <img src="images/award/award-1.png" alt="Award" />
-                            <span class="award-title">Recunoaștere în Industrie</span>
-                            <span class="award-year">Apreciată pentru excelența în dezvoltarea creatorilor</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-2.png" alt="Award" />
-                            <span class="award-title">Excelența Echipei</span>
-                            <span class="award-year">Recunoscută pentru abordări inovatoare în creșterea creatorilor</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-1.png" alt="Award" />
-                            <span class="award-title">Recunoaștere în Industrie</span>
-                            <span class="award-year">Apreciată pentru excelența în dezvoltarea creatorilor</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-2.png" alt="Award" />
-                            <span class="award-title">Excelența Echipei</span>
-                            <span class="award-year">Recunoscută pentru abordări inovatoare în creșterea creatorilor</span>
-                        </div>
+                <p class="section-sub">Nu doar vorbim despre creștere. Am fost recunoscuți de cele mai prestigioase platforme din industrie.</p>
+                <div class="awards-grid">
+                    <div class="award-card animate-on-scroll">
+                        <img src="images/award/award-1.png" alt="Award" />
+                        <span class="award-title">Recunoaștere în Industrie</span>
+                        <span class="award-year">Apreciată pentru excelența în dezvoltarea creatorilor</span>
+                    </div>
+                    <div class="award-card animate-on-scroll">
+                        <img src="images/award/award-2.png" alt="Award" />
+                        <span class="award-title">Excelența Echipei</span>
+                        <span class="award-year">Recunoscută pentru abordări inovatoare în creșterea creatorilor</span>
                     </div>
                 </div>
             </div>
@@ -2002,21 +1599,12 @@
                 <span class="section-badge">✦ Prezență</span>
                 <h2 class="section-title">Unde Se Adună Industria, Noi Suntem Acolo</h2>
                 <p class="section-sub">De la summit-uri globale la conferințe exclusive pentru creatori — suntem integrați în ecosistemul care modelează viitorul conținutului LIVE.</p>
-                <div class="events-wrapper">
-                    <div class="events-scroll">
-                        <div class="event-card">
-                            <img src="images/events/event-1.png" alt="Event" />
-                            <div class="event-info">
-                                <h4>Summit-uri Globale pentru Creatori & Evenimente ale Industriei</h4>
-                                <p>Conectându-ne cu cei mai ambițioși creatori din lume</p>
-                            </div>
-                        </div>
-                        <div class="event-card">
-                            <img src="images/events/event-1.png" alt="Event" />
-                            <div class="event-info">
-                                <h4>Summit-uri Globale pentru Creatori & Evenimente ale Industriei</h4>
-                                <p>Conectându-ne cu cei mai ambițioși creatori din lume</p>
-                            </div>
+                <div class="events-grid">
+                    <div class="event-card animate-on-scroll">
+                        <img src="images/events/event-1.png" alt="Event" />
+                        <div class="event-info">
+                            <h4>Summit-uri Globale pentru Creatori & Evenimente ale Industriei</h4>
+                            <p>Conectându-ne cu cei mai ambițioși creatori din lume</p>
                         </div>
                     </div>
                 </div>
@@ -2029,26 +1617,10 @@
                 <h2 class="section-title">Algoritmului Nu Îi Pasă de Munca Ta Grea.</h2>
                 <p class="section-sub">O actualizare. O schimbare de politică. O săptămână proastă. Și tot ce ai construit poate dispărea.</p>
                 <div class="problems-grid">
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>Scăderea de 60%</h4>
-                        <p>Te trezești, intri live, și reach-ul tău este redus la jumătate. Fără avertisment. Fără explicație.</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-fire"></i></div>
-                        <h4>Capcana Epuizării</h4>
-                        <p>Dublu ore. Aceleași câștiguri. Creativitatea ta se epuizează mai repede decât crește contul tău bancar.</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-eye-slash"></i></div>
-                        <h4>Audiența Fantomă</h4>
-                        <p>Viewerii vin. Viewerii pleacă. Ești ca și cum ai performa într-o cameră goală și nu știi de ce.</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                        <h4>Butonul de Interzicere</h4>
-                        <p>Un raport fals. O regulă înțeleasă greșit. Și cariera ta este înghețată — pe termen nelimitat.</p>
-                    </div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-chart-line"></i></div><h4>Scăderea de 60%</h4><p>Te trezești, intri live, și reach-ul tău este redus la jumătate. Fără avertisment. Fără explicație.</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-fire"></i></div><h4>Capcana Epuizării</h4><p>Dublu ore. Aceleași câștiguri. Creativitatea ta se epuizează mai repede decât crește contul tău bancar.</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-eye-slash"></i></div><h4>Audiența Fantomă</h4><p>Viewerii vin. Viewerii pleacă. Ești ca și cum ai performa într-o cameră goală și nu știi de ce.</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4>Butonul de Interzicere</h4><p>Un raport fals. O regulă înțeleasă greșit. Și cariera ta este înghețată — pe termen nelimitat.</p></div>
                 </div>
             </div>
         </section>
@@ -2057,33 +1629,13 @@
             <div class="container">
                 <span class="section-badge">✦ Ce Facem</span>
                 <h2 class="section-title">Nu Ghicim. Inginerim.</h2>
-                <p class="section-sub">Fiecare strategie este construită pe date. Fiecare mișcare este calculată. Fără cultură de hustle. Fără promisiuni goale. Doar sisteme care funcționează.</p>
+                <p class="section-sub">Fiecare strategie este construită pe date. Fiecare mișcare este calculată.</p>
                 <div class="solutions-grid">
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-brain"></i></div>
-                        <h4>Date Care Îți Spun De Ce</h4>
-                        <p>Nu mai întreba "Ce s-a întâmplat?" Începe să știi exact de ce cadourile tale cresc și scad.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-sync-alt"></i></div>
-                        <h4>Cadre Repetabile</h4>
-                        <p>Nu te mai trezi întrebându-te ce să faci azi. Foaia ta de parcurs este deja construită.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-video"></i></div>
-                        <h4>Feedback Chirurgical</h4>
-                        <p>Ne uităm la VOD-urile tale ca niște chirurgi. Fiecare hook ratat, fiecare scădere de retenție — rezolvate.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-shield-virus"></i></div>
-                        <h4>Protecție împotriva Politicilor</h4>
-                        <p>Am salvat creatori de la interdicții. Te vom proteja și pe tine.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-road"></i></div>
-                        <h4>Foaia de Parcurs de 90 de Zile</h4>
-                        <p>Nu mai există presupuneri. Vei ști exact ce să faci — și exact când.</p>
-                    </div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-brain"></i></div><h4>Date Care Îți Spun De Ce</h4><p>Nu mai întreba "Ce s-a întâmplat?" Începe să știi exact de ce cadourile tale cresc și scad.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-sync-alt"></i></div><h4>Cadre Repetabile</h4><p>Nu te mai trezi întrebându-te ce să faci azi. Foaia ta de parcurs este deja construită.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-video"></i></div><h4>Feedback Chirurgical</h4><p>Ne uităm la VOD-urile tale ca niște chirurgi. Fiecare hook ratat, fiecare scădere de retenție — rezolvate.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-shield-virus"></i></div><h4>Protecție împotriva Politicilor</h4><p>Am salvat creatori de la interdicții. Te vom proteja și pe tine.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-road"></i></div><h4>Foaia de Parcurs de 90 de Zile</h4><p>Nu mai există presupuneri. Vei ști exact ce să faci — și exact când.</p></div>
                 </div>
             </div>
         </section>
@@ -2091,45 +1643,12 @@
         <section class="team section-padding">
             <div class="container">
                 <span class="section-badge">✦ Oamenii Noștri</span>
-                <h2 class="section-title">30+ Strategiști. 5 Piețe. 1 Misiune.</h2>
-                <p class="section-sub">Nu avem "manageri." Avem strategiști pentru creatori — experți care au fost acolo unde ești tu și știu exact cum să te ducă acolo unde vrei să ajungi.</p>
-                <div class="team-grid">
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇺🇸</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>SUA</h4>
-                        <p>5 Strategiști Creatori</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇬🇧</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>UK</h4>
-                        <p>5 Strategiști Creatori</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇯🇵</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Japonia</h4>
-                        <p>5 Strategiști Creatori</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇷🇴</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>România</h4>
-                        <p>5 Strategiști Creatori</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇲🇾</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Malaezia</h4>
-                        <p>5 Strategiști Creatori</p>
-                    </div>
-                    <div class="team-card highlight animate-on-scroll">
-                        <span class="flag">🌍</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Global</h4>
-                        <p>5 Directori Regionali</p>
-                    </div>
+                <h2 class="section-title">Echipa Noastră Globală de Creatori</h2>
+                <p class="section-sub">Experți care au fost acolo unde ești tu — și știu exact cum să te ducă acolo unde vrei să ajungi.</p>
+                <div class="team-simple animate-on-scroll">
+                    <img src="images/team/team-1.png" alt="Global Team" />
+                    <h3>30+ Strategiști Creatori în Lume</h3>
+                    <p>Profesioniști dedicați în 5 piețe, uniți de o singură misiune: creșterea ta.</p>
                 </div>
             </div>
         </section>
@@ -2142,9 +1661,7 @@
                         <h2>SUPERNOVA <span class="blox-style">BLOX</span></h2>
                         <p>Roblox este următoarea frontieră. Noi suntem deja acolo. Aceleași sisteme care au făcut Supernova #1 pe TikTok — acum susțin următoarea generație de creatori de jocuri din întreaga lume.</p>
                     </div>
-                    <div>
-                        <img src="images/blox/sb-1.png" alt="Supernova Blox" />
-                    </div>
+                    <div><img src="images/blox/sb-1.png" alt="Supernova Blox" /></div>
                 </div>
             </div>
         </section>
@@ -2154,39 +1671,9 @@
                 <span class="section-badge">✦ Dovada Socială</span>
                 <h2 class="section-title">Nu Ne Lua de Cuvânt. Ascultă-i pe Ei.</h2>
                 <div class="testimonial-grid">
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"Câștigam $8K pe lună dar simțeam că ghicesc. Supernova mi-a dat un sistem — și în 90 de zile, am ajuns la $15K. Aceleași ore. Jumătate din stres."</blockquote>
-                        <div class="author">
-                            <div class="avatar">G</div>
-                            <div>
-                                <div class="name">@GamerVault</div>
-                                <div class="handle">UK • 400K Diamante/lună</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"Eram pe punctul să renunț. Algoritmul s-a schimbat și am pierdut 40% din audiență. Supernova mi-a auditat stream-ul, mi-a reparat hook-ul, și în 2 săptămâni — am revenit."</blockquote>
-                        <div class="author">
-                            <div class="avatar">L</div>
-                            <div>
-                                <div class="name">@LunaLive</div>
-                                <div class="handle">USA • 280K Diamante/lună</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"Am primit o încălcare care nu avea sens. Am intrat în panică. Echipa de risc Supernova m-a ajutat să fac apel — și a implementat măsuri de siguranță."</blockquote>
-                        <div class="author">
-                            <div class="avatar">R</div>
-                            <div>
-                                <div class="name">@RyuStreams</div>
-                                <div class="handle">Japonia • 350K Diamante/lună</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"Câștigam $8K pe lună dar simțeam că ghicesc. Supernova mi-a dat un sistem — și în 90 de zile, am ajuns la $15K. Aceleași ore. Jumătate din stres."</blockquote><div class="author"><div class="avatar">G</div><div><div class="name">@GamerVault</div><div class="handle">UK • 400K Diamante/lună</div></div></div></div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"Eram pe punctul să renunț. Algoritmul s-a schimbat și am pierdut 40% din audiență. Supernova mi-a auditat stream-ul, mi-a reparat hook-ul, și în 2 săptămâni — am revenit."</blockquote><div class="author"><div class="avatar">L</div><div><div class="name">@LunaLive</div><div class="handle">USA • 280K Diamante/lună</div></div></div></div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"Am primit o încălcare care nu avea sens. Am intrat în panică. Echipa de risc Supernova m-a ajutat să fac apel — și a implementat măsuri de siguranță."</blockquote><div class="author"><div class="avatar">R</div><div><div class="name">@RyuStreams</div><div class="handle">Japonia • 350K Diamante/lună</div></div></div></div>
                 </div>
             </div>
         </section>
@@ -2195,41 +1682,20 @@
             <div class="container">
                 <span class="section-badge" style="color:#888;">✦ Evaluare</span>
                 <h2 class="section-title" style="color:#FFFFFF;">Cât de Vulnerabilă Este Cariera Ta de Creator?</h2>
-                <p class="section-sub" style="color:#888; max-width:600px;">Acesta nu este un chestionar generic. Este un instrument de diagnostic construit de foști strategiști TikTok. 3 întrebări. 2 minute. Și un scor care îți spune exact unde ești expus riscului.</p>
+                <p class="section-sub" style="color:#888; max-width:600px;">3 întrebări. 2 minute. Un scor care îți spune exact unde ești expus riscului.</p>
                 <div class="quiz-wrapper">
                     <div id="quiz-form-ro">
                         <h2>Calculează-ți Scorul de Creștere™</h2>
-                        <div class="question-block">
-                            <label for="volume-ro">Volumul Lunar de Diamante</label>
-                            <select id="volume-ro">
-                                <option value="high">150K - 500K+ Diamante/lună</option>
-                                <option value="mid">50K - 150K Diamante/lună</option>
-                                <option value="low">Sub 50K Diamante/lună</option>
-                            </select>
-                        </div>
-                        <div class="question-block">
-                            <label for="hours-ro">Ore Săptămânale de Live</label>
-                            <select id="hours-ro">
-                                <option value="optimized">12 - 25 Ore (Structurate)</option>
-                                <option value="overworked">25+ Ore (Risc Mare de Epuizare)</option>
-                                <option value="irregular">Sub 12 Ore (Inconstant)</option>
-                            </select>
-                        </div>
-                        <div class="question-block">
-                            <label for="challenge-ro">Principalul Blocaj Algoritmic</label>
-                            <select id="challenge-ro">
-                                <option value="retention">Retenție & Scăderi Bruste de Vizualizări</option>
-                                <option value="conversion">Dependență de Gifteri & Venit Stagnant</option>
-                                <option value="policy">Anxietate Politici & Avertismente</option>
-                            </select>
-                        </div>
+                        <div class="question-block"><label for="volume-ro">Volumul Lunar de Diamante</label><select id="volume-ro"><option value="high">150K - 500K+ Diamante/lună</option><option value="mid">50K - 150K Diamante/lună</option><option value="low">Sub 50K Diamante/lună</option></select></div>
+                        <div class="question-block"><label for="hours-ro">Ore Săptămânale de Live</label><select id="hours-ro"><option value="optimized">12 - 25 Ore (Structurate)</option><option value="overworked">25+ Ore (Risc Mare de Epuizare)</option><option value="irregular">Sub 12 Ore (Inconstant)</option></select></div>
+                        <div class="question-block"><label for="challenge-ro">Principalul Blocaj Algoritmic</label><select id="challenge-ro"><option value="retention">Retenție & Scăderi Bruste de Vizualizări</option><option value="conversion">Dependență de Gifteri & Venit Stagnant</option><option value="policy">Anxietate Politici & Avertismente</option></select></div>
                         <button type="button" class="btn-submit" onclick="calculateScoreRO()">Analizează-mi Performanța</button>
                     </div>
                     <div id="quiz-result-ro" class="result-block">
                         <h2>Diagnostic Performanță</h2>
                         <div class="feedback-text" id="verdict-label-ro">SCOR DE INSIGHT CREATIV</div>
                         <div class="score-display" id="score-val-ro">00/100</div>
-                        <div class="feedback-text" id="feedback-val-ro">Analiză finalizată. Vulnerabilități de stagnare detectate în infrastructură și buclele de retenție.</div>
+                        <div class="feedback-text" id="feedback-val-ro">Analiză finalizată. Vulnerabilități de stagnare detectate.</div>
                         <a href="#form-section" class="cta-link">Aplică pentru Audit Gratuit →</a>
                     </div>
                 </div>
@@ -2241,7 +1707,7 @@
                 <div style="text-align:center; margin-bottom:32px;">
                     <span class="section-badge">✦ Aplică</span>
                     <h2 class="section-title">Să Aruncăm O Privire Sub Capotă</h2>
-                    <p class="section-sub" style="margin:0 auto;">Completează formularul de mai jos și unul dintre strategiștii noștri pentru creatori va revizui personal stream-ul tău. Vom identifica ce te împiedică — și îți vom spune exact cum să rezolvi.</p>
+                    <p class="section-sub" style="margin:0 auto;">Completează formularul de mai jos și unul dintre strategiștii noștri pentru creatori va revizui personal stream-ul tău.</p>
                 </div>
                 <div class="form-wrapper animate-on-scroll">
                     <iframe src="https://tally.so/embed/0QGPvy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Supernova Creator Assessment"></iframe>
@@ -2252,41 +1718,26 @@
         <section class="final-cta">
             <div class="container">
                 <h2>Ticăitul Ceasului. Competiția Ta Crește.</h2>
-                <p>Fiecare zi în care aștepți este o zi în care stagnezi. O zi în care audiența ta se îndepărtează. O zi în care pierzi avânt. Nu lăsa asta să se întâmple.</p>
-                <a href="#quiz-section" class="btn-primary">
-                    <i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere Acum
-                </a>
+                <p>Fiecare zi în care aștepți este o zi în care stagnezi. Nu lăsa asta să se întâmple.</p>
+                <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere Acum</a>
             </div>
         </section>
-
     </div>
     <!-- END ROMANIAN -->
 
 
-    <!-- ============================================================ -->
-    <!-- MALAY CONTENT (Bahasa Malaysia) -->
-    <!-- ============================================================ -->
+    <!-- ===== MALAY CONTENT ===== -->
     <div id="lang-ms" class="lang-content">
-
         <section class="hero">
             <div class="container">
                 <div class="hero-grid">
                     <div class="hero-content">
                         <span class="badge">✦ Rangkaian Kreator Global</span>
-                        <h1>
-                            Anda Telah Buktikan Anda Boleh Meraih Pendapatan.<br />
-                            Sekarang Mari Jadikannya <span class="highlight">Tidak Tergendala.</span>
-                        </h1>
-                        <p>
-                            Setiap kreator menemui tembok. Mereka yang berjaya tidak bekerja lebih keras — mereka bekerja lebih bijak. <strong>Kami akan tunjukkan caranya.</strong>
-                        </p>
+                        <h1>Anda Telah Buktikan Anda Boleh Meraih Pendapatan.<br />Sekarang Mari Jadikannya <span class="highlight">Tidak Tergendala.</span></h1>
+                        <p>Setiap kreator menemui tembok. Mereka yang berjaya tidak bekerja lebih keras — mereka bekerja lebih bijak. <strong>Kami akan tunjukkan caranya.</strong></p>
                         <div class="hero-actions">
-                            <a href="#quiz-section" class="btn-primary">
-                                <i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator
-                            </a>
-                            <a href="#awards" class="btn-secondary">
-                                <i class="fas fa-trophy"></i> Lihat Pengiktirafan
-                            </a>
+                            <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator</a>
+                            <a href="#awards" class="btn-secondary"><i class="fas fa-trophy"></i> Lihat Pengiktirafan</a>
                         </div>
                         <div class="region-selector">
                             <button class="region-btn active" onclick="switchHero('global')">🌍 Global</button>
@@ -2297,18 +1748,9 @@
                             <button class="region-btn" onclick="switchHero('malaysia')">🇲🇾 Malaysia</button>
                         </div>
                         <div class="hero-stats">
-                            <div class="stat">
-                                <h3>500+</h3>
-                                <p>Kreator Dinilai</p>
-                            </div>
-                            <div class="stat">
-                                <h3>30+</h3>
-                                <p>Pasukan Global</p>
-                            </div>
-                            <div class="stat">
-                                <h3>5</h3>
-                                <p>Pasaran</p>
-                            </div>
+                            <div class="stat"><h3>500+</h3><p>Kreator Dinilai</p></div>
+                            <div class="stat"><h3>30+</h3><p>Pasukan Global</p></div>
+                            <div class="stat"><h3>5</h3><p>Pasaran</p></div>
                         </div>
                     </div>
                     <div class="hero-image">
@@ -2322,29 +1764,17 @@
             <div class="container">
                 <span class="section-badge">✦ Pengiktirafan</span>
                 <h2 class="section-title">Kecemerlangan Bertaraf Anugerah dalam Pertumbuhan Kreator</h2>
-                <p class="section-sub">Kami bukan sekadar bercakap tentang pertumbuhan. Kami telah diiktiraf oleh platform paling berprestij dalam industri untuk kerja kami dalam membina dan menskala kerjaya kreator.</p>
-                <div class="awards-wrapper">
-                    <div class="awards-scroll">
-                        <div class="award-card">
-                            <img src="images/award/award-1.png" alt="Award" />
-                            <span class="award-title">Pengiktirafan Industri</span>
-                            <span class="award-year">Diiktiraf untuk kecemerlangan dalam pembangunan kreator</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-2.png" alt="Award" />
-                            <span class="award-title">Kecemerlangan Pasukan</span>
-                            <span class="award-year">Diiktiraf untuk pendekatan inovatif dalam pertumbuhan kreator</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-1.png" alt="Award" />
-                            <span class="award-title">Pengiktirafan Industri</span>
-                            <span class="award-year">Diiktiraf untuk kecemerlangan dalam pembangunan kreator</span>
-                        </div>
-                        <div class="award-card">
-                            <img src="images/award/award-2.png" alt="Award" />
-                            <span class="award-title">Kecemerlangan Pasukan</span>
-                            <span class="award-year">Diiktiraf untuk pendekatan inovatif dalam pertumbuhan kreator</span>
-                        </div>
+                <p class="section-sub">Kami bukan sekadar bercakap tentang pertumbuhan. Kami telah diiktiraf oleh platform paling berprestij dalam industri.</p>
+                <div class="awards-grid">
+                    <div class="award-card animate-on-scroll">
+                        <img src="images/award/award-1.png" alt="Award" />
+                        <span class="award-title">Pengiktirafan Industri</span>
+                        <span class="award-year">Diiktiraf untuk kecemerlangan dalam pembangunan kreator</span>
+                    </div>
+                    <div class="award-card animate-on-scroll">
+                        <img src="images/award/award-2.png" alt="Award" />
+                        <span class="award-title">Kecemerlangan Pasukan</span>
+                        <span class="award-year">Diiktiraf untuk pendekatan inovatif dalam pertumbuhan kreator</span>
                     </div>
                 </div>
             </div>
@@ -2355,21 +1785,12 @@
                 <span class="section-badge">✦ Kehadiran</span>
                 <h2 class="section-title">Di Mana Industri Berkumpul, Kami Ada</h2>
                 <p class="section-sub">Dari sidang kemuncak global ke persidangan kreator eksklusif — kami tertanam dalam ekosistem yang membentuk masa depan kandungan LIVE.</p>
-                <div class="events-wrapper">
-                    <div class="events-scroll">
-                        <div class="event-card">
-                            <img src="images/events/event-1.png" alt="Event" />
-                            <div class="event-info">
-                                <h4>Sidang Kemuncak Kreator Global & Acara Industri</h4>
-                                <p>Berhubung dengan kreator paling bercita-cita tinggi di dunia</p>
-                            </div>
-                        </div>
-                        <div class="event-card">
-                            <img src="images/events/event-1.png" alt="Event" />
-                            <div class="event-info">
-                                <h4>Sidang Kemuncak Kreator Global & Acara Industri</h4>
-                                <p>Berhubung dengan kreator paling bercita-cita tinggi di dunia</p>
-                            </div>
+                <div class="events-grid">
+                    <div class="event-card animate-on-scroll">
+                        <img src="images/events/event-1.png" alt="Event" />
+                        <div class="event-info">
+                            <h4>Sidang Kemuncak Kreator Global & Acara Industri</h4>
+                            <p>Berhubung dengan kreator paling bercita-cita tinggi di dunia</p>
                         </div>
                     </div>
                 </div>
@@ -2382,26 +1803,10 @@
                 <h2 class="section-title">Algoritma Tidak Peduli Tentang Kerja Keras Anda.</h2>
                 <p class="section-sub">Satu kemas kini. Satu perubahan polisi. Satu minggu yang buruk. Dan semua yang anda bina boleh hilang.</p>
                 <div class="problems-grid">
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-chart-line"></i></div>
-                        <h4>Penurunan 60%</h4>
-                        <p>Anda bangun, pergi live, dan capaian anda dipotong separuh. Tiada amaran. Tiada penjelasan.</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-fire"></i></div>
-                        <h4>Perangkap Keletihan</h4>
-                        <p>Dua kali ganda jam. Pendapatan yang sama. Kreativiti anda terbakar lebih cepat daripada akaun bank anda berkembang.</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-eye-slash"></i></div>
-                        <h4>Penonton Hantu</h4>
-                        <p>Penonton datang. Penonton pergi. Anda berasa seperti membuat persembahan di bilik kosong dan anda tidak tahu mengapa.</p>
-                    </div>
-                    <div class="problem-card animate-on-scroll">
-                        <div class="icon"><i class="fas fa-shield-alt"></i></div>
-                        <h4>Butang Larangan</h4>
-                        <p>Satu laporan palsu. Satu peraturan yang disalah faham. Dan kerjaya anda dibekukan — selama-lamanya.</p>
-                    </div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-chart-line"></i></div><h4>Penurunan 60%</h4><p>Anda bangun, pergi live, dan capaian anda dipotong separuh. Tiada amaran. Tiada penjelasan.</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-fire"></i></div><h4>Perangkap Keletihan</h4><p>Dua kali ganda jam. Pendapatan yang sama. Kreativiti anda terbakar lebih cepat daripada akaun bank anda berkembang.</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-eye-slash"></i></div><h4>Penonton Hantu</h4><p>Penonton datang. Penonton pergi. Anda berasa seperti membuat persembahan di bilik kosong dan anda tidak tahu mengapa.</p></div>
+                    <div class="problem-card animate-on-scroll"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4>Butang Larangan</h4><p>Satu laporan palsu. Satu peraturan yang disalah faham. Dan kerjaya anda dibekukan — selama-lamanya.</p></div>
                 </div>
             </div>
         </section>
@@ -2410,33 +1815,13 @@
             <div class="container">
                 <span class="section-badge">✦ Apa Kami Lakukan</span>
                 <h2 class="section-title">Kami Tidak Meneka. Kami Rekabentuk.</h2>
-                <p class="section-sub">Setiap strategi dibina di atas data. Setiap langkah dikira. Tiada budaya hustle. Tiada janji kosong. Hanya sistem yang berfungsi.</p>
+                <p class="section-sub">Setiap strategi dibina di atas data. Setiap langkah dikira.</p>
                 <div class="solutions-grid">
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-brain"></i></div>
-                        <h4>Data Yang Memberitahu Mengapa</h4>
-                        <p>Berhenti bertanya "Apa yang berlaku?" Mula tahu dengan tepat mengapa hadiah anda naik dan turun.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-sync-alt"></i></div>
-                        <h4>Rangka Kerja Berulang</h4>
-                        <p>Tiada lagi bangun tertanya-tanya apa yang perlu dilakukan hari ini. Peta jalan anda sudah dibina.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-video"></i></div>
-                        <h4>Maklum Balas Pembedahan</h4>
-                        <p>Kami menonton VOD anda seperti pakar bedah. Setiap hook yang terlepas, setiap penurunan pengekalan — dibaiki.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-shield-virus"></i></div>
-                        <h4>Perlindungan Polisi</h4>
-                        <p>Kami telah menyelamatkan kreator daripada larangan. Kami akan lindungi anda juga.</p>
-                    </div>
-                    <div class="solution-item animate-on-scroll">
-                        <div class="icon"><i class="fas fa-road"></i></div>
-                        <h4>Peta Jalan 90 Hari</h4>
-                        <p>Tiada lagi tekaan. Anda akan tahu dengan tepat apa yang perlu dilakukan — dan bila.</p>
-                    </div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-brain"></i></div><h4>Data Yang Memberitahu Mengapa</h4><p>Berhenti bertanya "Apa yang berlaku?" Mula tahu dengan tepat mengapa hadiah anda naik dan turun.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-sync-alt"></i></div><h4>Rangka Kerja Berulang</h4><p>Tiada lagi bangun tertanya-tanya apa yang perlu dilakukan hari ini. Peta jalan anda sudah dibina.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-video"></i></div><h4>Maklum Balas Pembedahan</h4><p>Kami menonton VOD anda seperti pakar bedah. Setiap hook yang terlepas, setiap penurunan pengekalan — dibaiki.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-shield-virus"></i></div><h4>Perlindungan Polisi</h4><p>Kami telah menyelamatkan kreator daripada larangan. Kami akan lindungi anda juga.</p></div>
+                    <div class="solution-item animate-on-scroll"><div class="icon"><i class="fas fa-road"></i></div><h4>Peta Jalan 90 Hari</h4><p>Tiada lagi tekaan. Anda akan tahu dengan tepat apa yang perlu dilakukan — dan bila.</p></div>
                 </div>
             </div>
         </section>
@@ -2444,45 +1829,12 @@
         <section class="team section-padding">
             <div class="container">
                 <span class="section-badge">✦ Pasukan Kami</span>
-                <h2 class="section-title">30+ Strategis. 5 Pasaran. 1 Misi.</h2>
-                <p class="section-sub">Kami tidak mempunyai "pengurus." Kami mempunyai strategis kreator — pakar yang pernah berada di tempat anda dan tahu dengan tepat bagaimana membawa anda ke tempat yang anda mahu.</p>
-                <div class="team-grid">
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇺🇸</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>USA</h4>
-                        <p>5 Strategis Kreator</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇬🇧</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>UK</h4>
-                        <p>5 Strategis Kreator</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇯🇵</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Jepun</h4>
-                        <p>5 Strategis Kreator</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇷🇴</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Romania</h4>
-                        <p>5 Strategis Kreator</p>
-                    </div>
-                    <div class="team-card animate-on-scroll">
-                        <span class="flag">🇲🇾</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Malaysia</h4>
-                        <p>5 Strategis Kreator</p>
-                    </div>
-                    <div class="team-card highlight animate-on-scroll">
-                        <span class="flag">🌍</span>
-                        <img class="team-photo" src="images/team/team-1.png" alt="Team" />
-                        <h4>Global</h4>
-                        <p>5 Pengarah Serantau</p>
-                    </div>
+                <h2 class="section-title">Pasukan Kreator Global Kami</h2>
+                <p class="section-sub">Pakar yang pernah berada di tempat anda — dan tahu dengan tepat bagaimana membawa anda ke tempat yang anda mahu.</p>
+                <div class="team-simple animate-on-scroll">
+                    <img src="images/team/team-1.png" alt="Global Team" />
+                    <h3>30+ Strategis Kreator di Seluruh Dunia</h3>
+                    <p>Profesional yang berdedikasi di 5 pasaran, bersatu oleh satu misi: pertumbuhan anda.</p>
                 </div>
             </div>
         </section>
@@ -2495,9 +1847,7 @@
                         <h2>SUPERNOVA <span class="blox-style">BLOX</span></h2>
                         <p>Roblox adalah hadapan seterusnya. Kami sudah berada di sana. Sistem yang sama yang menjadikan Supernova #1 di TikTok — kini menjana kuasa generasi seterusnya kreator permainan di seluruh dunia.</p>
                     </div>
-                    <div>
-                        <img src="images/blox/sb-1.png" alt="Supernova Blox" />
-                    </div>
+                    <div><img src="images/blox/sb-1.png" alt="Supernova Blox" /></div>
                 </div>
             </div>
         </section>
@@ -2507,39 +1857,9 @@
                 <span class="section-badge">✦ Bukti Sosial</span>
                 <h2 class="section-title">Jangan Ambil Kata Kami. Ambil Kata Mereka.</h2>
                 <div class="testimonial-grid">
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"Saya meraih $8K sebulan tetapi rasa seperti meneka. Supernova memberi saya sistem — dan dalam 90 hari, saya capai $15K. Jam yang sama. Separuh tekanan."</blockquote>
-                        <div class="author">
-                            <div class="avatar">G</div>
-                            <div>
-                                <div class="name">@GamerVault</div>
-                                <div class="handle">UK • 400K Berlian/bulan</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"Saya hampir berhenti. Algoritma berubah dan saya kehilangan 40% penonton. Supernova mengaudit siaran saya, membaiki hook saya, dan dalam 2 minggu — saya kembali."</blockquote>
-                        <div class="author">
-                            <div class="avatar">L</div>
-                            <div>
-                                <div class="name">@LunaLive</div>
-                                <div class="handle">USA • 280K Berlian/bulan</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="testimonial-card animate-on-scroll">
-                        <div class="stars">★★★★★</div>
-                        <blockquote>"Saya mendapat pelanggaran yang tidak masuk akal. Saya panik. Pasukan risiko Supernova membantu saya merayu — dan menetapkan langkah keselamatan."</blockquote>
-                        <div class="author">
-                            <div class="avatar">R</div>
-                            <div>
-                                <div class="name">@RyuStreams</div>
-                                <div class="handle">Jepun • 350K Berlian/bulan</div>
-                            </div>
-                        </div>
-                    </div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"Saya meraih $8K sebulan tetapi rasa seperti meneka. Supernova memberi saya sistem — dan dalam 90 hari, saya capai $15K. Jam yang sama. Separuh tekanan."</blockquote><div class="author"><div class="avatar">G</div><div><div class="name">@GamerVault</div><div class="handle">UK • 400K Berlian/bulan</div></div></div></div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"Saya hampir berhenti. Algoritma berubah dan saya kehilangan 40% penonton. Supernova mengaudit siaran saya, membaiki hook saya, dan dalam 2 minggu — saya kembali."</blockquote><div class="author"><div class="avatar">L</div><div><div class="name">@LunaLive</div><div class="handle">USA • 280K Berlian/bulan</div></div></div></div>
+                    <div class="testimonial-card animate-on-scroll"><div class="stars">★★★★★</div><blockquote>"Saya mendapat pelanggaran yang tidak masuk akal. Saya panik. Pasukan risiko Supernova membantu saya merayu — dan menetapkan langkah keselamatan."</blockquote><div class="author"><div class="avatar">R</div><div><div class="name">@RyuStreams</div><div class="handle">Jepun • 350K Berlian/bulan</div></div></div></div>
                 </div>
             </div>
         </section>
@@ -2548,41 +1868,20 @@
             <div class="container">
                 <span class="section-badge" style="color:#888;">✦ Penilaian</span>
                 <h2 class="section-title" style="color:#FFFFFF;">Seberapa Rentan Kerjaya Kreator Anda?</h2>
-                <p class="section-sub" style="color:#888; max-width:600px;">Ini bukan kuiz generik. Ini adalah alat diagnostik yang dibina oleh bekas strategis TikTok. 3 soalan. 2 minit. Dan skor yang memberitahu anda dengan tepat di mana anda berisiko.</p>
+                <p class="section-sub" style="color:#888; max-width:600px;">3 soalan. 2 minit. Skor yang memberitahu anda dengan tepat di mana anda berisiko.</p>
                 <div class="quiz-wrapper">
                     <div id="quiz-form-ms">
                         <h2>Kira Skor Pertumbuhan Kreator Anda™</h2>
-                        <div class="question-block">
-                            <label for="volume-ms">Jumlah Berlian Bulanan</label>
-                            <select id="volume-ms">
-                                <option value="high">150K - 500K+ Berlian/bulan</option>
-                                <option value="mid">50K - 150K Berlian/bulan</option>
-                                <option value="low">Bawah 50K Berlian/bulan</option>
-                            </select>
-                        </div>
-                        <div class="question-block">
-                            <label for="hours-ms">Purata Jam Siaran Langsung Mingguan</label>
-                            <select id="hours-ms">
-                                <option value="optimized">12 - 25 Jam (Berstruktur)</option>
-                                <option value="overworked">25+ Jam (Risiko Keletihan Tinggi)</option>
-                                <option value="irregular">Bawah 12 Jam (Tidak Konsisten)</option>
-                            </select>
-                        </div>
-                        <div class="question-block">
-                            <label for="challenge-ms">Bottleneck Algoritma Utama</label>
-                            <select id="challenge-ms">
-                                <option value="retention">Pengekalan Penonton & Penurunan Mendadak</option>
-                                <option value="conversion">Pergantungan Gifter & Pendapatan Rata</option>
-                                <option value="policy">Kebimbangan Polisi & Amaran Pematuhan</option>
-                            </select>
-                        </div>
+                        <div class="question-block"><label for="volume-ms">Jumlah Berlian Bulanan</label><select id="volume-ms"><option value="high">150K - 500K+ Berlian/bulan</option><option value="mid">50K - 150K Berlian/bulan</option><option value="low">Bawah 50K Berlian/bulan</option></select></div>
+                        <div class="question-block"><label for="hours-ms">Purata Jam Siaran Langsung Mingguan</label><select id="hours-ms"><option value="optimized">12 - 25 Jam (Berstruktur)</option><option value="overworked">25+ Jam (Risiko Keletihan Tinggi)</option><option value="irregular">Bawah 12 Jam (Tidak Konsisten)</option></select></div>
+                        <div class="question-block"><label for="challenge-ms">Bottleneck Algoritma Utama</label><select id="challenge-ms"><option value="retention">Pengekalan Penonton & Penurunan Mendadak</option><option value="conversion">Pergantungan Gifter & Pendapatan Rata</option><option value="policy">Kebimbangan Polisi & Amaran Pematuhan</option></select></div>
                         <button type="button" class="btn-submit" onclick="calculateScoreMS()">Analisis Prestasi Saya</button>
                     </div>
                     <div id="quiz-result-ms" class="result-block">
                         <h2>Diagnostik Prestasi Anda</h2>
                         <div class="feedback-text" id="verdict-label-ms">SKOR INSIGHT KREATOR</div>
                         <div class="score-display" id="score-val-ms">00/100</div>
-                        <div class="feedback-text" id="feedback-val-ms">Analisis selesai. Kelemahan genangan dikesan dalam infrastruktur sistem dan gelung pengekalan penonton.</div>
+                        <div class="feedback-text" id="feedback-val-ms">Analisis selesai. Kelemahan genangan dikesan.</div>
                         <a href="#form-section" class="cta-link">Mohon Audit Siaran Percuma →</a>
                     </div>
                 </div>
@@ -2594,7 +1893,7 @@
                 <div style="text-align:center; margin-bottom:32px;">
                     <span class="section-badge">✦ Mohon</span>
                     <h2 class="section-title">Mari Lihat Di Bawah Permukaan</h2>
-                    <p class="section-sub" style="margin:0 auto;">Isi borang di bawah dan salah seorang strategis kreator kami akan menyemak siaran anda secara peribadi. Kami akan mengenal pasti apa yang menghalang anda — dan memberitahu anda dengan tepat bagaimana untuk membetulkannya.</p>
+                    <p class="section-sub" style="margin:0 auto;">Isi borang di bawah dan salah seorang strategis kreator kami akan menyemak siaran anda secara peribadi.</p>
                 </div>
                 <div class="form-wrapper animate-on-scroll">
                     <iframe src="https://tally.so/embed/0QGPvy?alignLeft=1&hideTitle=1&transparentBackground=1&dynamicHeight=1" loading="lazy" width="100%" height="600" frameborder="0" marginheight="0" marginwidth="0" title="Supernova Creator Assessment"></iframe>
@@ -2605,20 +1904,15 @@
         <section class="final-cta">
             <div class="container">
                 <h2>Masa Berlalu. Persaingan Anda Semakin Bertambah.</h2>
-                <p>Setiap hari anda tunggu adalah hari anda mendatar. Hari penonton anda hanyut. Hari anda kehilangan momentum. Jangan biarkan itu berlaku.</p>
-                <a href="#quiz-section" class="btn-primary">
-                    <i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator Anda Sekarang
-                </a>
+                <p>Setiap hari anda tunggu adalah hari anda mendatar. Jangan biarkan itu berlaku.</p>
+                <a href="#quiz-section" class="btn-primary"><i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator Anda Sekarang</a>
             </div>
         </section>
-
     </div>
     <!-- END MALAY -->
 
 
-    <!-- ============================================================ -->
-    <!-- FOOTER -->
-    <!-- ============================================================ -->
+    <!-- ===== FOOTER ===== -->
     <footer class="footer">
         <div class="container">
             <div class="footer-brand">SUPERNOVA</div>
@@ -2645,9 +1939,7 @@
     </footer>
 
 
-    <!-- ============================================================ -->
-    <!-- SCRIPTS -->
-    <!-- ============================================================ -->
+    <!-- ===== SCRIPTS ===== -->
     <script>
         // ===== LANGUAGE SWITCHER =====
         function switchLang(lang) {
@@ -2677,21 +1969,31 @@
             }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
 
             document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+
+            // Set initial hero images for all languages
+            updateAllHeroImages('global');
         });
 
         // ===== HERO REGION SWITCHER =====
         function switchHero(region) {
-            const heroImages = document.querySelectorAll('#heroImage, #heroImageJp, #heroImageRo, #heroImageMs');
-            heroImages.forEach(img => {
-                if (img) img.src = 'images/hero/hero-' + region + '.png';
-            });
+            updateAllHeroImages(region);
 
             document.querySelectorAll('.region-btn').forEach(btn => {
                 btn.classList.remove('active');
                 if (btn.textContent.toLowerCase().includes(region) ||
-                    btn.textContent.includes('🌍') && region === 'global') {
+                    btn.textContent.includes('🌍') && region === 'global' ||
+                    btn.textContent.includes('グローバル') && region === 'global' ||
+                    btn.textContent.includes('Global') && region === 'global') {
                     btn.classList.add('active');
                 }
+            });
+        }
+
+        function updateAllHeroImages(region) {
+            const heroIds = ['heroImageEn', 'heroImageJp', 'heroImageRo', 'heroImageMs'];
+            heroIds.forEach(id => {
+                const img = document.getElementById(id);
+                if (img) img.src = 'images/hero/hero-' + region + '.png';
             });
         }
 
@@ -2710,25 +2012,25 @@
 
             if (hrs === 'overworked') {
                 score -= 15;
-                feedback += "High structural burnout risks found. Your revenue is tied directly to physical exhaustion rather than operational systems. ";
+                feedback += "High structural burnout risks found. ";
             } else if (hrs === 'irregular') {
                 score -= 10;
-                feedback += "Inconsistent pacing anchors your visibility index lower in the algorithmic queue. ";
+                feedback += "Inconsistent pacing anchors your visibility lower. ";
             }
 
             if (chal === 'retention') {
                 score -= 10;
-                feedback += "Critical retention leaks detected during your peak viewer onboarding sequence.";
+                feedback += "Critical retention leaks detected.";
             } else if (chal === 'conversion') {
                 score -= 12;
-                feedback += "Gifter dependency concentration is unsustainably narrow. You require conversion scaling systems.";
+                feedback += "Gifter dependency concentration is unsustainably narrow.";
             } else if (chal === 'policy') {
                 score -= 5;
-                feedback += "Account safety parameters show severe regulatory risk exposure.";
+                feedback += "Account safety parameters show regulatory risk exposure.";
             }
 
             if (score > 80 && feedback.length < 20) {
-                feedback = "Strong baseline performance, but highly vulnerable to unexpected platform shifts and retention plateaus. Optimization is highly recommended.";
+                feedback = "Strong baseline performance, but vulnerable to unexpected platform shifts.";
             }
 
             document.getElementById('quiz-form').style.display = 'none';
@@ -2752,25 +2054,25 @@
 
             if (hrs === 'overworked') {
                 score -= 15;
-                feedback += "構造的なバーンアウトリスクが検出されました。収益が運用システムではなく身体的疲労に直結しています。";
+                feedback += "構造的なバーンアウトリスクが検出されました。";
             } else if (hrs === 'irregular') {
                 score -= 10;
-                feedback += "一貫性のないペーシングにより、アルゴリズムキューでの可視性が低下しています。";
+                feedback += "一貫性のないペーシングにより、可視性が低下しています。";
             }
 
             if (chal === 'retention') {
                 score -= 10;
-                feedback += "ピーク時の視聴者オンボーディングシーケンスで重大なリテンションリークが検出されました。";
+                feedback += "重大なリテンションリークが検出されました。";
             } else if (chal === 'conversion') {
                 score -= 12;
-                feedback += "ギフターへの依存度が持続不可能なほど狭くなっています。変換スケーリングシステムが必要です。";
+                feedback += "ギフターへの依存度が持続不可能なほど狭くなっています。";
             } else if (chal === 'policy') {
                 score -= 5;
-                feedback += "アカウントの安全性パラメータに深刻な規制リスクが露出しています。";
+                feedback += "アカウントの安全性に規制リスクが露出しています。";
             }
 
             if (score > 80 && feedback.length < 20) {
-                feedback = "強固なベースライン性能ですが、予期せぬプラットフォームの変動やリテンションの停滞に対して非常に脆弱です。最適化を強く推奨します。";
+                feedback = "強固なベースライン性能ですが、予期せぬプラットフォームの変動に対して脆弱です。";
             }
 
             document.getElementById('quiz-form-jp').style.display = 'none';
@@ -2794,25 +2096,25 @@
 
             if (hrs === 'overworked') {
                 score -= 15;
-                feedback += "Risc ridicat de epuizare structurală detectat. Veniturile tale sunt legate direct de epuizarea fizică, nu de sisteme operaționale. ";
+                feedback += "Risc ridicat de epuizare structurală detectat. ";
             } else if (hrs === 'irregular') {
                 score -= 10;
-                feedback += "Pacing-ul inconsecvent îți ancorează indicele de vizibilitate mai jos în coada algoritmică. ";
+                feedback += "Pacing-ul inconsecvent îți ancorează vizibilitatea mai jos. ";
             }
 
             if (chal === 'retention') {
                 score -= 10;
-                feedback += "Scurgeri critice de retenție detectate în secvența de onboardizare a vizitatorilor.";
+                feedback += "Scurgeri critice de retenție detectate.";
             } else if (chal === 'conversion') {
                 score -= 12;
-                feedback += "Concentrarea dependenței de gifteri este nesustenabil de îngustă. Ai nevoie de sisteme de scalare a conversiei.";
+                feedback += "Dependența de gifteri este nesustenabil de îngustă.";
             } else if (chal === 'policy') {
                 score -= 5;
-                feedback += "Parametrii de siguranță ai contului arată o expunere severă la riscuri de reglementare.";
+                feedback += "Parametrii de siguranță ai contului arată riscuri de reglementare.";
             }
 
             if (score > 80 && feedback.length < 20) {
-                feedback = "Performanță de bază solidă, dar foarte vulnerabilă la schimbări neașteptate ale platformei și platouri de retenție. Optimizarea este recomandată.";
+                feedback = "Performanță de bază solidă, dar vulnerabilă la schimbări neașteptate.";
             }
 
             document.getElementById('quiz-form-ro').style.display = 'none';
@@ -2836,25 +2138,25 @@
 
             if (hrs === 'overworked') {
                 score -= 15;
-                feedback += "Risiko keletihan struktur yang tinggi dikesan. Pendapatan anda terikat secara langsung dengan keletihan fizikal dan bukannya sistem operasi. ";
+                feedback += "Risiko keletihan struktur yang tinggi dikesan. ";
             } else if (hrs === 'irregular') {
                 score -= 10;
-                feedback += "Pacing yang tidak konsisten menjadikan indeks keterlihatan anda lebih rendah dalam barisan algoritma. ";
+                feedback += "Pacing yang tidak konsisten menjadikan keterlihatan anda lebih rendah. ";
             }
 
             if (chal === 'retention') {
                 score -= 10;
-                feedback += "Kebocoran pengekalan kritikal dikesan semasa urutan onboarding penonton puncak anda.";
+                feedback += "Kebocoran pengekalan kritikal dikesan.";
             } else if (chal === 'conversion') {
                 score -= 12;
-                feedback += "Kebergantungan kepada gifter adalah terlalu sempit dan tidak mampan. Anda memerlukan sistem penskalaan penukaran.";
+                feedback += "Kebergantungan kepada gifter adalah terlalu sempit.";
             } else if (chal === 'policy') {
                 score -= 5;
-                feedback += "Parameter keselamatan akaun menunjukkan pendedahan risiko kawal selia yang serius.";
+                feedback += "Parameter keselamatan akaun menunjukkan risiko kawal selia.";
             }
 
             if (score > 80 && feedback.length < 20) {
-                feedback = "Prestasi asas yang kukuh, tetapi sangat terdedah kepada perubahan platform yang tidak dijangka dan genangan pengekalan. Pengoptimuman sangat disyorkan.";
+                feedback = "Prestasi asas yang kukuh, tetapi terdedah kepada perubahan platform yang tidak dijangka.";
             }
 
             document.getElementById('quiz-form-ms').style.display = 'none';
