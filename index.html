@@ -176,7 +176,25 @@
     .hero-stats .stat h3 { font-size: 28px; font-weight: 700; color: #1A1A1A; }
     .hero-stats .stat p { font-size: 13px; color: #6E6E73; }
 
-    /* ===== AWARDS - LARGE IMAGES, NO CARDS ===== */
+    /* TikTok verified partner badge */
+    .tiktok-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: #000;
+      color: #fff;
+      padding: 4px 14px 4px 10px;
+      border-radius: 40px;
+      font-size: 12px;
+      font-weight: 500;
+      letter-spacing: 0.3px;
+      margin-top: 12px;
+      border: 1px solid #222;
+    }
+    .tiktok-badge i { font-size: 16px; color: #fff; }
+    .tiktok-badge span { color: #fff; }
+
+    /* awards */
     .awards { background: #F5F5F7; }
     .awards-grid {
       display: grid;
@@ -216,9 +234,9 @@
     .events { background: #fff; }
     .events-grid {
       display: grid;
-      grid-template-columns: 1fr;
-      max-width: 700px;
-      margin: 40px auto 0;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 24px;
+      margin-top: 40px;
     }
     .event-card {
       background: #F5F5F7;
@@ -229,22 +247,20 @@
     .event-card:hover { transform: translateY(-4px); box-shadow: 0 12px 30px rgba(0,0,0,0.06); }
     .event-card img {
       width: 100%;
-      height: auto;
-      max-height: 350px;
+      height: 180px;
       object-fit: cover;
     }
-    .event-card .event-info { padding: 28px 32px; }
+    .event-card .event-info { padding: 18px 20px; }
     .event-card .event-info h4 {
-      font-size: 20px;
+      font-size: 16px;
       font-weight: 700;
-      margin-bottom: 8px;
+      margin-bottom: 4px;
       color: #1A1A1A;
     }
     .event-card .event-info p {
-      font-size: 15px;
+      font-size: 13px;
       color: #6E6E73;
-      line-height: 1.7;
-      max-width: 500px;
+      line-height: 1.5;
     }
 
     .problems { background: #fff; }
@@ -433,7 +449,7 @@
     .testimonials { background: #fff; padding: 80px 0; }
     .testimonial-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
       gap: 24px;
       margin-top: 40px;
     }
@@ -442,6 +458,7 @@
       border-radius: 12px;
       padding: 28px 24px;
       transition: all 0.3s;
+      animation: fadeUp 0.6s ease both;
     }
     .testimonial-card:hover { transform: translateY(-3px); box-shadow: 0 8px 24px rgba(0,0,0,0.04); }
     .testimonial-card .stars { color: #1A1A1A; font-size: 14px; letter-spacing: 2px; margin-bottom: 10px; }
@@ -471,6 +488,45 @@
     }
     .testimonial-card .author .name { font-weight: 600; font-size: 14px; }
     .testimonial-card .author .handle { font-size: 12px; color: #6E6E73; }
+
+    @keyframes fadeUp {
+      0% { opacity: 0; transform: translateY(20px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .founder-section { background: #fff; }
+    .founder-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+      margin-top: 40px;
+    }
+    .founder-grid img {
+      width: 100%;
+      max-width: 400px;
+      border-radius: 16px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+      margin: 0 auto;
+    }
+    .founder-grid blockquote {
+      font-size: 20px;
+      font-weight: 300;
+      line-height: 1.8;
+      color: #1A1A1A;
+      border-left: 4px solid #1A1A1A;
+      padding-left: 24px;
+      font-style: italic;
+    }
+    .founder-grid .founder-name {
+      margin-top: 16px;
+      font-weight: 700;
+      font-size: 18px;
+    }
+    .founder-grid .founder-title {
+      font-size: 14px;
+      color: #6E6E73;
+    }
 
     .final-cta {
       background: #1A1A1A;
@@ -541,6 +597,8 @@
       .footer .socials { justify-content: center; }
       .quiz-wrapper { padding: 24px; }
       .awards-grid { grid-template-columns: 1fr; max-width: 500px; }
+      .founder-grid { grid-template-columns: 1fr; text-align: center; }
+      .founder-grid blockquote { border-left: none; padding-left: 0; }
     }
     @media (max-width: 480px) {
       .section-padding { padding: 50px 0; }
@@ -580,7 +638,8 @@
           <span class="badge">✦ Global Creator Network</span>
           <h1>You've Already Proven You Can Earn.<br />Now Let's Make It <span class="highlight">Unstoppable.</span></h1>
           <p>Every creator hits a wall. The ones who break through don't work harder — they work smarter. <strong>We'll show you how.</strong></p>
-          <div class="hero-actions">
+          <div class="tiktok-badge"><i class="fab fa-tiktok"></i> <span>TikTok Verified Partner</span></div>
+          <div class="hero-actions" style="margin-top:16px;">
             <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> Calculate Your Creator Growth Score</a>
             <a href="#awards" class="btn-secondary" onclick="scrollToSection('awards')"><i class="fas fa-trophy"></i> See Our Recognition</a>
           </div>
@@ -609,9 +668,9 @@
           <span class="award-desc">Acknowledged for excellence in creator development and talent building.</span>
         </div>
         <div class="award-item">
-          <img src="images/awards/award-2.png" alt="Team Excellence" />
-          <span class="award-title">Team Excellence</span>
-          <span class="award-desc">Recognized for pioneering new approaches to creator growth and innovation.</span>
+          <img src="images/awards/award-3.png" alt="Creator Recognition" />
+          <span class="award-title">Creator @asuka.kirara</span>
+          <span class="award-desc">Recognised by TikTok at TikTok Live Fest 25 UK. A true star in the LIVE community.</span>
         </div>
       </div>
     </div>
@@ -623,13 +682,10 @@
       <h2 class="section-title">Where the Industry Gathers, We're There</h2>
       <p class="section-sub">From global summits to exclusive creator conferences — we're embedded in the ecosystem shaping the future of LIVE content.</p>
       <div class="events-grid">
-        <div class="event-card">
-          <img src="images/events/event-1.png" alt="Event" />
-          <div class="event-info">
-            <h4>Global Creator Summits & Industry Events</h4>
-            <p>Connecting with the world's most ambitious creators, sharing strategies, and building the future of the creator economy — together.</p>
-          </div>
-        </div>
+        <div class="event-card"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>Global Creator Summit</h4><p>Connecting with the world's most ambitious creators.</p></div></div>
+        <div class="event-card"><img src="images/events/event-2.png" alt="Event" /><div class="event-info"><h4>Live Fest 25</h4><p>Where the biggest names in LIVE come together.</p></div></div>
+        <div class="event-card"><img src="images/events/event-3.png" alt="Event" /><div class="event-info"><h4>Creator Economy Forum</h4><p>Shaping the future of the creator economy.</p></div></div>
+        <div class="event-card"><img src="images/events/event-4.png" alt="Event" /><div class="event-info"><h4>Industry Leaders Meet</h4><p>Exclusive gatherings with top industry players.</p></div></div>
       </div>
     </div>
   </section>
@@ -689,6 +745,26 @@
     </div>
   </section>
 
+  <!-- Founder / CEO Message -->
+  <section class="founder-section section-padding">
+    <div class="container">
+      <span class="section-badge">✦ Founder's Note</span>
+      <h2 class="section-title">Message from Leah Li, Founder & CEO</h2>
+      <div class="founder-grid">
+        <div>
+          <img src="images/founder/founder-1.png" alt="Leah Li" style="max-width:300px; border-radius:50%;" />
+        </div>
+        <div>
+          <blockquote>
+            "Every creator deserves a system that works as hard as they do. At Supernova, we don't just optimize streams — we build careers. Our mission is to turn uncertainty into clarity, and potential into legacy."
+          </blockquote>
+          <div class="founder-name">Leah Li</div>
+          <div class="founder-title">Founder & CEO, Supernova</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="testimonials">
     <div class="container">
       <span class="section-badge">✦ Social Proof</span>
@@ -697,6 +773,9 @@
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"I was making $8K a month but felt like I was guessing. Supernova gave me a system — and within 90 days, I hit $15K. Same hours. Half the stress."</blockquote><div class="author"><div class="avatar">G</div><div><div class="name">@GamerVault</div><div class="handle">UK • 400K Diamonds/mo</div></div></div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"I was about to quit. The algorithm changed and I lost 40% of my audience. Supernova audited my stream, fixed my hook, and within 2 weeks — I was back."</blockquote><div class="author"><div class="avatar">L</div><div><div class="name">@LunaLive</div><div class="handle">USA • 280K Diamonds/mo</div></div></div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"I got a violation that made zero sense. I panicked. Supernova's risk team helped me appeal it — and set up safeguards so it never happens again."</blockquote><div class="author"><div class="avatar">R</div><div><div class="name">@RyuStreams</div><div class="handle">Japan • 350K Diamonds/mo</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Supernova turned my channel around. I went from 200 viewers to 2K in just 60 days. Unreal."</blockquote><div class="author"><div class="avatar">M</div><div><div class="name">@MiaLIVE</div><div class="handle">USA • 180K Diamonds/mo</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"The data-driven feedback changed everything. I finally understand why my stream was stuck."</blockquote><div class="author"><div class="avatar">T</div><div><div class="name">@TokyoStreams</div><div class="handle">Japan • 220K Diamonds/mo</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Best investment in my career. I've doubled my income and halved my stress."</blockquote><div class="author"><div class="avatar">S</div><div><div class="name">@SofiaCreates</div><div class="handle">RO • 150K Diamonds/mo</div></div></div></div>
       </div>
     </div>
   </section>
@@ -751,7 +830,7 @@
 
 
 <!-- ============================================================ -->
-<!-- JAPANESE -->
+<!-- JAPANESE (updated with localised phrases) -->
 <!-- ============================================================ -->
 <div id="lang-jp" class="lang-content">
 
@@ -762,7 +841,8 @@
           <span class="badge">✦ グローバルクリエイターネットワーク</span>
           <h1>あなたはすでに収益を上げられることを証明した。<br />それを<span class="highlight">止められないもの</span>にしよう。</h1>
           <p>すべてのクリエイターは壁にぶつかる。乗り越える者は、よりハードに働くのではなく、よりスマートに働く。<strong>その方法を教えます。</strong></p>
-          <div class="hero-actions">
+          <div class="tiktok-badge"><i class="fab fa-tiktok"></i> <span>TikTok公認パートナー</span></div>
+          <div class="hero-actions" style="margin-top:16px;">
             <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> クリエイター成長スコアを計算</a>
             <a href="#awards" class="btn-secondary" onclick="scrollToSection('awards')"><i class="fas fa-trophy"></i> 受賞歴を見る</a>
           </div>
@@ -773,7 +853,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img id="heroImage" src="images/hero/hero-japan.png" alt="Creator" />
+          <img id="heroImageJp" src="images/hero/hero-japan.png" alt="Creator" />
         </div>
       </div>
     </div>
@@ -786,7 +866,7 @@
       <p class="section-sub">私たちは成長について語るだけではありません。業界で最も権威のあるプラットフォームから認められています。</p>
       <div class="awards-grid">
         <div class="award-item"><img src="images/awards/award-1.png" alt="Award" /><span class="award-title">業界からの評価</span><span class="award-desc">クリエイター開発とタレント育成における卓越性が認められました</span></div>
-        <div class="award-item"><img src="images/awards/award-2.png" alt="Award" /><span class="award-title">チームの卓越性</span><span class="award-desc">クリエイター成長への革新的なアプローチが評価されました</span></div>
+        <div class="award-item"><img src="images/awards/award-3.png" alt="Creator Recognition" /><span class="award-title">クリエイター @asuka.kirara</span><span class="award-desc">TikTok Live Fest 25 UKでTikTokから表彰されました。LIVEコミュニティの真のスターです。</span></div>
       </div>
     </div>
   </section>
@@ -797,7 +877,10 @@
       <h2 class="section-title">業界が集まる場所に、私たちはいる</h2>
       <p class="section-sub">グローバルサミットから独占的なクリエイターカンファレンスまで — 私たちはLIVEコンテンツの未来を形作るエコシステムに深く関わっています。</p>
       <div class="events-grid">
-        <div class="event-card"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>グローバルクリエイターサミット & 業界イベント</h4><p>世界で最も野心的なクリエイターとつながり、戦略を共有し、クリエイターエコノミーの未来を共に構築しています。</p></div></div>
+        <div class="event-card"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>グローバルクリエイターサミット</h4><p>世界で最も野心的なクリエイターとつながる。</p></div></div>
+        <div class="event-card"><img src="images/events/event-2.png" alt="Event" /><div class="event-info"><h4>Live Fest 25</h4><p>LIVEのビッグネームが集結。</p></div></div>
+        <div class="event-card"><img src="images/events/event-3.png" alt="Event" /><div class="event-info"><h4>クリエイターエコノミーフォーラム</h4><p>クリエイターエコノミーの未来を形作る。</p></div></div>
+        <div class="event-card"><img src="images/events/event-4.png" alt="Event" /><div class="event-info"><h4>業界リーダー会議</h4><p>トッププレイヤーとの特別な集い。</p></div></div>
       </div>
     </div>
   </section>
@@ -805,13 +888,13 @@
   <section class="problems section-padding">
     <div class="container">
       <span class="section-badge">✦ リスク</span>
-      <h2 class="section-title">アルゴリズムはあなたの努力を気にしない。</h2>
+      <h2 class="section-title">アルゴリズムは努力を評価しない。</h2>
       <p class="section-sub">一度のアップデート。一度のポリシー変更。一度の悪い週。そしてあなたが築いてきたすべてが消え去る可能性があります。</p>
       <div class="problems-grid">
         <div class="problem-card"><div class="icon"><i class="fas fa-chart-line"></i></div><h4>60%の減少</h4><p>目を覚まし、ライブ配信を開始すると、リーチが半分に。警告も説明もありません。</p></div>
         <div class="problem-card"><div class="icon"><i class="fas fa-fire"></i></div><h4>疲労の罠</h4><p>倍の時間をかけても、収入は同じ。創造性は銀行口座が増えるよりも早く燃え尽きています。</p></div>
-        <div class="problem-card"><div class="icon"><i class="fas fa-eye-slash"></i></div><h4>幽霊のような観客</h4><p>視聴者は来るが、去っていく。誰もいない部屋でパフォーマンスしているように感じます。</p></div>
-        <div class="problem-card"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4>禁止ボタン</h4><p>一度の誤った報告。一度の誤解されたルール。そしてあなたのキャリアは無期限に停止されます。</p></div>
+        <div class="problem-card"><div class="icon"><i class="fas fa-eye-slash"></i></div><h4>シャドウバン / 過疎枠</h4><p>視聴者は来るが、去っていく。誰もいない部屋でパフォーマンスしているように感じます。</p></div>
+        <div class="problem-card"><div class="icon"><i class="fas fa-shield-alt"></i></div><h4>アカウント凍結 / BAN</h4><p>一度の誤った報告。一度の誤解されたルール。そしてあなたのキャリアは無期限に停止されます。</p></div>
       </div>
     </div>
   </section>
@@ -857,6 +940,26 @@
     </div>
   </section>
 
+  <!-- Founder / CEO Message JP -->
+  <section class="founder-section section-padding">
+    <div class="container">
+      <span class="section-badge">✦ 創業者のメッセージ</span>
+      <h2 class="section-title">Leah Li, 創業者兼CEOからのメッセージ</h2>
+      <div class="founder-grid">
+        <div>
+          <img src="images/founder/founder-1.png" alt="Leah Li" style="max-width:300px; border-radius:50%;" />
+        </div>
+        <div>
+          <blockquote>
+            "すべてのクリエイターには、自分自身と同じくらい努力してくれるシステムが必要です。Supernovaでは、ストリームを最適化するだけでなく、キャリアを構築します。私たちの使命は、不確実性を明確さに変え、可能性を遺産に変えることです。"
+          </blockquote>
+          <div class="founder-name">Leah Li</div>
+          <div class="founder-title">創業者兼CEO, Supernova</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="testimonials">
     <div class="container">
       <span class="section-badge">✦ 実績</span>
@@ -865,6 +968,9 @@
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"月に$8kを稼いでいたが、すべては推測だった。Supernovaはシステムをくれた — そして90日以内に$15kに達した。同じ時間。半分のストレス。"</blockquote><div class="author"><div class="avatar">G</div><div><div class="name">@GamerVault</div><div class="handle">UK • 400K ダイヤモンド/月</div></div></div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"辞めようと思っていた。アルゴリズムが変わり、視聴者の40%を失った。Supernovaがストリームを監査し、フックを修正し、2週間で戻ってきた。"</blockquote><div class="author"><div class="avatar">L</div><div><div class="name">@LunaLive</div><div class="handle">USA • 280K ダイヤモンド/月</div></div></div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"意味不明な違反を受けた。パニックになった。Supernovaのリスクチームが異議申し立てを支援し、再発防止策を講じてくれた。"</blockquote><div class="author"><div class="avatar">R</div><div><div class="name">@RyuStreams</div><div class="handle">日本 • 350K ダイヤモンド/月</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Supernovaが私のチャンネルを変えた。たった60日で視聴者数が200人から2K人に。信じられない。"</blockquote><div class="author"><div class="avatar">M</div><div><div class="name">@MiaLIVE</div><div class="handle">USA • 180K ダイヤモンド/月</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"データ駆動型のフィードバックがすべてを変えた。なぜストリームが停滞していたのか、ようやく理解できた。"</blockquote><div class="author"><div class="avatar">T</div><div><div class="name">@TokyoStreams</div><div class="handle">日本 • 220K ダイヤモンド/月</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"キャリアへの最高の投資。収入を倍にして、ストレスを半分に減らした。"</blockquote><div class="author"><div class="avatar">S</div><div><div class="name">@SofiaCreates</div><div class="handle">RO • 150K ダイヤモンド/月</div></div></div></div>
       </div>
     </div>
   </section>
@@ -930,7 +1036,8 @@
           <span class="badge">✦ Rețea Globală de Creatori</span>
           <h1>Ai Demonstrat deja că Poți Câștiga.<br />Acum Hai să Facem Acest Lucru <span class="highlight">De Neoprit.</span></h1>
           <p>Fiecare creator lovește un zid. Cei care trec peste nu muncesc mai mult — muncesc mai inteligent. <strong>Noi îți arătăm cum.</strong></p>
-          <div class="hero-actions">
+          <div class="tiktok-badge"><i class="fab fa-tiktok"></i> <span>Partener Verificat TikTok</span></div>
+          <div class="hero-actions" style="margin-top:16px;">
             <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> Calculează-ți Scorul de Creștere</a>
             <a href="#awards" class="btn-secondary" onclick="scrollToSection('awards')"><i class="fas fa-trophy"></i> Vezi Recunoașterile</a>
           </div>
@@ -941,7 +1048,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img id="heroImage" src="images/hero/hero-romania.png" alt="Creator" />
+          <img id="heroImageRo" src="images/hero/hero-romania.png" alt="Creator" />
         </div>
       </div>
     </div>
@@ -954,7 +1061,7 @@
       <p class="section-sub">Nu doar vorbim despre creștere. Am fost recunoscuți de cele mai prestigioase platforme din industrie.</p>
       <div class="awards-grid">
         <div class="award-item"><img src="images/awards/award-1.png" alt="Award" /><span class="award-title">Recunoaștere în Industrie</span><span class="award-desc">Apreciată pentru excelența în dezvoltarea creatorilor și construirea de talente</span></div>
-        <div class="award-item"><img src="images/awards/award-2.png" alt="Award" /><span class="award-title">Excelența Echipei</span><span class="award-desc">Recunoscută pentru abordări inovatoare în creșterea creatorilor</span></div>
+        <div class="award-item"><img src="images/awards/award-3.png" alt="Creator Recognition" /><span class="award-title">Creator @asuka.kirara</span><span class="award-desc">Recunoscută de TikTok la TikTok Live Fest 25 UK. O adevărată stea în comunitatea LIVE.</span></div>
       </div>
     </div>
   </section>
@@ -965,7 +1072,10 @@
       <h2 class="section-title">Unde Se Adună Industria, Noi Suntem Acolo</h2>
       <p class="section-sub">De la summit-uri globale la conferințe exclusive pentru creatori — suntem integrați în ecosistemul care modelează viitorul conținutului LIVE.</p>
       <div class="events-grid">
-        <div class="event-card"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>Summit-uri Globale pentru Creatori & Evenimente ale Industriei</h4><p>Conectându-ne cu cei mai ambițioși creatori din lume, împărtășind strategii și construind viitorul economiei creatorilor — împreună.</p></div></div>
+        <div class="event-card"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>Summit Global Creatori</h4><p>Conectându-ne cu cei mai ambițioși creatori din lume.</p></div></div>
+        <div class="event-card"><img src="images/events/event-2.png" alt="Event" /><div class="event-info"><h4>Live Fest 25</h4><p>Unde se adună cele mai mari nume din LIVE.</p></div></div>
+        <div class="event-card"><img src="images/events/event-3.png" alt="Event" /><div class="event-info"><h4>Forumul Economiei Creatorilor</h4><p>Modelăm viitorul economiei creatorilor.</p></div></div>
+        <div class="event-card"><img src="images/events/event-4.png" alt="Event" /><div class="event-info"><h4>Întâlnirea Liderilor din Industrie</h4><p>Adunări exclusive cu jucătorii de top.</p></div></div>
       </div>
     </div>
   </section>
@@ -1025,6 +1135,26 @@
     </div>
   </section>
 
+  <!-- Founder / CEO Message RO -->
+  <section class="founder-section section-padding">
+    <div class="container">
+      <span class="section-badge">✦ Mesajul Fondatorului</span>
+      <h2 class="section-title">Mesaj de la Leah Li, Fondator & CEO</h2>
+      <div class="founder-grid">
+        <div>
+          <img src="images/founder/founder-1.png" alt="Leah Li" style="max-width:300px; border-radius:50%;" />
+        </div>
+        <div>
+          <blockquote>
+            "Fiecare creator merită un sistem care să muncească la fel de mult ca el. La Supernova, nu doar optimizăm stream-uri — construim cariere. Misiunea noastră este să transformăm incertitudinea în claritate, iar potențialul în moștenire."
+          </blockquote>
+          <div class="founder-name">Leah Li</div>
+          <div class="founder-title">Fondator & CEO, Supernova</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="testimonials">
     <div class="container">
       <span class="section-badge">✦ Dovada Socială</span>
@@ -1033,6 +1163,9 @@
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Câștigam $8K pe lună dar simțeam că ghicesc. Supernova mi-a dat un sistem — și în 90 de zile, am ajuns la $15K. Aceleași ore. Jumătate din stres."</blockquote><div class="author"><div class="avatar">G</div><div><div class="name">@GamerVault</div><div class="handle">UK • 400K Diamante/lună</div></div></div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Eram pe punctul să renunț. Algoritmul s-a schimbat și am pierdut 40% din audiență. Supernova mi-a auditat stream-ul, mi-a reparat hook-ul, și în 2 săptămâni — am revenit."</blockquote><div class="author"><div class="avatar">L</div><div><div class="name">@LunaLive</div><div class="handle">USA • 280K Diamante/lună</div></div></div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Am primit o încălcare care nu avea sens. Am intrat în panică. Echipa de risc Supernova m-a ajutat să fac apel — și a implementat măsuri de siguranță."</blockquote><div class="author"><div class="avatar">R</div><div><div class="name">@RyuStreams</div><div class="handle">Japonia • 350K Diamante/lună</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Supernova mi-a transformat canalul. Am trecut de la 200 de vizualizări la 2K în doar 60 de zile. Incredibil."</blockquote><div class="author"><div class="avatar">M</div><div><div class="name">@MiaLIVE</div><div class="handle">USA • 180K Diamante/lună</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Feedback-ul bazat pe date a schimbat totul. În sfârșit am înțeles de ce stream-ul meu era blocat."</blockquote><div class="author"><div class="avatar">T</div><div><div class="name">@TokyoStreams</div><div class="handle">Japonia • 220K Diamante/lună</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Cea mai bună investiție în cariera mea. Mi-am dublat venitul și mi-am înjumătățit stresul."</blockquote><div class="author"><div class="avatar">S</div><div><div class="name">@SofiaCreates</div><div class="handle">RO • 150K Diamante/lună</div></div></div></div>
       </div>
     </div>
   </section>
@@ -1098,7 +1231,8 @@
           <span class="badge">✦ Rangkaian Kreator Global</span>
           <h1>Anda Telah Buktikan Anda Boleh Meraih Pendapatan.<br />Sekarang Mari Jadikannya <span class="highlight">Tidak Tergendala.</span></h1>
           <p>Setiap kreator menemui tembok. Mereka yang berjaya tidak bekerja lebih keras — mereka bekerja lebih bijak. <strong>Kami akan tunjukkan caranya.</strong></p>
-          <div class="hero-actions">
+          <div class="tiktok-badge"><i class="fab fa-tiktok"></i> <span>Rakan Kongsi Sah TikTok</span></div>
+          <div class="hero-actions" style="margin-top:16px;">
             <a href="#quiz-section" class="btn-primary" onclick="scrollToSection('quiz-section')"><i class="fas fa-calculator"></i> Kira Skor Pertumbuhan Kreator</a>
             <a href="#awards" class="btn-secondary" onclick="scrollToSection('awards')"><i class="fas fa-trophy"></i> Lihat Pengiktirafan</a>
           </div>
@@ -1109,7 +1243,7 @@
           </div>
         </div>
         <div class="hero-image">
-          <img id="heroImage" src="images/hero/hero-malaysia.png" alt="Creator" />
+          <img id="heroImageMs" src="images/hero/hero-malaysia.png" alt="Creator" />
         </div>
       </div>
     </div>
@@ -1122,7 +1256,7 @@
       <p class="section-sub">Kami bukan sekadar bercakap tentang pertumbuhan. Kami telah diiktiraf oleh platform paling berprestij dalam industri.</p>
       <div class="awards-grid">
         <div class="award-item"><img src="images/awards/award-1.png" alt="Award" /><span class="award-title">Pengiktirafan Industri</span><span class="award-desc">Diiktiraf untuk kecemerlangan dalam pembangunan kreator dan bakat</span></div>
-        <div class="award-item"><img src="images/awards/award-2.png" alt="Award" /><span class="award-title">Kecemerlangan Pasukan</span><span class="award-desc">Diiktiraf untuk pendekatan inovatif dalam pertumbuhan kreator</span></div>
+        <div class="award-item"><img src="images/awards/award-3.png" alt="Creator Recognition" /><span class="award-title">Kreator @asuka.kirara</span><span class="award-desc">Diiktiraf oleh TikTok di TikTok Live Fest 25 UK. Bintang sebenar dalam komuniti LIVE.</span></div>
       </div>
     </div>
   </section>
@@ -1133,7 +1267,10 @@
       <h2 class="section-title">Di Mana Industri Berkumpul, Kami Ada</h2>
       <p class="section-sub">Dari sidang kemuncak global ke persidangan kreator eksklusif — kami tertanam dalam ekosistem yang membentuk masa depan kandungan LIVE.</p>
       <div class="events-grid">
-        <div class="event-card"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>Sidang Kemuncak Kreator Global & Acara Industri</h4><p>Berhubung dengan kreator paling bercita-cita tinggi di dunia, berkongsi strategi, dan membina masa depan ekonomi kreator — bersama-sama.</p></div></div>
+        <div class="event-card"><img src="images/events/event-1.png" alt="Event" /><div class="event-info"><h4>Sidang Kemuncak Kreator Global</h4><p>Berhubung dengan kreator paling bercita-cita tinggi di dunia.</p></div></div>
+        <div class="event-card"><img src="images/events/event-2.png" alt="Event" /><div class="event-info"><h4>Live Fest 25</h4><p>Di mana nama-nama besar LIVE berkumpul.</p></div></div>
+        <div class="event-card"><img src="images/events/event-3.png" alt="Event" /><div class="event-info"><h4>Forum Ekonomi Kreator</h4><p>Membentuk masa depan ekonomi kreator.</p></div></div>
+        <div class="event-card"><img src="images/events/event-4.png" alt="Event" /><div class="event-info"><h4>Mesyuarat Pemimpin Industri</h4><p>Perhimpunan eksklusif dengan pemain teratas industri.</p></div></div>
       </div>
     </div>
   </section>
@@ -1193,6 +1330,26 @@
     </div>
   </section>
 
+  <!-- Founder / CEO Message MS -->
+  <section class="founder-section section-padding">
+    <div class="container">
+      <span class="section-badge">✦ Mesej Pengasas</span>
+      <h2 class="section-title">Mesej daripada Leah Li, Pengasas & CEO</h2>
+      <div class="founder-grid">
+        <div>
+          <img src="images/founder/founder-1.png" alt="Leah Li" style="max-width:300px; border-radius:50%;" />
+        </div>
+        <div>
+          <blockquote>
+            "Setiap kreator layak mendapat sistem yang bekerja sekeras mereka. Di Supernova, kami bukan sekadar mengoptimumkan siaran — kami membina kerjaya. Misi kami adalah untuk mengubah ketidakpastian kepada kejelasan, dan potensi kepada warisan."
+          </blockquote>
+          <div class="founder-name">Leah Li</div>
+          <div class="founder-title">Pengasas & CEO, Supernova</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="testimonials">
     <div class="container">
       <span class="section-badge">✦ Bukti Sosial</span>
@@ -1201,6 +1358,9 @@
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Saya meraih $8K sebulan tetapi rasa seperti meneka. Supernova memberi saya sistem — dan dalam 90 hari, saya capai $15K. Jam yang sama. Separuh tekanan."</blockquote><div class="author"><div class="avatar">G</div><div><div class="name">@GamerVault</div><div class="handle">UK • 400K Berlian/bulan</div></div></div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Saya hampir berhenti. Algoritma berubah dan saya kehilangan 40% penonton. Supernova mengaudit siaran saya, membaiki hook saya, dan dalam 2 minggu — saya kembali."</blockquote><div class="author"><div class="avatar">L</div><div><div class="name">@LunaLive</div><div class="handle">USA • 280K Berlian/bulan</div></div></div></div>
         <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Saya mendapat pelanggaran yang tidak masuk akal. Saya panik. Pasukan risiko Supernova membantu saya merayu — dan menetapkan langkah keselamatan."</blockquote><div class="author"><div class="avatar">R</div><div><div class="name">@RyuStreams</div><div class="handle">Jepun • 350K Berlian/bulan</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Supernova mengubah saluran saya. Saya daripada 200 penonton kepada 2K dalam masa 60 hari. Luar biasa."</blockquote><div class="author"><div class="avatar">M</div><div><div class="name">@MiaLIVE</div><div class="handle">USA • 180K Berlian/bulan</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Maklum balas berasaskan data mengubah segala-galanya. Saya akhirnya faham mengapa siaran saya tersekat."</blockquote><div class="author"><div class="avatar">T</div><div><div class="name">@TokyoStreams</div><div class="handle">Jepun • 220K Berlian/bulan</div></div></div></div>
+        <div class="testimonial-card"><div class="stars">★★★★★</div><blockquote>"Pelaburan terbaik dalam kerjaya saya. Saya menggandakan pendapatan dan mengurangkan separuh tekanan."</blockquote><div class="author"><div class="avatar">S</div><div><div class="name">@SofiaCreates</div><div class="handle">RO • 150K Berlian/bulan</div></div></div></div>
       </div>
     </div>
   </section>
@@ -1285,16 +1445,13 @@
 <script>
   // ===== LANGUAGE SWITCHER =====
   function switchLang(lang) {
-    // Hide all language contents
     document.querySelectorAll('.lang-content').forEach(el => {
       el.classList.remove('active');
     });
 
-    // Show selected language
     const target = document.getElementById('lang-' + lang);
     if (target) target.classList.add('active');
 
-    // Update button states
     document.querySelectorAll('.lang-btn').forEach(btn => {
       btn.classList.remove('active');
       if (btn.dataset.lang === lang) btn.classList.add('active');
@@ -1302,25 +1459,23 @@
 
     localStorage.setItem('supernova-lang', lang);
 
-    // Hero rotation logic
-    if (lang === 'en') startHeroRotation();
+    // Hero rotation for all languages (each has its own img)
+    if (lang === 'en') startHeroRotation('heroImage');
+    else if (lang === 'jp') startHeroRotation('heroImageJp');
+    else if (lang === 'ro') startHeroRotation('heroImageRo');
+    else if (lang === 'ms') startHeroRotation('heroImageMs');
     else stopHeroRotation();
 
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 
-  // ===== SCROLL TO SECTION (WORKS FOR ALL LANGUAGES) =====
   function scrollToSection(sectionId) {
-    // Find the section in the currently active language
     const activeLang = document.querySelector('.lang-content.active');
     if (!activeLang) return;
-
-    // Find the target section inside the active language
     const target = activeLang.querySelector('#' + sectionId);
     if (target) {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     } else {
-      // Fallback: try to find it anywhere in the document
       const fallback = document.getElementById(sectionId);
       if (fallback) {
         fallback.scrollIntoView({ behavior: 'smooth', block: 'start' });
@@ -1328,71 +1483,57 @@
     }
   }
 
-  // ===== HERO IMAGE AUTO-ROTATION (ENGLISH ONLY) =====
-  const heroImages = ['hero-global.png', 'hero-uk.png', 'hero-usa.png'];
-  let currentIndex = 0;
-  let heroInterval;
+  // ===== HERO IMAGE AUTO-ROTATION (per language) =====
+  const heroImageSets = {
+    en: ['hero-global.png', 'hero-uk.png', 'hero-usa.png'],
+    jp: ['hero-japan.png', 'hero-japan-2.png', 'hero-japan-3.png'],
+    ro: ['hero-romania.png', 'hero-romania-2.png', 'hero-romania-3.png'],
+    ms: ['hero-malaysia.png', 'hero-malaysia-2.png', 'hero-malaysia-3.png']
+  };
+  let heroIntervals = {};
 
-  function startHeroRotation() {
+  function startHeroRotation(imgId) {
     stopHeroRotation();
-    const img = document.getElementById('heroImage');
+    const img = document.getElementById(imgId);
     if (!img) return;
 
-    const isEnglish = document.getElementById('lang-en').classList.contains('active');
-    if (!isEnglish) return;
+    // Determine language from imgId
+    let lang = 'en';
+    if (imgId === 'heroImageJp') lang = 'jp';
+    else if (imgId === 'heroImageRo') lang = 'ro';
+    else if (imgId === 'heroImageMs') lang = 'ms';
 
-    img.src = 'images/hero/' + heroImages[0];
-    currentIndex = 0;
+    const images = heroImageSets[lang] || heroImageSets.en;
+    let index = 0;
+    img.src = 'images/hero/' + images[0];
 
-    heroInterval = setInterval(() => {
-      currentIndex = (currentIndex + 1) % heroImages.length;
-      img.src = 'images/hero/' + heroImages[currentIndex];
+    heroIntervals[imgId] = setInterval(() => {
+      index = (index + 1) % images.length;
+      img.src = 'images/hero/' + images[index];
     }, 4000);
   }
 
   function stopHeroRotation() {
-    if (heroInterval) {
-      clearInterval(heroInterval);
-      heroInterval = null;
-    }
+    Object.values(heroIntervals).forEach(interval => clearInterval(interval));
+    heroIntervals = {};
   }
 
-  // ===== QUIZ CALCULATOR (WORKS FOR ALL LANGUAGES) =====
+  // ===== QUIZ CALCULATOR =====
   function calculateScore(lang) {
     let volumeId, hoursId, challengeId, scoreId, feedbackId, formId, resultId;
 
     if (lang === 'jp') {
-      volumeId = 'volume-jp';
-      hoursId = 'hours-jp';
-      challengeId = 'challenge-jp';
-      scoreId = 'score-val-jp';
-      feedbackId = 'feedback-val-jp';
-      formId = 'quiz-form-jp';
-      resultId = 'quiz-result-jp';
+      volumeId = 'volume-jp'; hoursId = 'hours-jp'; challengeId = 'challenge-jp';
+      scoreId = 'score-val-jp'; feedbackId = 'feedback-val-jp'; formId = 'quiz-form-jp'; resultId = 'quiz-result-jp';
     } else if (lang === 'ro') {
-      volumeId = 'volume-ro';
-      hoursId = 'hours-ro';
-      challengeId = 'challenge-ro';
-      scoreId = 'score-val-ro';
-      feedbackId = 'feedback-val-ro';
-      formId = 'quiz-form-ro';
-      resultId = 'quiz-result-ro';
+      volumeId = 'volume-ro'; hoursId = 'hours-ro'; challengeId = 'challenge-ro';
+      scoreId = 'score-val-ro'; feedbackId = 'feedback-val-ro'; formId = 'quiz-form-ro'; resultId = 'quiz-result-ro';
     } else if (lang === 'ms') {
-      volumeId = 'volume-ms';
-      hoursId = 'hours-ms';
-      challengeId = 'challenge-ms';
-      scoreId = 'score-val-ms';
-      feedbackId = 'feedback-val-ms';
-      formId = 'quiz-form-ms';
-      resultId = 'quiz-result-ms';
+      volumeId = 'volume-ms'; hoursId = 'hours-ms'; challengeId = 'challenge-ms';
+      scoreId = 'score-val-ms'; feedbackId = 'feedback-val-ms'; formId = 'quiz-form-ms'; resultId = 'quiz-result-ms';
     } else {
-      volumeId = 'volume';
-      hoursId = 'hours';
-      challengeId = 'challenge';
-      scoreId = 'score-val';
-      feedbackId = 'feedback-val';
-      formId = 'quiz-form';
-      resultId = 'quiz-result';
+      volumeId = 'volume'; hoursId = 'hours'; challengeId = 'challenge';
+      scoreId = 'score-val'; feedbackId = 'feedback-val'; formId = 'quiz-form'; resultId = 'quiz-result';
     }
 
     const vol = document.getElementById(volumeId).value;
